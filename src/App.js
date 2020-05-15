@@ -1,15 +1,13 @@
 import React from 'react';
 import './App.css';
-import Component from './Components/Component';
+import HexPicker from './Components/HexPicker/HexPicker';
 
 class App extends React.Component {
     render() {
         return (
-            <>
-                <div className='App'>
-                    <Component />
-                </div>
-            </>
+            <div className='App'>
+                <HexPicker />
+            </div>
         );
     }
 }

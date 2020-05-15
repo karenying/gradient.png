@@ -1,0 +1,9 @@
+.colorwheel-slider {
+    height: 30px;
+    width: 7px;
+    border: 3px solid #3f3844;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 7px;
+}

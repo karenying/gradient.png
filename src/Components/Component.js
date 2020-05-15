@@ -4,11 +4,9 @@ import '../Styles/Component.css';
 class Component extends React.Component {
     render() {
         return (
-            <>
-                <div>
-                    <h1>Hello World!</h1>
-                </div>
-            </>
+            <div>
+                <h1>Hello World!</h1>
+            </div>
         );
     }
 }
