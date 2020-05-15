@@ -1,11 +1,11 @@
-.colorwheel-container {
+.slide-container {
     width: 300px;
     height: 30px;
     padding: 10px;
     position: absolute;
 }
 
-.colorwheel-gradient {
+.slide-gradient {
     height: 100%;
     width: 100%;
     background: linear-gradient(

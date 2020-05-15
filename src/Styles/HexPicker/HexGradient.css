@@ -1,0 +1,28 @@
+.hexgradient-container {
+    height: 300px;
+    width: 300px;
+    margin: 10px;
+    position: absolute;
+    top: 40px;
+}
+
+.hexgradient-base,
+.hexgradient-white,
+.hexgradient-black {
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.hexgradient-base {
+    background: blue;
+}
+
+.hexgradient-white {
+    background: linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.hexgradient-black {
+    background: linear-gradient(to bottom, transparent 0%, #000 100%);
+}

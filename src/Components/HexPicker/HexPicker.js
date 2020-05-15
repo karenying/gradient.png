@@ -1,7 +1,8 @@
 import React from 'react';
 import '../../Styles/HexPicker/HexPicker.css';
-import ColorWheel from './ColorWheel';
+import Slide from './Slide';
 import Slider from './Slider';
+import HexGradient from './HexGradient';
 
 const getPercentage = (current, max) => (100 * current) / max;
 
@@ -10,12 +11,12 @@ const getLeft = (percentage) => `calc(${percentage}% - 5px)`;
 class HexPicker extends React.Component {
     state = {
         sliderRef: React.createRef(),
-        gradientRef: React.createRef(),
+        slideRef: React.createRef(),
         diff: React.createRef(),
     };
 
     handleMouseMove = (event) => {
-        let { sliderRef, gradientRef, diff } = this.state;
+        let { sliderRef, slideRef, diff } = this.state;
 
         let newX =
             event.clientX -
@@ -23,7 +24,7 @@ class HexPicker extends React.Component {
             sliderRef.current.getBoundingClientRect().left;
 
         const end =
-            sliderRef.current.offsetWidth - gradientRef.current.offsetWidth;
+            sliderRef.current.offsetWidth - slideRef.current.offsetWidth;
 
         const start = 0;
 
@@ -36,8 +37,8 @@ class HexPicker extends React.Component {
 
         const newPercentage = getPercentage(newX, end);
 
-        gradientRef.current.style.left = getLeft(newPercentage);
-        this.setState({ gradientRef });
+        slideRef.current.style.left = getLeft(newPercentage);
+        this.setState({ slideRef });
     };
 
     handleMouseUp = () => {
@@ -46,36 +47,23 @@ class HexPicker extends React.Component {
     };
 
     handleMouseDown = (event) => {
-        console.log(event);
-        let { gradientRef, diff } = this.state;
+        let { slideRef, diff } = this.state;
         diff.current =
-            event.clientX - gradientRef.current.getBoundingClientRect().left;
+            event.clientX - slideRef.current.getBoundingClientRect().left;
 
         this.setState({ diff });
         document.addEventListener('mousemove', this.handleMouseMove);
         document.addEventListener('mouseup', this.handleMouseUp);
     };
 
-    handleOnClick = () => {
-        console.log('hi');
-    };
-
     render() {
-        const { sliderRef, gradientRef } = this.state;
+        const { sliderRef, slideRef } = this.state;
+        console.log(sliderRef);
         return (
             <div className='hexpicker-container'>
-                <ColorWheel ref={gradientRef} onClick={this.handleOnClick} />
-                {/*
-                <Slider
-                    // ref={sliderRef}
-                    // onMouseDown={this.handleMouseDown}
-                    onClick={this.handleOnClick}
-                />
-                
-                <div onClick={this.handleOnClick}>
-                    <h1>Hello</h1>
-                </div>
-                */}
+                <Slide ref={slideRef} />
+                <Slider ref={sliderRef} onMouseDown={this.handleMouseDown} />
+                <HexGradient onClick={this.handleOnClick} />
             </div>
         );
     }

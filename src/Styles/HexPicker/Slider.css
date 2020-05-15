@@ -6,4 +6,6 @@
     cursor: pointer;
     position: absolute;
     top: 7px;
+    left: 200px;
+    background: rgba(255, 255, 255, 0);
 }
