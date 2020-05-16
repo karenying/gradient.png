@@ -3,9 +3,11 @@ import '../../Styles/HexPicker/Slider.css';
 
 class Slider extends React.Component {
     render() {
-        const { onMouseDown } = this.props;
         return (
-            <div className='colorwheel-slider' onMouseDown={onMouseDown}></div>
+            <>
+                {/*<div className='colorwheel-slider-shadow'></div> */}
+                <div className='colorwheel-slider'></div>
+            </>
         );
     }
 }

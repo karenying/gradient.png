@@ -2,8 +2,8 @@
     height: 300px;
     width: 300px;
     margin: 10px;
-    position: absolute;
-    top: 40px;
+    position: relative;
+    display: flex;
 }
 
 .hexgradient-base,
@@ -13,10 +13,6 @@
     height: 100%;
     width: 100%;
     position: absolute;
-}
-
-.hexgradient-base {
-    background: blue;
 }
 
 .hexgradient-white {

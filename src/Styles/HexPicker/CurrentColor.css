@@ -1,0 +1,28 @@
+.current-color-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.current-color-container h1 {
+    color: #484848;
+    text-align: left;
+}
+
+.current-color-content {
+    display: flex;
+    padding: 5px;
+}
+
+.current-color-colorbox {
+    border-radius: 5px;
+    height: 100px;
+    width: 100px;
+}
+
+.current-color-info {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 25% 25% 25%;
+    width: 200px;
+}

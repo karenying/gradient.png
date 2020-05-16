@@ -1,11 +1,23 @@
 .colorwheel-slider {
-    height: 30px;
-    width: 7px;
-    border: 3px solid #3f3844;
-    border-radius: 5px;
+    height: 12px;
+    width: 12px;
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    top: 17px;
+    left: 200px;
+    background: rgba(255, 255, 255, 0);
+}
+
+.colorwheel-slider-shadow {
+    height: 12px;
+    width: 12px;
+    border: 2px solid #484848;
+    border-radius: 50%;
     cursor: pointer;
     position: absolute;
-    top: 7px;
-    left: 200px;
+    top: 18px;
+    left: 203px;
     background: rgba(255, 255, 255, 0);
 }
