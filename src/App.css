@@ -1,3 +1,5 @@
-.App {
-    text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+* {
+    font-family: 'Poppins' !important;
 }

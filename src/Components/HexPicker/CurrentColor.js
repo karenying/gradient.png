@@ -20,11 +20,17 @@ function hexToRGB(hex, color) {
 class CurrentColor extends React.Component {
     state = {
         color: '#3eb489',
+        r: 62,
+        b: 180,
+        g: 137,
     };
 
     handleHexChange = (e) => {
-        let hex = e.target.value;
-        this.setState({ color: hex });
+        let color = e.target.value;
+        const r = hexToRGB(color, 'r');
+        const g = hexToRGB(color, 'b');
+        const b = hexToRGB(color, 'b');
+        this.setState({ color, r, g, b });
     };
 
     handleRChange = (e) => {
