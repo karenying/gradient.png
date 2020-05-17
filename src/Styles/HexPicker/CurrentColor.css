@@ -1,11 +1,11 @@
 .current-color-container {
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 50px;
 }
 
 .current-color-container h1 {
-    color: #484848;
+    color: #8b8b8b;
     text-align: left;
 }
 
@@ -16,8 +16,8 @@
 
 .current-color-colorbox {
     border-radius: 5px;
-    height: 100px;
-    width: 100px;
+    height: 125px;
+    width: 125px;
 }
 
 .current-color-info {
@@ -25,4 +25,25 @@
     grid-template-columns: 25% 75%;
     grid-template-rows: 25% 25% 25%;
     width: 200px;
+    align-items: center;
+}
+
+.current-color-info p {
+    text-align: center;
+    color: #8b8b8b;
+    font-weight: bold;
+    padding: 0px;
+    margin: 0px;
+}
+
+.current-color-info input[type='text'] {
+    background-color: #ebebeb;
+    border: none;
+    margin: 3px;
+    border-radius: 5px;
+    padding: 0px 10px;
+    font-size: 12px;
+    width: 50px;
+    height: 25px;
+    text-align: center;
 }

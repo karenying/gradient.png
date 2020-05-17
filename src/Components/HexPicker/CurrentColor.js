@@ -1,17 +1,17 @@
 import React from 'react';
 import '../../Styles/HexPicker/CurrentColor.css';
 
-function hexToRGB(hex, color) {
+function hexToRGB(hex, primary) {
     let s;
-    switch (color) {
+    switch (primary) {
         case 'r':
-            s = hex.substring(1, 3);
+            s = hex.substring(0, 2);
             break;
         case 'g':
-            s = hex.substring(3, 5);
+            s = hex.substring(2, 4);
             break;
         case 'b':
-            s = hex.substring(5, 7);
+            s = hex.substring(4, 6);
             break;
     }
     return parseInt(s, 16);
@@ -19,46 +19,55 @@ function hexToRGB(hex, color) {
 
 class CurrentColor extends React.Component {
     state = {
-        color: '#3eb489',
+        hex: '3eb489',
         r: 62,
         b: 180,
         g: 137,
     };
 
     handleHexChange = (e) => {
-        let color = e.target.value;
-        const r = hexToRGB(color, 'r');
-        const g = hexToRGB(color, 'b');
-        const b = hexToRGB(color, 'b');
-        this.setState({ color, r, g, b });
+        const hex = e.target.value;
+        const r = hexToRGB(hex, 'r');
+        const g = hexToRGB(hex, 'g');
+        const b = hexToRGB(hex, 'b');
+        this.setState({ hex, r, g, b });
     };
 
     handleRChange = (e) => {
         let r = e.target.value;
+        let { hex } = this.state;
+        let rHex = parseInt(r).toString(16);
+        if (rHex.length === 1) {
+            rHex = '0' + rHex;
+        }
+
+        hex = rHex + hex.substring(2, 6);
+        this.setState({ hex, r });
     };
 
     render() {
-        const { color } = this.state;
-        const r = hexToRGB(color, 'r');
-        const g = hexToRGB(color, 'b');
-        const b = hexToRGB(color, 'b');
+        const { hex, r, g, b } = this.state;
         return (
             <div className='current-color-container'>
                 <h1>COLOR</h1>
                 <div className='current-color-content'>
                     <div
                         className='current-color-colorbox'
-                        style={{ backgroundColor: color }}
+                        style={{ backgroundColor: '#' + hex }}
                     ></div>
                     <div className='current-color-info'>
                         <p>#</p>
                         <input
                             type='text'
-                            value={color}
+                            value={hex}
                             onChange={this.handleHexChange}
                         ></input>
                         <p>R</p>
-                        <input type='text' value={r}></input>
+                        <input
+                            type='text'
+                            value={r}
+                            onChange={this.handleRChange}
+                        ></input>
                         <p>G</p>
                         <input type='text' value={g}></input>
                         <p>B</p>
