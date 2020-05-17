@@ -26,7 +26,8 @@ class CurrentColor extends React.Component {
     };
 
     handleHexChange = (e) => {
-        const hex = e.target.value;
+        const hex = e.target.value.toLowerCase();
+
         const r = hexToRGB(hex, 'r');
         const g = hexToRGB(hex, 'g');
         const b = hexToRGB(hex, 'b');
@@ -43,6 +44,11 @@ class CurrentColor extends React.Component {
 
         hex = rHex + hex.substring(2, 6);
         this.setState({ hex, r });
+    };
+
+    isNumberKey = (e) => {
+        console.log(e.target.keyCode);
+        return e.keyCode >= 48 && e.keyCode <= 57;
     };
 
     render() {
@@ -64,14 +70,15 @@ class CurrentColor extends React.Component {
                         ></input>
                         <p>R</p>
                         <input
-                            type='text'
+                            type='number'
                             value={r}
                             onChange={this.handleRChange}
+                            onKeyPress={this.isNumberKey}
                         ></input>
                         <p>G</p>
-                        <input type='text' value={g}></input>
+                        <input type='number' value={g}></input>
                         <p>B</p>
-                        <input type='text' value={b}></input>
+                        <input type='number' value={b}></input>
                     </div>
                 </div>
             </div>

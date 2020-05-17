@@ -36,7 +36,17 @@
     margin: 0px;
 }
 
-.current-color-info input[type='text'] {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+.current-color-info input {
     background-color: #ebebeb;
     border: none;
     margin: 3px;
