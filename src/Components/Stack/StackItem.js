@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../Styles/Stack/StackItem.css';
 import { IoIosClose } from 'react-icons/io';
-import { INPUT_TEXT_GRAY } from '../../Utils/colorHexConstants';
+import { INPUT_TEXT_GRAY } from '../../Utils/hexConstants';
 
 class StackItem extends React.Component {
     state = {};
