@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './Components/Header';
 import HexPicker from './Components/HexPicker/HexPicker';
+import Stack from './Components/Stack/Stack';
 
 class App extends React.Component {
     state = {
@@ -17,7 +18,7 @@ class App extends React.Component {
             <div className='App'>
                 <Header />
                 <div className='App-left'>
-                    <HexPicker />
+                    <Stack />
                 </div>
                 <div className='App-right'></div>
             </div>
