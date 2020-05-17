@@ -1,7 +1,6 @@
 .current-color-container {
     display: flex;
     flex-direction: column;
-    margin: 10px;
 }
 
 .current-color-container h2 {
@@ -34,7 +33,7 @@
 .current-color-info p {
     text-align: center;
     color: var(--label-gray);
-    font-weight: bold;
+    font-weight: 600;
     padding: 0px;
     margin: 0px;
 }

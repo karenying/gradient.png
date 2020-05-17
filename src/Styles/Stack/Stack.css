@@ -11,3 +11,19 @@
     margin: 0px;
     font-weight: 600;
 }
+
+.stack-container-label {
+    display: grid;
+    width: 400px;
+    grid-template-columns: 50% 25% 25%;
+    grid-template-rows: 100%;
+    align-items: center;
+}
+
+.stack-container-label p {
+    text-align: center;
+    color: var(--label-gray);
+    font-weight: 600;
+    padding: 0px;
+    margin: 0px;
+}

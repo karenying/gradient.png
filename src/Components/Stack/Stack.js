@@ -17,7 +17,11 @@ class Stack extends React.Component {
 
         return (
             <div className='stack-container'>
-                <h2>Stack</h2>
+                <h2>STACK</h2>
+                <div className='stack-container-label'>
+                    <p>HEX</p>
+                    <p>STOP</p>
+                </div>
                 {renderStack}
             </div>
         );

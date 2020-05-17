@@ -38,3 +38,17 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
     -moz-appearance: textfield;
 }
+
+.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.color-picker {
+    display: flex;
+}
+
+.color-picker-right {
+    display: flex;
+    flex-direction: column;
+}
