@@ -8,14 +8,14 @@ class StackItem extends React.Component {
     state = {};
 
     render() {
-        const { color, clickFunction } = this.props;
+        const { color, deleteFunction, selectFunction } = this.props;
         const { hex, stop, selected } = color;
         const selectedDiv = selected ? 'stackitem-selected' : '';
         const darkDiv = isDark(hex) ? 'stackitem-dark' : '';
 
         return (
             <div className={selectedDiv}>
-                <div className='stackitem-container'>
+                <div className='stackitem-container' onClick={selectFunction}>
                     <div className='stackitem-icon-container'>
                         <div className='stackitem-icon'>
                             <IoIosMenu
@@ -30,16 +30,21 @@ class StackItem extends React.Component {
                             type='text'
                             value={('#' + hex).toLowerCase()}
                             style={{ backgroundColor: '#' + hex }}
+                            onChange={() => {}}
                         ></input>
                     </div>
-                    <input type='number' value={stop}></input>
+                    <input
+                        type='number'
+                        value={stop}
+                        onChange={() => {}}
+                    ></input>
                     <div className='stackitem-icon-container'>
                         <div className='stackitem-icon'>
                             <IoIosClose
                                 size='35px'
                                 color={INPUT_TEXT_GRAY}
                                 style={{ marginLeft: '7px' }}
-                                onClick={clickFunction}
+                                onClick={deleteFunction}
                             />
                         </div>
                     </div>

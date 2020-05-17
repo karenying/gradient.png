@@ -17,39 +17,48 @@ class Stack extends React.Component {
     };
 
     addColor = () => {
-        const { stack } = this.state;
-        let defaultColor = new Color('ffffff', 100, true, stack.length);
+        const { stack, selected } = this.state;
+        let stackCopy = [...this.state.stack];
 
-        // set other selected to false and scale other stops
+        // set curr selected to false
+        stackCopy[selected].selected = false;
+
+        // scale other stops
         stack.forEach((c) => {
-            c.selected = false;
             c.stop = Math.round((c.index / stack.length) * 100);
         });
 
         // add color to stack and update selected
+        const defaultColor = new Color('ffffff', 100, true, stack.length);
+        stackCopy.push(defaultColor);
+
         this.setState({
-            stack: [...stack, defaultColor],
+            stack: stackCopy,
             selected: defaultColor.index,
         });
     };
 
-    deleteColor(deletedIndex) {
+    deleteColor(e, deletedIndex) {
+        e.stopPropagation();
         const { stack, selected } = this.state;
-        let stackCopy = [...this.state.stack];
-        // set another as selected and update this.state.selected
+        let stackCopy = [...stack];
+        // set another as selected
         if (deletedIndex === selected) {
             let nextSelected;
             // deleting the last one
             if (deletedIndex === stack.length - 1) {
                 nextSelected = deletedIndex - 1;
-
-                this.setState((prevState, props) => ({
-                    selected: prevState.selected - 1,
-                }));
             } else {
                 nextSelected = deletedIndex + 1;
             }
             stackCopy[nextSelected].selected = true;
+        }
+
+        // update selected
+        if (deletedIndex < selected) {
+            this.setState((prevState, props) => ({
+                selected: prevState.selected - 1,
+            }));
         }
 
         // update indices if not the last one
@@ -70,6 +79,18 @@ class Stack extends React.Component {
         this.setState({ stack: stackCopy });
     }
 
+    changeSelected(index) {
+        const { stack, selected } = this.state;
+        let stackCopy = [...stack];
+
+        // set curr selected to false
+        stackCopy[selected].selected = false;
+
+        // set arg to selected and change this.state.selected
+        stackCopy[index].selected = true;
+        this.setState({ stack: stackCopy, selected: index });
+    }
+
     render() {
         const { stack } = this.state;
 
@@ -77,10 +98,13 @@ class Stack extends React.Component {
             <StackItem
                 color={color}
                 stack={stack}
-                clickFunction={() => this.deleteColor(color.index)}
+                deleteFunction={(e) => this.deleteColor(e, color.index)}
+                selectFunction={() => this.changeSelected(color.index)}
+                key={color.index}
             />
         ));
 
+        console.log(this.state);
         return (
             <div className='stack-container'>
                 <h2>STACK</h2>

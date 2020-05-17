@@ -57,9 +57,17 @@ class CurrentColor extends React.Component {
                             onChange={this.handleRChange}
                         ></input>
                         <p>G</p>
-                        <input type='number' value={g}></input>
+                        <input
+                            type='number'
+                            value={g}
+                            onChange={() => {}}
+                        ></input>
                         <p>B</p>
-                        <input type='number' value={b}></input>
+                        <input
+                            type='number'
+                            value={b}
+                            onChange={() => {}}
+                        ></input>
                     </div>
                 </div>
             </div>
