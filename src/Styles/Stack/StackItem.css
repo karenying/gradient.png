@@ -6,6 +6,11 @@
     align-items: center;
     padding: 5px 10px;
     border-radius: 5px;
+
+    -moz-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
 }
 
 .stackitem-container svg {

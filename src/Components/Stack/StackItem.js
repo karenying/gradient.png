@@ -30,7 +30,7 @@ class StackItem extends React.Component {
                         <IoIosClose
                             size='35px'
                             color={INPUT_TEXT_GRAY}
-                            style={{ marginLeft: '10px' }}
+                            style={{ marginLeft: '7px' }}
                         />
                     </div>
                 </div>
