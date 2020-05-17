@@ -28,6 +28,8 @@
 .stackitem-container input {
     height: 40px;
     font-size: 15px;
+    width: 90%;
+    margin: 10px;
 }
 
 .stackitem-icon-container {

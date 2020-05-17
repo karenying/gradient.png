@@ -15,8 +15,8 @@
 
 .stack-container-label {
     display: grid;
-    width: 400px;
-    grid-template-columns: 50% 25% 25%;
+    width: 100%;
+    grid-template-columns: 10% 55% 25% 10%;
     grid-template-rows: 100%;
     align-items: center;
 }

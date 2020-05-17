@@ -25,6 +25,7 @@ function getLuminanceFromHex(hex) {
     for (let i = 0; i < rgb.length; i++) {
         let c = rgb[i];
         c /= 255;
+
         if (c > 0.03928) {
             let c1 = Math.pow((c + 0.055) / 1.055, 2.4);
             c = c1;
