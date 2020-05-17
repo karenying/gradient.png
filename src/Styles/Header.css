@@ -1,0 +1,14 @@
+.header-container {
+    height: auto;
+    background-color: white;
+    display: flex;
+    padding: 10px 50px;
+}
+
+.header-container h1 {
+    background: -webkit-linear-gradient(#da71d6, #87cefa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0px;
+    margin: 0px;
+}

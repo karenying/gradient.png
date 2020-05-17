@@ -1,6 +1,6 @@
 .slide-container {
-    width: 300px;
-    height: 30px;
+    height: 250px;
+    width: 20px;
     padding: 10px;
     position: relative;
 }
@@ -9,7 +9,7 @@
     height: 100%;
     width: 100%;
     background: linear-gradient(
-        to right,
+        to bottom,
         red 0%,
         #ff0 17%,
         lime 33%,

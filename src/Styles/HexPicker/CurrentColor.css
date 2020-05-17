@@ -1,12 +1,14 @@
 .current-color-container {
     display: flex;
     flex-direction: column;
-    padding: 50px;
+    margin: 10px;
 }
 
-.current-color-container h1 {
+.current-color-container h2 {
     color: #8b8b8b;
     text-align: left;
+    padding: 0px;
+    margin: 0px;
 }
 
 .current-color-content {
@@ -22,9 +24,9 @@
 
 .current-color-info {
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 30% 70%;
     grid-template-rows: 25% 25% 25%;
-    width: 200px;
+    width: 130px;
     align-items: center;
 }
 
@@ -48,12 +50,13 @@ input[type='number'] {
 
 .current-color-info input {
     background-color: #ebebeb;
+    color: #686868;
     border: none;
     margin: 3px;
     border-radius: 5px;
     padding: 0px 10px;
     font-size: 12px;
-    width: 50px;
+    width: 60px;
     height: 25px;
     text-align: center;
 }

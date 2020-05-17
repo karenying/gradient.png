@@ -1,5 +1,9 @@
 .hexpicker-container {
-    position: absolute;
     display: flex;
     flex-direction: column;
+    padding: 50px;
+}
+
+.hexpicker-bottom {
+    display: flex;
 }

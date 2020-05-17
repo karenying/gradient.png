@@ -9,6 +9,10 @@ class HexPicker extends React.Component {
         return (
             <div className='hexpicker-container'>
                 <CurrentColor />
+                <div className='hexpicker-bottom'>
+                    <HexGradient color='violet' />
+                    <Slide />
+                </div>
             </div>
         );
     }
