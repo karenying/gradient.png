@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700');
 
 * {
     font-family: 'Poppins' !important;
+    font-weight: 400;
 }
 
 .App {
