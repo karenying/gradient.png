@@ -38,11 +38,17 @@
     display: none;
 }
 
-.stackitem-container:hover .stackitem-icon {
+.stackitem-container:hover .stackitem-icon,
+.stackitem-selected .stackitem-icon {
     display: flex;
     align-items: center;
 }
 
 .stackitem-container:hover {
     background-color: var(--hover-gray);
+}
+
+.stackitem-selected {
+    background-color: var(--hover-gray);
+    border-radius: 5px;
 }

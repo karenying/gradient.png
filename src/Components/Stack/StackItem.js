@@ -7,31 +7,35 @@ class StackItem extends React.Component {
     state = {};
 
     render() {
-        const { hex, stop } = this.props;
+        const { hex, stop, selected } = this.props.color;
+        const selectedDiv = selected ? 'stackitem-selected' : '';
+
         return (
-            <div className='stackitem-container'>
-                <div className='stackitem-icon-container'>
-                    <div className='stackitem-icon'>
-                        <IoIosMenu
-                            size='25px'
-                            color={INPUT_TEXT_GRAY}
-                            style={{ padding: '5px', marginRight: '10px' }}
-                        />
+            <div className={selectedDiv}>
+                <div className='stackitem-container'>
+                    <div className='stackitem-icon-container'>
+                        <div className='stackitem-icon'>
+                            <IoIosMenu
+                                size='25px'
+                                color={INPUT_TEXT_GRAY}
+                                style={{ padding: '5px', marginRight: '10px' }}
+                            />
+                        </div>
                     </div>
-                </div>
-                <input
-                    type='text'
-                    value={hex}
-                    style={{ backgroundColor: hex }}
-                ></input>
-                <input type='number' value={stop}></input>
-                <div className='stackitem-icon-container'>
-                    <div className='stackitem-icon'>
-                        <IoIosClose
-                            size='35px'
-                            color={INPUT_TEXT_GRAY}
-                            style={{ marginLeft: '7px' }}
-                        />
+                    <input
+                        type='text'
+                        value={'#' + hex}
+                        style={{ backgroundColor: '#' + hex }}
+                    ></input>
+                    <input type='number' value={stop}></input>
+                    <div className='stackitem-icon-container'>
+                        <div className='stackitem-icon'>
+                            <IoIosClose
+                                size='35px'
+                                color={INPUT_TEXT_GRAY}
+                                style={{ marginLeft: '7px' }}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

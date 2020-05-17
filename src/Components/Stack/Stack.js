@@ -5,15 +5,13 @@ import StackItem from './StackItem';
 
 class Stack extends React.Component {
     state = {
-        stack: [new Color('da71d6', 0), new Color('87cefa', 100)],
+        stack: [new Color('da71d6', 0, true), new Color('87cefa', 100, false)],
     };
 
     render() {
         const { stack } = this.state;
 
-        const renderStack = stack.map((color) => (
-            <StackItem hex={'#' + color.hex} stop={color.stop} />
-        ));
+        const renderStack = stack.map((color) => <StackItem color={color} />);
 
         return (
             <div className='stack-container'>
