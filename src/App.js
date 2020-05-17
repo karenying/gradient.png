@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './Components/Header';
-import HexPicker from './Components/HexPicker/HexPicker';
+// import HexPicker from './Components/HexPicker/HexPicker';
 import Stack from './Components/Stack/Stack';
 
 class App extends React.Component {

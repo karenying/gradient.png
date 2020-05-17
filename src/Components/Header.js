@@ -6,7 +6,7 @@ class Header extends React.Component {
     render() {
         return (
             <div className='header-container'>
-                <img src={logo}></img>
+                <img src={logo} alt='logo'></img>
                 <h1>
                     gradient
                     <span

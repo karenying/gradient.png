@@ -1,5 +1,7 @@
 .stack-container {
     margin: 50px;
+    display: flex;
+    flex-direction: column;
 }
 
 .stack-container h2 {

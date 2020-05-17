@@ -1,0 +1,25 @@
+.stackitem-container {
+    display: grid;
+    width: 400px;
+    grid-template-columns: 50% 25% 25%;
+    grid-template-rows: 100%;
+    align-items: center;
+}
+
+.stackitem-container svg {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.stackitem-container svg:hover {
+    background-color: var(--input-bg-gray);
+    border-radius: 20px;
+}
+
+.stackitem-container input {
+    height: 40px;
+    font-size: 15px;
+}
+
+.stackitem-container input[type='text'] {
+}
