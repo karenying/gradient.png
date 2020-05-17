@@ -27,6 +27,7 @@ input {
     border-radius: 5px;
     padding: 0px 10px;
     text-align: center;
+    box-sizing: border-box;
 }
 
 input::-webkit-outer-spin-button,
@@ -37,6 +38,12 @@ input::-webkit-inner-spin-button {
 
 input[type='number'] {
     -moz-appearance: textfield;
+}
+
+input:focus {
+    box-shadow: 0 0 7px;
+    border-radius: 5px;
+    outline: none;
 }
 
 .left {
