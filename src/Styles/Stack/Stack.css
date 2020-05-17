@@ -1,0 +1,11 @@
+.stack-container {
+    margin: 50px;
+}
+
+.stack-container h2 {
+    color: var(--label-gray);
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+    font-weight: 600;
+}

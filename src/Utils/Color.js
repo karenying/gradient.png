@@ -1,4 +1,4 @@
-import { hexToRGB } from '../../Utils/colorUtils';
+import { hexToRGB } from './colorUtils';
 
 class Color {
     constructor(hex, stop) {
@@ -14,3 +14,5 @@ class Color {
         };
     };
 }
+
+export { Color };
