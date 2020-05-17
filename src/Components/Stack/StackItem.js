@@ -8,7 +8,8 @@ class StackItem extends React.Component {
     state = {};
 
     render() {
-        const { hex, stop, selected } = this.props.color;
+        const { color, clickFunction } = this.props;
+        const { hex, stop, selected } = color;
         const selectedDiv = selected ? 'stackitem-selected' : '';
         const darkDiv = isDark(hex) ? 'stackitem-dark' : '';
 
@@ -27,7 +28,7 @@ class StackItem extends React.Component {
                     <div className={darkDiv}>
                         <input
                             type='text'
-                            value={'#' + hex}
+                            value={('#' + hex).toLowerCase()}
                             style={{ backgroundColor: '#' + hex }}
                         ></input>
                     </div>
@@ -38,6 +39,7 @@ class StackItem extends React.Component {
                                 size='35px'
                                 color={INPUT_TEXT_GRAY}
                                 style={{ marginLeft: '7px' }}
+                                onClick={clickFunction}
                             />
                         </div>
                     </div>

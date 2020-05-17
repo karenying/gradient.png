@@ -42,7 +42,7 @@ input[type='number'] {
 }
 
 input:focus {
-    box-shadow: inset 0 0 7px var(--input-text-gray);
+    box-shadow: inset 2px 2px 7px var(--input-text-gray);
     border-radius: 5px;
     outline: none;
 }
