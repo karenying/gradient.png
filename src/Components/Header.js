@@ -5,7 +5,19 @@ class Header extends React.Component {
     render() {
         return (
             <div className='header-container'>
-                <h1>gradient.jpg</h1>
+                <h1>
+                    gradient
+                    <span
+                        style={{
+                            fontFamily: 'Times New Roman',
+                            fontWeight: 'bold',
+                            fontSize: '37px',
+                        }}
+                    >
+                        .
+                    </span>
+                    jpg
+                </h1>
             </div>
         );
     }
