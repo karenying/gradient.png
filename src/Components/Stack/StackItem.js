@@ -2,6 +2,7 @@ import React from 'react';
 import '../../Styles/Stack/StackItem.css';
 import { IoIosMenu, IoIosClose } from 'react-icons/io';
 import { INPUT_TEXT_GRAY } from '../../Utils/hexConstants';
+import { isDark } from '../../Utils/colorUtils';
 
 class StackItem extends React.Component {
     state = {};
@@ -9,6 +10,7 @@ class StackItem extends React.Component {
     render() {
         const { hex, stop, selected } = this.props.color;
         const selectedDiv = selected ? 'stackitem-selected' : '';
+        const darkDiv = isDark(hex) ? 'stackitem-dark' : '';
 
         return (
             <div className={selectedDiv}>
@@ -22,11 +24,13 @@ class StackItem extends React.Component {
                             />
                         </div>
                     </div>
-                    <input
-                        type='text'
-                        value={'#' + hex}
-                        style={{ backgroundColor: '#' + hex }}
-                    ></input>
+                    <div className={darkDiv}>
+                        <input
+                            type='text'
+                            value={'#' + hex}
+                            style={{ backgroundColor: '#' + hex }}
+                        ></input>
+                    </div>
                     <input type='number' value={stop}></input>
                     <div className='stackitem-icon-container'>
                         <div className='stackitem-icon'>

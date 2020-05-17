@@ -52,3 +52,7 @@
     background-color: var(--hover-gray);
     border-radius: 5px;
 }
+
+.stackitem-dark input {
+    color: var(--input-text-light-gray);
+}
