@@ -2,6 +2,7 @@
     margin: 50px;
     display: flex;
     flex-direction: column;
+    width: 500px;
 }
 
 .stack-container h2 {

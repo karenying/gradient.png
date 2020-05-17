@@ -1,19 +1,23 @@
 .stackitem-container {
     display: grid;
-    width: 400px;
-    grid-template-columns: 50% 25% 25%;
+    grid-template-columns: 10% 55% 25% 10%;
+    width: auto;
     grid-template-rows: 100%;
     align-items: center;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 .stackitem-container svg {
     cursor: pointer;
-    margin-left: 10px;
+}
+
+.stackitem-container svg {
+    transition: transform 0.1s;
 }
 
 .stackitem-container svg:hover {
-    background-color: var(--input-bg-gray);
-    border-radius: 20px;
+    transform: scale(1.15);
 }
 
 .stackitem-container input {
@@ -21,5 +25,19 @@
     font-size: 15px;
 }
 
-.stackitem-container input[type='text'] {
+.stackitem-icon-container {
+    width: 48px;
+}
+
+.stackitem-icon {
+    display: none;
+}
+
+.stackitem-container:hover .stackitem-icon {
+    display: flex;
+    align-items: center;
+}
+
+.stackitem-container:hover {
+    background-color: var(--hover-gray);
 }
