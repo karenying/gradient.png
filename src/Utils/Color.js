@@ -1,4 +1,4 @@
-import { hexToRGB, isDark } from './colorUtils';
+import { hexToRGB, isDark, getColorwheel } from './colorUtils';
 
 class Color {
     constructor(hex, stop, selected, index) {
@@ -14,6 +14,10 @@ class Color {
 
     isDark = function () {
         return isDark(this.hex);
+    };
+
+    getColorwheel = function () {
+        return getColorwheel(this.hex);
     };
 }
 

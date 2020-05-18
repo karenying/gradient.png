@@ -6,11 +6,12 @@ import CurrentColor from './CurrentColor';
 
 class HexPicker extends React.Component {
     render() {
+        const { colorwheelColor, color } = this.props;
         return (
             <div className='hexpicker-container'>
-                <CurrentColor />
+                <CurrentColor color={'#' + color.hex} />
                 <div className='hexpicker-bottom'>
-                    <HexGradient color='violet' />
+                    <HexGradient colorwheelColor={'#' + colorwheelColor} />
                     <Slide />
                 </div>
             </div>

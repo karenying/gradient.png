@@ -116,6 +116,24 @@ class App extends React.Component {
         }
     };
 
+    resetSuggested = function () {
+        let { suggested } = this.state;
+        let suggestedCopy = [...suggested];
+
+        suggestedCopy.forEach((gradient) => {
+            let { stack } = gradient;
+            stack[0].selected = true;
+            for (let i = 1; i < stack.length; i++) {
+                stack[i].selected = false;
+            }
+        });
+
+        this.setState({
+            suggested: suggestedCopy,
+            selected: 0,
+        });
+    };
+
     setSuggested = (e, suggestedName) => {
         e.stopPropagation();
 
@@ -127,6 +145,7 @@ class App extends React.Component {
             }
         });
 
+        this.resetSuggested();
         this.setState({ suggestedSelected: suggestedName });
     };
 
@@ -135,13 +154,20 @@ class App extends React.Component {
     };
 
     render() {
-        const { gradient, suggestedSelected, suggested } = this.state;
+        const { gradient, suggestedSelected, suggested, selected } = this.state;
+        const { stack } = gradient;
+        const color = stack[selected];
+        const colorwheelColor = color.getColorwheel();
+
         return (
             <div className='App' onClick={this.unsetSuggested}>
                 <Header />
                 <div className='left'>
                     <div className='color-picker'>
-                        <HexPicker />
+                        <HexPicker
+                            colorwheelColor={colorwheelColor}
+                            color={color}
+                        />
                         <div className='color-picker-right'>
                             <Stack
                                 gradient={gradient}

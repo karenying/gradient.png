@@ -3,6 +3,7 @@ import '../../Styles/HexPicker/CurrentColor.css';
 import { hexToRGB } from '../../Utils/colorUtils';
 
 class CurrentColor extends React.Component {
+    /*
     state = {
         hex: 'da71d6',
         r: 218,
@@ -30,10 +31,12 @@ class CurrentColor extends React.Component {
 
         hex = rHex + hex.substring(2, 6);
         this.setState({ hex, r });
-    };
+    }; */
 
     render() {
-        const { hex, r, g, b } = this.state;
+        /*const { hex, r, g, b } = this.state; */
+
+        const { color } = this.props;
 
         return (
             <div className='current-color-container'>
@@ -41,33 +44,33 @@ class CurrentColor extends React.Component {
                 <div className='current-color-content'>
                     <div
                         className='current-color-colorbox'
-                        style={{ backgroundColor: '#' + hex }}
+                        style={{ backgroundColor: color }}
                     ></div>
                     <div className='current-color-info'>
                         <p>#</p>
                         <input
                             type='text'
                             spellCheck='false'
-                            value={hex}
-                            onChange={this.handleHexChange}
+                            // value={hex}
+                            // onChange={this.handleHexChange}
                         ></input>
                         <p>R</p>
                         <input
                             type='number'
-                            value={r}
-                            onChange={this.handleRChange}
+                            // value={r}
+                            // onChange={this.handleRChange}
                         ></input>
                         <p>G</p>
                         <input
                             type='number'
-                            value={g}
-                            onChange={() => {}}
+                            // value={g}
+                            // onChange={() => {}}
                         ></input>
                         <p>B</p>
                         <input
                             type='number'
-                            value={b}
-                            onChange={() => {}}
+                            // value={b}
+                            // onChange={() => {}}
                         ></input>
                     </div>
                 </div>
