@@ -162,28 +162,30 @@ class App extends React.Component {
         return (
             <div className='App' onClick={this.unsetSuggested}>
                 <Header />
-                <div className='left'>
-                    <div className='color-picker'>
-                        <HexPicker
-                            colorwheelColor={colorwheelColor}
-                            color={color}
-                        />
-                        <div className='color-picker-right'>
-                            <Stack
-                                gradient={gradient}
-                                addColor={this.addColor}
-                                changeSelected={this.changeSelected}
-                                deleteColor={this.deleteColor}
+                <div className='container'>
+                    <div className='left'>
+                        <div className='color-picker'>
+                            <HexPicker
+                                colorwheelColor={colorwheelColor}
+                                color={color}
                             />
-                            <Suggested
-                                suggested={suggested}
-                                selected={suggestedSelected}
-                                selectedFunction={this.setSuggested}
-                            />
+                            <div className='color-picker-right'>
+                                <Stack
+                                    gradient={gradient}
+                                    addColor={this.addColor}
+                                    changeSelected={this.changeSelected}
+                                    deleteColor={this.deleteColor}
+                                />
+                                <Suggested
+                                    suggested={suggested}
+                                    selected={suggestedSelected}
+                                    selectedFunction={this.setSuggested}
+                                />
+                            </div>
                         </div>
                     </div>
+                    <div className='right'></div>
                 </div>
-                <div className='right'></div>
             </div>
         );
     }

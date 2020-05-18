@@ -9,9 +9,9 @@ class HexPicker extends React.Component {
         const { colorwheelColor, color } = this.props;
         return (
             <div className='hexpicker-container'>
-                <CurrentColor color={'#' + color.hex} />
+                <CurrentColor color={color} />
                 <div className='hexpicker-bottom'>
-                    <HexGradient colorwheelColor={'#' + colorwheelColor} />
+                    <HexGradient colorwheelColor={colorwheelColor} />
                     <Slide />
                 </div>
             </div>

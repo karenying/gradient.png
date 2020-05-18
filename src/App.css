@@ -21,6 +21,11 @@
     height: 100vh;
 }
 
+.container {
+    display: flex;
+    margin: 50px;
+}
+
 input {
     background-color: var(--input-bg-gray);
     color: var(--input-text-gray);
@@ -47,6 +52,19 @@ input:focus {
     outline: none;
 }
 
+h2 {
+    color: var(--label-gray);
+    text-align: left;
+    padding: 0px;
+    margin: 0px 0px 10px 0px;
+    font-weight: 600;
+}
+
+p {
+    padding: 0px;
+    margin: 0px;
+}
+
 .left {
     display: flex;
     flex-direction: column;
@@ -59,4 +77,5 @@ input:focus {
 .color-picker-right {
     display: flex;
     flex-direction: column;
+    margin-left: 20px;
 }

@@ -1,7 +1,7 @@
 .hexgradient-container {
     height: 250px;
     width: 250px;
-    margin: 10px;
+    margin-right: 10px;
     position: relative;
     display: flex;
 }

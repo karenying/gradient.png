@@ -16,8 +16,6 @@
 }
 
 .add-color-button p {
-    padding: 0px;
-    margin: 0px;
     color: var(--input-text-gray);
 }
 

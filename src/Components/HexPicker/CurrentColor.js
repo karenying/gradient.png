@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../Styles/HexPicker/CurrentColor.css';
-import { hexToRGB } from '../../Utils/colorUtils';
 
 class CurrentColor extends React.Component {
     /*
@@ -37,39 +36,40 @@ class CurrentColor extends React.Component {
         /*const { hex, r, g, b } = this.state; */
 
         const { color } = this.props;
+        const { hex } = color;
 
         return (
-            <div className='current-color-container'>
+            <div className='currentcolor-container'>
                 <h2>COLOR</h2>
-                <div className='current-color-content'>
+                <div className='currentcolor-content'>
                     <div
-                        className='current-color-colorbox'
-                        style={{ backgroundColor: color }}
+                        className='currentcolor-colorbox'
+                        style={{ backgroundColor: '#' + hex }}
                     ></div>
-                    <div className='current-color-info'>
+                    <div className='currentcolor-info'>
                         <p>#</p>
                         <input
                             type='text'
                             spellCheck='false'
-                            // value={hex}
+                            value={hex.toLowerCase()}
                             // onChange={this.handleHexChange}
                         ></input>
                         <p>R</p>
                         <input
                             type='number'
-                            // value={r}
+                            value={color.getRGB('r')}
                             // onChange={this.handleRChange}
                         ></input>
                         <p>G</p>
                         <input
                             type='number'
-                            // value={g}
+                            value={color.getRGB('g')}
                             // onChange={() => {}}
                         ></input>
                         <p>B</p>
                         <input
                             type='number'
-                            // value={b}
+                            value={color.getRGB('b')}
                             // onChange={() => {}}
                         ></input>
                     </div>

@@ -1,17 +1,8 @@
 .stack-container {
-    margin: 50px;
     display: flex;
     flex-direction: column;
     width: 450px;
     height: 455px;
-}
-
-.stack-container h2 {
-    color: var(--label-gray);
-    text-align: left;
-    padding: 0px;
-    margin: 0px;
-    font-weight: 600;
 }
 
 .stack-container-label {
@@ -26,6 +17,4 @@
     text-align: center;
     color: var(--label-gray);
     font-weight: 600;
-    padding: 0px;
-    margin: 0px;
 }
