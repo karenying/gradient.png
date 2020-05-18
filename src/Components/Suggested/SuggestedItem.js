@@ -3,7 +3,7 @@ import '../../Styles/Suggested/SuggestedItem.css';
 
 function SuggestedItem(props) {
     const { gradient, selected, selectedFunction } = props;
-    const background = gradient.generateBackgroundString();
+    const background = gradient.generateBgString();
     const selectedDiv = selected ? 'suggesteditem-selected' : '';
 
     return (

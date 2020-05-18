@@ -44,11 +44,11 @@ function isDark(hex) {
     return L <= 0.5;
 }
 
-function generateBackgroundString(gradient) {
+function generateBgString(gradient) {
     const { stack, linear, degrees } = gradient;
     let background = linear
         ? 'linear-gradient(' + degrees + 'deg, '
-        : 'radial-gradient(circle,';
+        : 'radial-gradient(circle, ';
 
     let colorString = [];
     for (let i = 0; i < stack.length; i++) {
@@ -56,6 +56,39 @@ function generateBackgroundString(gradient) {
     }
 
     background += colorString.join(', ') + ')';
+
+    return background;
+}
+
+function generateStopsBgString(gradient) {
+    const { stack, linear } = gradient;
+    let background = linear
+        ? 'linear-gradient(90deg, '
+        : 'radial-gradient(circle, ';
+
+    let colorString = [];
+    for (let i = 0; i < stack.length; i++) {
+        colorString.push('#' + stack[i].hex + ' ' + stack[i].stop + '%');
+    }
+
+    background += colorString.join(', ') + ')';
+
+    return background;
+}
+
+function generateBgDisplayString(gradient) {
+    const { stack, linear, degrees } = gradient;
+    let background = 'background: \n';
+    background += linear
+        ? 'linear-gradient(' + degrees + 'deg,\n'
+        : 'radial-gradient(circle,\n';
+
+    let colorString = [];
+    for (let i = 0; i < stack.length; i++) {
+        colorString.push('#' + stack[i].hex + ' ' + stack[i].stop + '%');
+    }
+
+    background += colorString.join(',\n') + ');';
 
     return background;
 }
@@ -162,4 +195,11 @@ function getColorwheel(hex) {
     return hslToHex(hsl);
 }
 
-export { hexToRGB, isDark, generateBackgroundString, getColorwheel };
+export {
+    hexToRGB,
+    isDark,
+    generateBgString,
+    generateStopsBgString,
+    getColorwheel,
+    generateBgDisplayString,
+};

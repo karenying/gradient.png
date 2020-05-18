@@ -1,4 +1,8 @@
-import { generateBackgroundString } from './colorUtils';
+import {
+    generateBgString,
+    generateStopsBgString,
+    generateBgDisplayString,
+} from './colorUtils';
 
 class Gradient {
     constructor(stack, linear, degrees, name) {
@@ -8,10 +12,17 @@ class Gradient {
         this.name = name;
     }
 
-    generateBackgroundString = function () {
-        return generateBackgroundString(this);
+    generateBgString = function () {
+        return generateBgString(this);
     };
 
+    generateStopsBgString = function () {
+        return generateStopsBgString(this);
+    };
+
+    generateBgDisplayString = function () {
+        return generateBgDisplayString(this);
+    };
     copy = function () {};
 }
 

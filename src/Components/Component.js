@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Styles/Component.css';
 
-class Component extends React.Component {
+class ClassComponent extends React.Component {
     render() {
         return (
             <div>
@@ -10,5 +10,7 @@ class Component extends React.Component {
         );
     }
 }
+
+function FunctionComponent(props) {}
 
 export default Component;

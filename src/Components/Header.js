@@ -5,7 +5,7 @@ import logo from '../Assets/logo.png';
 function Header(props) {
     /*
         const { gradient } = this.props;
-        const background = gradient.generateBackgroundString(); */
+        const background = gradient.generateBgString(); */
 
     return (
         <div className='header-container'>

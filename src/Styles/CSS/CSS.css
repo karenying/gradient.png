@@ -1,0 +1,16 @@
+.css-container {
+    position: relative;
+    height: 250px;
+}
+
+.css-content textarea {
+    background: var(--css-gray);
+    color: var(--input-text-light-gray);
+    text-align: left;
+    font-family: monospace;
+    padding: 20px;
+    font-size: 15px;
+    width: 400px;
+    border-radius: 5px;
+    resize: none;
+}

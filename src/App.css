@@ -12,6 +12,7 @@
     --input-text-gray: #686868;
     --hover-gray: #cecece;
     --input-text-light-gray: #f5f5f5;
+    --css-gray: #333333;
 }
 
 .App {
@@ -23,7 +24,7 @@
 
 .container {
     display: flex;
-    margin: 50px;
+    margin: 30px 50px;
 }
 
 input {
@@ -46,7 +47,8 @@ input[type='number'] {
     -moz-appearance: textfield;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
     box-shadow: inset 2px 2px 7px var(--input-text-gray);
     border-radius: 5px;
     outline: none;
@@ -68,6 +70,12 @@ p {
 .left {
     display: flex;
     flex-direction: column;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
 }
 
 .color-picker {

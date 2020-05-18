@@ -4,6 +4,9 @@ import Header from './Components/Header';
 import HexPicker from './Components/HexPicker/HexPicker';
 import Stack from './Components/Stack/Stack';
 import Suggested from './Components/Suggested/Suggested';
+import StopBar from './Components/StopBar/StopBar';
+import CSS from './Components/CSS/CSS';
+
 import { KAREN, DORA, STEVEN, SHARON, BRANDY } from './Utils/gradientConstants';
 import { Color } from './Utils/Color';
 
@@ -164,6 +167,7 @@ class App extends React.Component {
                 <Header gradient={gradient} />
                 <div className='container'>
                     <div className='left'>
+                        <StopBar gradient={gradient} />
                         <div className='color-picker'>
                             <HexPicker
                                 colorwheelColor={colorwheelColor}
@@ -185,6 +189,7 @@ class App extends React.Component {
                         </div>
                     </div>
                     <div className='right'></div>
+                    <CSS gradient={gradient} />
                 </div>
             </div>
         );

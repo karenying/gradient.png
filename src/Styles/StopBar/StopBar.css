@@ -1,0 +1,9 @@
+.stopbar-container {
+    margin-bottom: 50px;
+}
+
+.stopbar-content {
+    height: 40px;
+    width: 800px;
+    border-radius: 5px;
+}
