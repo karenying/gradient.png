@@ -2,25 +2,36 @@ import React from 'react';
 import '../../Styles/CSS/CSS.css';
 import CopyButton from './CopyButton';
 
-function CSS(props) {
-    const { gradient } = props;
-    const background = gradient.generateBgDisplayString();
+class CSS extends React.Component {
+    copyToClipboard = (e) => {
+        this.textArea.select();
+        document.execCommand('copy');
+        e.target.focus();
+    };
 
-    return (
-        <div className='css-container'>
-            <h2>CSS</h2>
-            <div className='css-content'>
-                <textarea
-                    name='text'
-                    rows='9'
-                    cols='10'
-                    wrap='soft'
-                    value={background}
-                ></textarea>
-                <CopyButton />
+    render() {
+        const { gradient } = this.props;
+        const background = gradient.generateBgDisplayString();
+
+        return (
+            <div className='css-container'>
+                <h2>CSS</h2>
+                <div className='css-content'>
+                    <textarea
+                        name='text'
+                        rows='9'
+                        cols='10'
+                        wrap='soft'
+                        value={background}
+                        ref={(textarea) => (this.textArea = textarea)}
+                    ></textarea>
+                    <CopyButton
+                        clickFunction={(e) => this.copyToClipboard(e)}
+                    />
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default CSS;

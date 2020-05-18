@@ -4,8 +4,10 @@ import { MdContentCopy } from 'react-icons/md';
 import { INPUT_TEXT_GRAY } from '../../Utils/hexConstants';
 
 function CopyButton(props) {
+    const { clickFunction } = props;
+
     return (
-        <div className='copybutton-container'>
+        <div className='copybutton-container' onClick={clickFunction}>
             <MdContentCopy
                 size='20px'
                 color={INPUT_TEXT_GRAY}

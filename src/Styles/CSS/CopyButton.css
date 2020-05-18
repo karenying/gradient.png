@@ -7,6 +7,15 @@
     border-radius: 25px;
     height: 40px;
     background-color: var(--input-text-light-gray);
+
+    -moz-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+}
+
+.copybutton-container:hover {
+    background-color: var(--hover-gray);
 }
 
 .copybutton-container:hover svg {
