@@ -45,14 +45,16 @@ function isDark(hex) {
 }
 
 function generateBackgroundString(gradient) {
-    const { colors, linear, degrees } = gradient;
+    const { colorStack, linear, degrees } = gradient;
     let background = linear
         ? 'linear-gradient(' + degrees + 'deg, '
         : 'radial-gradient(circle,';
 
     let colorString = [];
-    for (let i = 0; i < colors.length; i++) {
-        colorString.push('#' + colors[i].hex + ' ' + colors[i].stop + '%');
+    for (let i = 0; i < colorStack.length; i++) {
+        colorString.push(
+            '#' + colorStack[i].hex + ' ' + colorStack[i].stop + '%'
+        );
     }
 
     background += colorString.join(', ') + ')';
