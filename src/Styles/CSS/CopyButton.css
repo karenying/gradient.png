@@ -1,11 +1,11 @@
 .copybutton-container {
     position: absolute;
-    right: 25px;
-    bottom: 30px;
+    right: 20px;
+    bottom: 25px;
     box-shadow: 2px 2px 7px black;
     cursor: pointer;
     border-radius: 25px;
-    height: 43px;
+    height: 40px;
     background-color: var(--input-text-light-gray);
 }
 

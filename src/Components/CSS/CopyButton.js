@@ -7,7 +7,7 @@ function CopyButton(props) {
     return (
         <div className='copybutton-container'>
             <MdContentCopy
-                size='23px'
+                size='20px'
                 color={INPUT_TEXT_GRAY}
                 style={{ margin: '10px' }}
             />

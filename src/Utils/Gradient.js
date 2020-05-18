@@ -12,18 +12,18 @@ class Gradient {
         this.name = name;
     }
 
-    generateBgString = function () {
+    generateBgString = () => {
         return generateBgString(this);
     };
 
-    generateStopsBgString = function () {
+    generateStopsBgString = () => {
         return generateStopsBgString(this);
     };
 
-    generateBgDisplayString = function () {
+    generateBgDisplayString = () => {
         return generateBgDisplayString(this);
     };
-    copy = function () {};
+    copy = () => {};
 }
 
 export { Gradient };

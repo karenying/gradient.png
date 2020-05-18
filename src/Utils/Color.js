@@ -8,15 +8,15 @@ class Color {
         this.index = index;
     }
 
-    getRGB = function (primary) {
+    getRGB = (primary) => {
         return hexToRGB(this.hex, primary);
     };
 
-    isDark = function () {
+    isDark = () => {
         return isDark(this.hex);
     };
 
-    getColorwheel = function () {
+    getColorwheel = () => {
         return getColorwheel(this.hex);
     };
 }

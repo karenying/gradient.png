@@ -89,7 +89,7 @@ class App extends React.Component {
             }
 
             // update selected
-            if (deletedIndex < selected) {
+            if (deletedIndex <= selected) {
                 this.setState((prevState, props) => ({
                     selected: prevState.selected - 1,
                 }));
@@ -119,7 +119,7 @@ class App extends React.Component {
         }
     };
 
-    resetSuggested = function () {
+    resetSuggested() {
         let { suggested } = this.state;
         let suggestedCopy = [...suggested];
 
@@ -135,7 +135,7 @@ class App extends React.Component {
             suggested: suggestedCopy,
             selected: 0,
         });
-    };
+    }
 
     setSuggested = (e, suggestedName) => {
         e.stopPropagation();
