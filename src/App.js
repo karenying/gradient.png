@@ -4,7 +4,7 @@ import Header from './Components/Header';
 import HexPicker from './Components/HexPicker/HexPicker';
 import Stack from './Components/Stack/Stack';
 import Suggested from './Components/Suggested/Suggested';
-import { KAREN, DORA, STEVEN, SHARON } from './Utils/gradientConstants';
+import { KAREN, DORA, STEVEN, SHARON, BRANDY } from './Utils/gradientConstants';
 import { Color } from './Utils/Color';
 
 class App extends React.Component {
@@ -13,7 +13,7 @@ class App extends React.Component {
         selected: 0, // color selected out of gradient
         dimensions: [], // dimensions of generated image
         suggestedSelected: 'Karen',
-        suggested: [KAREN, SHARON, DORA, STEVEN],
+        suggested: [KAREN, SHARON, DORA, STEVEN, BRANDY],
     };
 
     addColor = () => {
