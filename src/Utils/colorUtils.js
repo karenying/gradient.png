@@ -44,4 +44,20 @@ function isDark(hex) {
     return L <= 0.5;
 }
 
-export { hexToRGB, isDark };
+function generateBackgroundString(gradient) {
+    const { colors, linear, degrees } = gradient;
+    let background = linear
+        ? 'linear-gradient(' + degrees + 'deg, '
+        : 'radial-gradient(circle,';
+
+    let colorString = [];
+    for (let i = 0; i < colors.length; i++) {
+        colorString.push('#' + colors[i].hex + ' ' + colors[i].stop + '%');
+    }
+
+    background += colorString.join(', ') + ')';
+
+    return background;
+}
+
+export { hexToRGB, isDark, generateBackgroundString };

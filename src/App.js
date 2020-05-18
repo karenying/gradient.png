@@ -3,14 +3,13 @@ import './App.css';
 import Header from './Components/Header';
 import HexPicker from './Components/HexPicker/HexPicker';
 import Stack from './Components/Stack/Stack';
+import Suggested from './Components/Suggested/Suggested';
 
 class App extends React.Component {
     state = {
-        stack: [], // stack of colors
-        selected: '#000000', // color selected out of stack
+        gradient: '',
+        selected: '#000000', // color selected out of gradient
         dimensions: [], // dimensions of generated image
-        linear: true, // false = radial
-        degrees: 180, // if linear
     };
 
     render() {
@@ -22,6 +21,7 @@ class App extends React.Component {
                         <HexPicker />
                         <div className='color-picker-right'>
                             <Stack />
+                            <Suggested />
                         </div>
                     </div>
                 </div>
