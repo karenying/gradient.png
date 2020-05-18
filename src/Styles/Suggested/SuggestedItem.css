@@ -6,12 +6,21 @@
     padding: 10px;
     cursor: pointer;
     border-radius: 5px;
+
+    -moz-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
 }
 
 .suggesteditem-container p {
     padding: 0px;
     margin: 0px;
     color: var(--input-text-gray);
+}
+
+.suggesteditem-container:hover p {
+    font-weight: 600;
 }
 
 .suggesteditem-colorbox {
@@ -28,4 +37,8 @@
 .suggesteditem-selected {
     border-radius: 5px;
     background-color: var(--hover-gray);
+}
+
+.suggesteditem-selected p {
+    font-weight: 600;
 }
