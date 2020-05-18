@@ -1,4 +1,4 @@
-import { hexToRGB } from './colorUtils';
+import { hexToRGB, isDark } from './colorUtils';
 
 class Color {
     constructor(hex, stop, selected, index) {
@@ -8,12 +8,12 @@ class Color {
         this.index = index;
     }
 
-    getRGB = function () {
-        return {
-            r: hexToRGB(this.hex, 'r'),
-            g: hexToRGB(this.hex, 'g'),
-            b: hexToRGB(this.hex, 'b'),
-        };
+    getRGB = function (primary) {
+        return hexToRGB(this.hex, primary);
+    };
+
+    isDark = function () {
+        return isDark(this.hex);
     };
 }
 

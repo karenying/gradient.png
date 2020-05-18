@@ -1,12 +1,11 @@
 import React from 'react';
 import '../../Styles/Suggested/SuggestedItem.css';
-import { generateBackgroundString } from '../../Utils/colorUtils';
 
 class SuggestedItem extends React.Component {
     render() {
         const { gradient } = this.props;
 
-        const background = generateBackgroundString(gradient);
+        const background = gradient.generateBackgroundString();
 
         return (
             <div className='suggesteditem-container'>
