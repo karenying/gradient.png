@@ -4,8 +4,6 @@ import { IoIosMenu, IoIosClose } from 'react-icons/io';
 import { INPUT_TEXT_GRAY } from '../../Utils/hexConstants';
 
 class StackItem extends React.Component {
-    state = {};
-
     render() {
         const { color, deleteFunction, selectFunction } = this.props;
         const { hex, stop, selected } = color;
@@ -27,6 +25,7 @@ class StackItem extends React.Component {
                     <div className={darkDiv}>
                         <input
                             type='text'
+                            spellCheck='false'
                             value={('#' + hex).toLowerCase()}
                             style={{ backgroundColor: '#' + hex }}
                             onChange={() => {}}

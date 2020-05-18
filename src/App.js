@@ -4,14 +4,16 @@ import Header from './Components/Header';
 import HexPicker from './Components/HexPicker/HexPicker';
 import Stack from './Components/Stack/Stack';
 import Suggested from './Components/Suggested/Suggested';
-import { KAREN, DORA, STEVEN } from './Utils/gradientConstants';
+import { KAREN, DORA, STEVEN, SHARON } from './Utils/gradientConstants';
 import { Color } from './Utils/Color';
 
 class App extends React.Component {
     state = {
-        gradient: STEVEN,
+        gradient: KAREN,
         selected: 0, // color selected out of gradient
         dimensions: [], // dimensions of generated image
+        suggestedSelected: 'Karen',
+        suggested: [KAREN, SHARON, DORA, STEVEN],
     };
 
     addColor = () => {
@@ -114,11 +116,28 @@ class App extends React.Component {
         }
     };
 
-    render() {
-        const { gradient } = this.state;
+    setSuggested = (e, suggestedName) => {
+        e.stopPropagation();
 
+        const { suggested } = this.state;
+
+        suggested.forEach((gradient) => {
+            if (gradient.name === suggestedName) {
+                this.setState({ gradient });
+            }
+        });
+
+        this.setState({ suggestedSelected: suggestedName });
+    };
+
+    unsetSuggested = () => {
+        this.setState({ suggestedSelected: '' });
+    };
+
+    render() {
+        const { gradient, suggestedSelected, suggested } = this.state;
         return (
-            <div className='App'>
+            <div className='App' onClick={this.unsetSuggested}>
                 <Header />
                 <div className='left'>
                     <div className='color-picker'>
@@ -130,7 +149,11 @@ class App extends React.Component {
                                 changeSelected={this.changeSelected}
                                 deleteColor={this.deleteColor}
                             />
-                            <Suggested />
+                            <Suggested
+                                suggested={suggested}
+                                selected={suggestedSelected}
+                                selectedFunction={this.setSuggested}
+                            />
                         </div>
                     </div>
                 </div>

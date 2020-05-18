@@ -3,17 +3,22 @@ import '../../Styles/Suggested/SuggestedItem.css';
 
 class SuggestedItem extends React.Component {
     render() {
-        const { gradient } = this.props;
-
+        const { gradient, selected, selectedFunction } = this.props;
         const background = gradient.generateBackgroundString();
+        const selectedDiv = selected ? 'suggesteditem-selected' : '';
 
         return (
-            <div className='suggesteditem-container'>
+            <div className={selectedDiv}>
                 <div
-                    className='suggesteditem-colorbox'
-                    style={{ background }}
-                ></div>
-                <p>{gradient.name || ''}</p>
+                    className='suggesteditem-container'
+                    onClick={selectedFunction}
+                >
+                    <div
+                        className='suggesteditem-colorbox'
+                        style={{ background }}
+                    ></div>
+                    <p>{gradient.name || ''}</p>
+                </div>
             </div>
         );
     }

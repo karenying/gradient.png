@@ -14,7 +14,7 @@ class Stack extends React.Component {
                 stack={stack}
                 deleteFunction={(e) => deleteColor(e, color.index)}
                 selectFunction={() => changeSelected(color.index)}
-                key={'stack-item-' + color.index}
+                key={'stackitem-' + color.index}
             />
         ));
 

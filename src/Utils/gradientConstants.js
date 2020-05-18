@@ -32,4 +32,16 @@ const STEVEN = new Gradient(
     'Steven'
 );
 
-export { KAREN, DORA, STEVEN };
+const SHARON = new Gradient(
+    [
+        new Color('6a3333', 0, true, 0),
+        new Color('FF6400', 33, false, 1),
+        new Color('fcb045', 67, false, 2),
+        new Color('fae791', 100, false, 3),
+    ],
+    true,
+    90,
+    'Sharon'
+);
+
+export { KAREN, DORA, STEVEN, SHARON };

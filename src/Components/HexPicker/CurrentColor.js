@@ -47,6 +47,7 @@ class CurrentColor extends React.Component {
                         <p>#</p>
                         <input
                             type='text'
+                            spellCheck='false'
                             value={hex}
                             onChange={this.handleHexChange}
                         ></input>

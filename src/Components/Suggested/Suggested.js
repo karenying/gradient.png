@@ -1,18 +1,18 @@
 import React from 'react';
 import '../../Styles/Suggested/Suggested.css';
 import SuggestedItem from './SuggestedItem';
-import { KAREN, DORA, STEVEN } from '../../Utils/gradientConstants';
 
 class Suggested extends React.Component {
-    state = {
-        suggested: [KAREN, DORA, STEVEN], // gradient objects
-    };
-
     render() {
-        const { suggested } = this.state;
+        const { selected, suggested, selectedFunction } = this.props;
 
         const renderSuggested = suggested.map((gradient) => (
-            <SuggestedItem gradient={gradient} />
+            <SuggestedItem
+                gradient={gradient}
+                selected={selected === gradient.name}
+                key={'suggesteditem-' + gradient.name}
+                selectedFunction={(e) => selectedFunction(e, gradient.name)}
+            />
         ));
 
         return (
