@@ -7,9 +7,9 @@
 }
 
 .header-container h1 {
-    background: -webkit-linear-gradient(#da71d6, #87cefa);
+    background: linear-gradient(#da71d6, #87cefa);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: transparent;
     padding: 0px;
     margin: 0px;
     font-weight: bold;

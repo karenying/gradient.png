@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../Styles/HexPicker/CurrentColor.css';
 
-class CurrentColor extends React.Component {
+function CurrentColor(props) {
     /*
     state = {
         hex: 'da71d6',
@@ -32,51 +32,49 @@ class CurrentColor extends React.Component {
         this.setState({ hex, r });
     }; */
 
-    render() {
-        /*const { hex, r, g, b } = this.state; */
+    /*const { hex, r, g, b } = this.state; */
 
-        const { color } = this.props;
-        const { hex } = color;
+    const { color } = props;
+    const { hex } = color;
 
-        return (
-            <div className='currentcolor-container'>
-                <h2>COLOR</h2>
-                <div className='currentcolor-content'>
-                    <div
-                        className='currentcolor-colorbox'
-                        style={{ backgroundColor: '#' + hex }}
-                    ></div>
-                    <div className='currentcolor-info'>
-                        <p>#</p>
-                        <input
-                            type='text'
-                            spellCheck='false'
-                            value={hex.toLowerCase()}
-                            // onChange={this.handleHexChange}
-                        ></input>
-                        <p>R</p>
-                        <input
-                            type='number'
-                            value={color.getRGB('r')}
-                            // onChange={this.handleRChange}
-                        ></input>
-                        <p>G</p>
-                        <input
-                            type='number'
-                            value={color.getRGB('g')}
-                            // onChange={() => {}}
-                        ></input>
-                        <p>B</p>
-                        <input
-                            type='number'
-                            value={color.getRGB('b')}
-                            // onChange={() => {}}
-                        ></input>
-                    </div>
+    return (
+        <div className='currentcolor-container'>
+            <h2>COLOR</h2>
+            <div className='currentcolor-content'>
+                <div
+                    className='currentcolor-colorbox'
+                    style={{ backgroundColor: '#' + hex }}
+                ></div>
+                <div className='currentcolor-info'>
+                    <p>#</p>
+                    <input
+                        type='text'
+                        spellCheck='false'
+                        value={hex.toLowerCase()}
+                        // onChange={this.handleHexChange}
+                    ></input>
+                    <p>R</p>
+                    <input
+                        type='number'
+                        value={color.getRGB('r')}
+                        // onChange={this.handleRChange}
+                    ></input>
+                    <p>G</p>
+                    <input
+                        type='number'
+                        value={color.getRGB('g')}
+                        // onChange={() => {}}
+                    ></input>
+                    <p>B</p>
+                    <input
+                        type='number'
+                        value={color.getRGB('b')}
+                        // onChange={() => {}}
+                    ></input>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default CurrentColor;

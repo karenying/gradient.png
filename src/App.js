@@ -9,10 +9,10 @@ import { Color } from './Utils/Color';
 
 class App extends React.Component {
     state = {
-        gradient: KAREN,
+        gradient: BRANDY,
         selected: 0, // color selected out of gradient
         dimensions: [], // dimensions of generated image
-        suggestedSelected: 'Karen',
+        suggestedSelected: 'Brandy',
         suggested: [KAREN, SHARON, DORA, STEVEN, BRANDY],
     };
 
@@ -161,7 +161,7 @@ class App extends React.Component {
 
         return (
             <div className='App' onClick={this.unsetSuggested}>
-                <Header />
+                <Header gradient={gradient} />
                 <div className='container'>
                     <div className='left'>
                         <div className='color-picker'>

@@ -11,6 +11,8 @@ class Gradient {
     generateBackgroundString = function () {
         return generateBackgroundString(this);
     };
+
+    copy = function () {};
 }
 
 export { Gradient };

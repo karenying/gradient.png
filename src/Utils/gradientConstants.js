@@ -28,7 +28,7 @@ const STEVEN = new Gradient(
         new Color('ec2e24', 100, false, 2),
     ],
     true,
-    45,
+    160,
     'Steven'
 );
 
