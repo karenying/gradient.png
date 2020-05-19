@@ -158,7 +158,7 @@ class App extends React.Component {
 
         return (
             <div className='App' onClick={this.unsetSuggested}>
-                <Header gradient={gradient} />
+                <Header />
                 <div className='container'>
                     <div className='left'>
                         <StopBar gradient={gradient} />
@@ -177,7 +177,7 @@ class App extends React.Component {
                                 <Suggested
                                     suggested={suggested}
                                     selected={suggestedSelected}
-                                    selectedFunction={this.setSuggested}
+                                    selectFunction={this.setSuggested}
                                 />
                             </div>
                         </div>

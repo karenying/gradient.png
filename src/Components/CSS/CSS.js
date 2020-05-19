@@ -11,7 +11,7 @@ class CSS extends React.Component {
 
     render() {
         const { gradient } = this.props;
-        const background = gradient.generateBgDisplayString();
+        const background = gradient.toCSSBgString();
 
         return (
             <div className='css-container'>
@@ -22,6 +22,7 @@ class CSS extends React.Component {
                         rows='9'
                         cols='10'
                         wrap='soft'
+                        readonly
                         value={background}
                         ref={(textarea) => (this.textArea = textarea)}
                     ></textarea>

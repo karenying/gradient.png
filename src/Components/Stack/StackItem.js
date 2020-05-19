@@ -36,6 +36,7 @@ function StackItem(props) {
                         <IoIosClose
                             size='35px'
                             color={INPUT_TEXT_GRAY}
+                            title='Delete color'
                             style={{ marginLeft: '7px' }}
                             onClick={deleteFunction}
                         />

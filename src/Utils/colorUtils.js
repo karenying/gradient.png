@@ -27,8 +27,7 @@ function getLuminanceFromHex(hex) {
         c /= 255;
 
         if (c > 0.03928) {
-            let c1 = Math.pow((c + 0.055) / 1.055, 2.4);
-            c = c1;
+            c = Math.pow((c + 0.055) / 1.055, 2.4);
         } else {
             c /= 12.92;
         }
@@ -44,9 +43,9 @@ function isDark(hex) {
     return L <= 0.5;
 }
 
-function generateBgString(gradient) {
-    const { stack, linear, degrees } = gradient;
-    let background = linear
+function toBgString(gradient) {
+    const { stack, isLinear, degrees } = gradient;
+    let background = isLinear
         ? 'linear-gradient(' + degrees + 'deg, '
         : 'radial-gradient(circle, ';
 
@@ -60,9 +59,9 @@ function generateBgString(gradient) {
     return background;
 }
 
-function generateStopsBgString(gradient) {
-    const { stack, linear } = gradient;
-    let background = linear
+function toStopBarBgString(gradient) {
+    const { stack, isLinear } = gradient;
+    let background = isLinear
         ? 'linear-gradient(90deg, '
         : 'radial-gradient(circle, ';
 
@@ -76,12 +75,12 @@ function generateStopsBgString(gradient) {
     return background;
 }
 
-function generateBgDisplayString(gradient) {
-    const { stack, linear, degrees } = gradient;
+function toCSSBgString(gradient) {
+    const { stack, isLinear, degrees } = gradient;
     let background = 'background: ';
-    background += linear
+    background += isLinear
         ? 'linear-gradient(\n    ' + degrees + 'deg,\n    '
-        : 'radial-gradient(\n    circle,\n';
+        : 'radial-gradient(\n    circle,\n    ';
 
     let colorString = [];
     for (let i = 0; i < stack.length; i++) {
@@ -195,8 +194,8 @@ function getColorwheel(hex) {
     return hslToHex(hsl);
 }
 
-function createGradient(gradient, width, height) {
-    const { stack /*linear, degrees*/ } = gradient;
+function generateImage(gradient, width, height) {
+    const { stack /*isLinear, degrees*/ } = gradient;
 
     const canvas = document.createElement('CANVAS');
     canvas.width = width;
@@ -222,9 +221,9 @@ function createGradient(gradient, width, height) {
 export {
     hexToRGB,
     isDark,
-    generateBgString,
-    generateStopsBgString,
+    toBgString,
+    toStopBarBgString,
     getColorwheel,
-    generateBgDisplayString,
-    createGradient,
+    toCSSBgString,
+    generateImage,
 };

@@ -3,16 +3,16 @@ import '../../Styles/ImagePreview/ImagePreview.css';
 import DownloadButton from './DownloadButton';
 import ExpandButton from './ExpandButton';
 import Dimensions from './Dimensions';
-import { createGradient } from '../../Utils/colorUtils';
+import { generateImage } from '../../Utils/colorUtils';
 
 class ImagePreview extends React.Component {
-    createGradient() {
+    generateImage() {
         const { gradient, width, height } = this.props;
-        return createGradient(gradient, width, height);
+        return generateImage(gradient, width, height);
     }
 
     download = () => {
-        const url = this.createGradient();
+        const url = this.generateImage();
         const link = document.createElement('a');
         link.download = 'gradient.png';
         link.href = url;
@@ -20,7 +20,7 @@ class ImagePreview extends React.Component {
     };
 
     expand = () => {
-        const url = this.createGradient();
+        const url = this.generateImage();
         const w = window.open('about:blank');
         const image = new Image();
         image.src = url;
@@ -32,7 +32,7 @@ class ImagePreview extends React.Component {
 
     render() {
         let { gradient, width, height } = this.props;
-        const background = gradient.generateBgString();
+        const background = gradient.toBgString();
         const DIV_MAX = 400;
 
         let longer = Math.max(height, width);

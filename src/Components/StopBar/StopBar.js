@@ -3,7 +3,7 @@ import '../../Styles/StopBar/StopBar.css';
 
 function StopBar(props) {
     const { gradient } = props;
-    const background = gradient.generateStopsBgString();
+    const background = gradient.toStopBarBgString();
 
     return (
         <div className='stopbar-container'>

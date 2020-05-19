@@ -2,13 +2,13 @@ import React from 'react';
 import '../../Styles/Suggested/SuggestedItem.css';
 
 function SuggestedItem(props) {
-    const { gradient, selected, selectedFunction } = props;
-    const background = gradient.generateBgString();
+    const { gradient, selected, selectFunction } = props;
+    const background = gradient.toBgString();
     const selectedDiv = selected ? 'suggesteditem-selected' : '';
 
     return (
         <div className={selectedDiv}>
-            <div className='suggesteditem-container' onClick={selectedFunction}>
+            <div className='suggesteditem-container' onClick={selectFunction}>
                 <div
                     className='suggesteditem-colorbox'
                     style={{ background }}

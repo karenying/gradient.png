@@ -76,6 +76,36 @@ const JUDY = new Gradient(
     'Judy'
 );
 
-const SUGGESTIONS = [KAREN, DORA, STEVEN, SHARON, BRANDY, CHARLIE, JUDY];
+const BRYAN = new Gradient(
+    [
+        new Color('020024', 0, true, 0),
+        new Color('343258', 20, false, 1),
+        new Color('555570', 43, false, 2),
+        new Color('336d80', 64, false, 3),
+        new Color('8ec3cd', 100, false, 4),
+    ],
+    true,
+    0,
+    'Bryan'
+);
+
+const MAX = new Gradient(
+    [new Color('a1c4fd', 31, true, 0), new Color('c2e9fb', 100, false, 1)],
+    true,
+    78,
+    'Max'
+);
+
+const SUGGESTIONS = [
+    KAREN,
+    DORA,
+    STEVEN,
+    SHARON,
+    BRANDY,
+    CHARLIE,
+    JUDY,
+    BRYAN,
+    MAX,
+];
 
 export { SUGGESTIONS };

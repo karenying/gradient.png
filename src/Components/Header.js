@@ -3,20 +3,10 @@ import '../Styles/Header.css';
 import logo from '../Assets/logo.png';
 
 function Header(props) {
-    /*
-        const { gradient } = this.props;
-        const background = gradient.generateBgString(); */
-
     return (
         <div className='header-container'>
             <img src={logo} alt='logo'></img>
-            <h1 /*
-                    style={{
-                        background,
-                        backgroundClip: 'text',
-                        color: 'transparent',
-                    }} */
-            >
+            <h1>
                 gradient
                 <span
                     style={{
