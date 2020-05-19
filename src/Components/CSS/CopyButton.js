@@ -7,7 +7,11 @@ function CopyButton(props) {
     const { clickFunction } = props;
 
     return (
-        <div className='copybutton-container' onClick={clickFunction}>
+        <div
+            className='copybutton-container'
+            onClick={clickFunction}
+            title='Copy CSS to clipboard'
+        >
             <MdContentCopy
                 size='20px'
                 color={INPUT_TEXT_GRAY}

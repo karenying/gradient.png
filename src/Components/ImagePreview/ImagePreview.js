@@ -31,7 +31,10 @@ function ImagePreview(props) {
                     height: scaledHeight,
                     width: scaledWidth,
                 }}
-            ></div>
+            >
+                <ExpandButton />
+                <DownloadButton />
+            </div>
         </div>
     );
 }
