@@ -19,7 +19,7 @@ class CSS extends React.Component {
                 <div className='css-content'>
                     <textarea
                         name='text'
-                        rows='10'
+                        rows='9'
                         cols='10'
                         wrap='soft'
                         value={background}

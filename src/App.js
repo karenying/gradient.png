@@ -15,7 +15,8 @@ class App extends React.Component {
     state = {
         gradient: BRANDY,
         selected: 0, // color selected out of gradient
-        dimensions: [200, 150], // dimensions of generated image
+        height: 200,
+        width: 120,
         suggestedSelected: 'Brandy',
         suggested: [KAREN, SHARON, DORA, STEVEN, BRANDY],
     };
@@ -163,7 +164,8 @@ class App extends React.Component {
             suggestedSelected,
             suggested,
             selected,
-            dimensions,
+            height,
+            width,
         } = this.state;
         const { stack } = gradient;
         const color = stack[selected];
@@ -198,7 +200,8 @@ class App extends React.Component {
                     <div className='right'>
                         <ImagePreview
                             gradient={gradient}
-                            dimensions={dimensions}
+                            height={height}
+                            width={width}
                         />
                         <CSS gradient={gradient} />
                     </div>

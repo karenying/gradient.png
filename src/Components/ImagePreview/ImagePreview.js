@@ -4,12 +4,10 @@ import DownloadButton from './DownloadButton';
 import ExpandButton from './ExpandButton';
 
 function ImagePreview(props) {
-    let { dimensions, gradient } = props;
+    let { height, width, gradient } = props;
     const background = gradient.generateBgString();
-    const DIV_MAX = 450;
+    const DIV_MAX = 400;
 
-    const height = dimensions[0],
-        width = dimensions[1];
     let longer = Math.max(height, width);
     let shorter = Math.min(height, width);
 
