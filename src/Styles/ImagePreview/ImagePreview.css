@@ -1,0 +1,10 @@
+.imagepreview-container {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 500px;
+}
+
+.imagepreview-content {
+    border-radius: 5px;
+}

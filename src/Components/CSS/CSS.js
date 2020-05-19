@@ -3,7 +3,7 @@ import '../../Styles/CSS/CSS.css';
 import CopyButton from './CopyButton';
 
 class CSS extends React.Component {
-    copyToClipboard = (e) => {
+    copy = (e) => {
         this.textArea.select();
         document.execCommand('copy');
         e.target.focus();
@@ -19,15 +19,13 @@ class CSS extends React.Component {
                 <div className='css-content'>
                     <textarea
                         name='text'
-                        rows='9'
+                        rows='10'
                         cols='10'
                         wrap='soft'
                         value={background}
                         ref={(textarea) => (this.textArea = textarea)}
                     ></textarea>
-                    <CopyButton
-                        clickFunction={(e) => this.copyToClipboard(e)}
-                    />
+                    <CopyButton clickFunction={(e) => this.copy(e)} />
                 </div>
             </div>
         );

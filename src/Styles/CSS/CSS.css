@@ -1,6 +1,8 @@
 .css-container {
     position: relative;
-    height: 250px;
+    height: 257px;
+    display: flex;
+    flex-direction: column;
 }
 
 .css-content textarea {

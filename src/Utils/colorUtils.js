@@ -78,17 +78,17 @@ function generateStopsBgString(gradient) {
 
 function generateBgDisplayString(gradient) {
     const { stack, linear, degrees } = gradient;
-    let background = 'background: \n';
+    let background = 'background: ';
     background += linear
-        ? 'linear-gradient(' + degrees + 'deg,\n'
-        : 'radial-gradient(circle,\n';
+        ? 'linear-gradient(\n    ' + degrees + 'deg,\n    '
+        : 'radial-gradient(\n    circle,\n';
 
     let colorString = [];
     for (let i = 0; i < stack.length; i++) {
         colorString.push('#' + stack[i].hex + ' ' + stack[i].stop + '%');
     }
 
-    background += colorString.join(',\n') + ');';
+    background += colorString.join(',\n    ') + '\n);';
 
     return background;
 }

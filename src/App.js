@@ -6,6 +6,7 @@ import Stack from './Components/Stack/Stack';
 import Suggested from './Components/Suggested/Suggested';
 import StopBar from './Components/StopBar/StopBar';
 import CSS from './Components/CSS/CSS';
+import ImagePreview from './Components/ImagePreview/ImagePreview';
 
 import { KAREN, DORA, STEVEN, SHARON, BRANDY } from './Utils/gradientConstants';
 import { Color } from './Utils/Color';
@@ -14,7 +15,7 @@ class App extends React.Component {
     state = {
         gradient: BRANDY,
         selected: 0, // color selected out of gradient
-        dimensions: [], // dimensions of generated image
+        dimensions: [200, 150], // dimensions of generated image
         suggestedSelected: 'Brandy',
         suggested: [KAREN, SHARON, DORA, STEVEN, BRANDY],
     };
@@ -157,7 +158,13 @@ class App extends React.Component {
     };
 
     render() {
-        const { gradient, suggestedSelected, suggested, selected } = this.state;
+        const {
+            gradient,
+            suggestedSelected,
+            suggested,
+            selected,
+            dimensions,
+        } = this.state;
         const { stack } = gradient;
         const color = stack[selected];
         const colorwheelColor = color.getColorwheel();
@@ -188,8 +195,13 @@ class App extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className='right'></div>
-                    <CSS gradient={gradient} />
+                    <div className='right'>
+                        <ImagePreview
+                            gradient={gradient}
+                            dimensions={dimensions}
+                        />
+                        <CSS gradient={gradient} />
+                    </div>
                 </div>
             </div>
         );

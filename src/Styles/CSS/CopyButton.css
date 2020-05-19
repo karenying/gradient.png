@@ -1,7 +1,7 @@
 .copybutton-container {
     position: absolute;
     right: 20px;
-    bottom: 25px;
+    bottom: 20px;
     box-shadow: 2px 2px 7px black;
     cursor: pointer;
     border-radius: 25px;
