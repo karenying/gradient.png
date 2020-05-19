@@ -186,6 +186,8 @@ class App extends React.Component {
         const color = stack[selected];
         const colorwheelColor = color.getColorwheel();
 
+        console.log(stack);
+
         return (
             <div className='App' onClick={this.unsetSuggested}>
                 <Header gradient={gradient} />

@@ -60,7 +60,7 @@ const BRANDY = new Gradient(
 const CHARLIE = new Gradient(
     [new Color('89cff0', 0, true, 0), new Color('77dd77', 100, false, 1)],
     true,
-    0,
+    180,
     'Charlie'
 );
 

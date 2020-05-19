@@ -27,7 +27,7 @@ function Header(props) {
                 >
                     .
                 </span>
-                jpg
+                png
             </h1>
         </div>
     );
