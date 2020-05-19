@@ -12,7 +12,8 @@
 
 .imagepreview-interface {
     display: flex;
-    align-items: baseline;
+    align-items: center;
+    margin-top: 15px;
 }
 
 .imagepreview-container:hover .expandbutton-container,
@@ -20,4 +21,16 @@
     display: flex;
     -webkit-animation: fadein 0.5s;
     animation: fadein 0.5s;
+}
+
+.imagepreview-interface input {
+    height: 40px;
+    width: 70px;
+    font-size: 15px;
+    margin: 0px 20px 0px 10px;
+}
+
+.imagepreview-interface h2 {
+    padding: 0px;
+    margin: 0px;
 }

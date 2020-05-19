@@ -3,6 +3,7 @@ import '../../Styles/ImagePreview/ImagePreview.css';
 import DownloadButton from './DownloadButton';
 import ExpandButton from './ExpandButton';
 import Dimensions from './Dimensions';
+import Degrees from './Degrees';
 import { generateImage } from '../../Utils/colorUtils';
 
 class ImagePreview extends React.Component {
@@ -31,7 +32,8 @@ class ImagePreview extends React.Component {
     };
 
     render() {
-        let { gradient, width, height } = this.props;
+        const { gradient, width, height } = this.props;
+        const { degrees } = gradient;
         const background = gradient.toBgString();
         const DIV_MAX = 400;
 
@@ -64,6 +66,7 @@ class ImagePreview extends React.Component {
                 </div>
                 <div className='imagepreview-interface'>
                     <Dimensions height={height} width={width} />
+                    <Degrees degrees={degrees} />
                 </div>
             </div>
         );
