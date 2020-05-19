@@ -4,12 +4,12 @@ import { BsArrowsAngleExpand } from 'react-icons/bs';
 import { INPUT_TEXT_GRAY } from '../../Utils/hexConstants';
 
 function ExpandButton(props) {
-    // const { clickFunction } = props;
+    const { clickFunction } = props;
 
     return (
         <div
             className='expandbutton-container'
-            // onClick={clickFunction}
+            onClick={clickFunction}
             title='See full image'
         >
             <BsArrowsAngleExpand

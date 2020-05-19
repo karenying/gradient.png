@@ -195,6 +195,30 @@ function getColorwheel(hex) {
     return hslToHex(hsl);
 }
 
+function createGradient(gradient, width, height) {
+    const { stack, linear, degrees } = gradient;
+
+    const canvas = document.createElement('CANVAS');
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext('2d');
+
+    // does NOT account for angle
+    const g = ctx.createLinearGradient(0, 0, 0, height);
+    stack.forEach((color) => {
+        const { hex, stop } = color;
+        g.addColorStop(stop / 100, '#' + hex);
+    });
+
+    // Fill with gradient
+    ctx.fillStyle = g;
+    // (startx, starty, endx, endy)
+    ctx.fillRect(0, 0, width, height);
+    const url = canvas.toDataURL('image/png');
+
+    return url;
+}
+
 export {
     hexToRGB,
     isDark,
@@ -202,4 +226,5 @@ export {
     generateStopsBgString,
     getColorwheel,
     generateBgDisplayString,
+    createGradient,
 };

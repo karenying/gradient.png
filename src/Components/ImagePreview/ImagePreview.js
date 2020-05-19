@@ -3,33 +3,31 @@ import '../../Styles/ImagePreview/ImagePreview.css';
 import DownloadButton from './DownloadButton';
 import ExpandButton from './ExpandButton';
 import Dimensions from './Dimensions';
+import { createGradient } from '../../Utils/colorUtils';
 
 class ImagePreview extends React.Component {
-    download = () => {
+    createGradient() {
         const { gradient, width, height } = this.props;
-        const { stack, linear, degrees } = gradient;
+        return createGradient(gradient, width, height);
+    }
 
-        const canvas = document.createElement('CANVAS');
-        canvas.width = width;
-        canvas.height = height;
-        const ctx = canvas.getContext('2d');
-
-        // does NOT account for angle
-        const g = ctx.createLinearGradient(0, 0, 0, height);
-        stack.forEach((color) => {
-            const { hex, stop } = color;
-            g.addColorStop(stop / 100, '#' + hex);
-        });
-
-        // Fill with gradient
-        ctx.fillStyle = g;
-        // (startx, starty, endx, endy)
-        ctx.fillRect(0, 0, width, height);
-
+    download = () => {
+        const url = this.createGradient();
         const link = document.createElement('a');
         link.download = 'gradient.png';
-        link.href = canvas.toDataURL('image/png');
+        link.href = url;
         link.click();
+    };
+
+    expand = () => {
+        const url = this.createGradient();
+        const w = window.open('about:blank');
+        const image = new Image();
+        image.src = url;
+
+        setTimeout(function () {
+            w.document.write(image.outerHTML);
+        }, 0);
     };
 
     render() {
@@ -61,7 +59,7 @@ class ImagePreview extends React.Component {
                         width: scaledWidth,
                     }}
                 >
-                    <ExpandButton />
+                    <ExpandButton clickFunction={this.expand} />
                     <DownloadButton clickFunction={this.download} />
                 </div>
                 <div className='imagepreview-interface'>
