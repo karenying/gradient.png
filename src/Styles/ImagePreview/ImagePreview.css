@@ -18,4 +18,6 @@
 .imagepreview-container:hover .expandbutton-container,
 .imagepreview-container:hover .downloadbutton-container {
     display: flex;
+    -webkit-animation: fadein 0.5s;
+    animation: fadein 0.5s;
 }

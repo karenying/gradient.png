@@ -20,4 +20,6 @@
 
 .css-container:hover .copybutton-container {
     display: flex;
+    -webkit-animation: fadein 0.5s;
+    animation: fadein 0.5s;
 }
