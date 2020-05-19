@@ -6,10 +6,26 @@ import Dimensions from './Dimensions';
 
 class ImagePreview extends React.Component {
     download = () => {
+        const { gradient, width, height } = this.props;
+        const { stack, linear, degrees } = gradient;
+
         const canvas = document.createElement('CANVAS');
+        canvas.width = width;
+        canvas.height = height;
         const ctx = canvas.getContext('2d');
-        ctx.fillStyle = '#FF0000';
-        ctx.fillRect(0, 0, 150, 75);
+
+        // does NOT account for angle
+        const g = ctx.createLinearGradient(0, 0, 0, height);
+        stack.forEach((color) => {
+            const { hex, stop } = color;
+            g.addColorStop(stop / 100, '#' + hex);
+        });
+
+        // Fill with gradient
+        ctx.fillStyle = g;
+        // (startx, starty, endx, endy)
+        ctx.fillRect(0, 0, width, height);
+
         const link = document.createElement('a');
         link.download = 'gradient.png';
         link.href = canvas.toDataURL('image/png');
@@ -17,7 +33,7 @@ class ImagePreview extends React.Component {
     };
 
     render() {
-        let { height, width, gradient } = this.props;
+        let { gradient, width, height } = this.props;
         const background = gradient.generateBgString();
         const DIV_MAX = 400;
 

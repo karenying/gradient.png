@@ -15,8 +15,8 @@ class App extends React.Component {
     state = {
         gradient: BRANDY,
         selected: 0, // color selected out of gradient
-        height: 100,
-        width: 200,
+        width: 1125,
+        height: 2436,
         suggestedSelected: 'Brandy',
         suggested: [KAREN, SHARON, DORA, STEVEN, BRANDY],
     };

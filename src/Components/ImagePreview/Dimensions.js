@@ -6,11 +6,10 @@ function Dimensions(props) {
 
     return (
         <div className='dimensions-container'>
-            <h2>H</h2>
-            <input type='number' value={height}></input>
-
             <h2>W</h2>
             <input type='number' value={width}></input>
+            <h2>H</h2>
+            <input type='number' value={height}></input>
         </div>
     );
 }
