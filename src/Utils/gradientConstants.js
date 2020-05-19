@@ -57,4 +57,25 @@ const BRANDY = new Gradient(
     'Brandy'
 );
 
-export { KAREN, DORA, STEVEN, SHARON, BRANDY };
+const CHARLIE = new Gradient(
+    [new Color('89cff0', 0, true, 0), new Color('77dd77', 100, false, 1)],
+    true,
+    0,
+    'Charlie'
+);
+
+const JUDY = new Gradient(
+    [
+        new Color('ff598d', 0, true, 0),
+        new Color('d197ff', 33, false, 1),
+        new Color('ffafe6', 67, false, 2),
+        new Color('fff7ba', 100, false, 3),
+    ],
+    true,
+    45,
+    'Judy'
+);
+
+const SUGGESTIONS = [KAREN, DORA, STEVEN, SHARON, BRANDY, CHARLIE, JUDY];
+
+export { SUGGESTIONS };

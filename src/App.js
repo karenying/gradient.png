@@ -7,19 +7,30 @@ import Suggested from './Components/Suggested/Suggested';
 import StopBar from './Components/StopBar/StopBar';
 import CSS from './Components/CSS/CSS';
 import ImagePreview from './Components/ImagePreview/ImagePreview';
-
-import { KAREN, DORA, STEVEN, SHARON, BRANDY } from './Utils/gradientConstants';
+import { SUGGESTIONS } from './Utils/gradientConstants';
 import { Color } from './Utils/Color';
+import { shuffle } from './Utils/generalUtils';
 
 class App extends React.Component {
     state = {
-        gradient: BRANDY,
+        gradient: null,
         selected: 0, // color selected out of gradient
         width: 1125,
         height: 2436,
-        suggestedSelected: 'Brandy',
-        suggested: [KAREN, SHARON, DORA, STEVEN, BRANDY],
+        suggestedSelected: '',
+        suggested: [],
     };
+
+    componentWillMount() {
+        let shuffledSuggested = shuffle(SUGGESTIONS);
+        let shownSuggested = shuffledSuggested.slice(0, 4);
+        let first = shownSuggested[0];
+        this.setState({
+            gradient: first,
+            suggestedSelected: first.name,
+            suggested: shownSuggested,
+        });
+    }
 
     addColor = () => {
         const { gradient, selected } = this.state;
