@@ -11,7 +11,6 @@ class CSS extends React.Component {
 
     render() {
         const { gradient } = this.props;
-        console.log(gradient);
         const background = gradient.generateBgDisplayString();
 
         return (

@@ -77,7 +77,6 @@ function generateStopsBgString(gradient) {
 }
 
 function generateBgDisplayString(gradient) {
-    console.log(gradient.stack);
     const { stack, linear, degrees } = gradient;
     let background = 'background: ';
     background += linear

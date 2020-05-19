@@ -38,32 +38,70 @@ class App extends React.Component {
 
     addColor = () => {
         const { gradient, selected } = this.state;
-        const { stack } = gradient;
+        let gradientCopy = gradient.clone();
+        let { stack } = gradientCopy;
 
         if (stack.length < 5) {
-            let stackCopy = [...stack];
+            stack[selected].selected = false;
 
-            // set curr selected to false
-            stackCopy[selected].selected = false;
-
-            // scale other stops
             stack.forEach((c) => {
                 c.stop = Math.round((c.index / stack.length) * 100);
             });
 
-            // add color to stack and update selected
             const defaultColor = new Color('ffffff', 100, true, stack.length);
-            stackCopy.push(defaultColor);
+            stack.push(defaultColor);
 
-            gradient.stack = stackCopy;
-
-            this.setState((prevState) => ({
-                gradient: {
-                    ...prevState.gradient,
-                    stack: stackCopy,
-                },
+            this.setState({
+                gradient: gradientCopy,
                 selected: defaultColor.index,
-            }));
+            });
+        }
+    };
+
+    deleteColor = (e, deletedIndex) => {
+        const { gradient, selected } = this.state;
+        let gradientCopy = gradient.clone();
+        let { stack } = gradientCopy;
+
+        this.unsetSuggested();
+
+        if (stack.length > 2) {
+            e.stopPropagation();
+
+            if (deletedIndex === selected) {
+                let nextSelected;
+
+                if (deletedIndex === stack.length - 1) {
+                    nextSelected = deletedIndex - 1;
+                } else {
+                    nextSelected = deletedIndex + 1;
+                }
+                stack[nextSelected].selected = true;
+            }
+
+            if (deletedIndex <= selected) {
+                if (deletedIndex !== 0) {
+                    this.setState((prevState, props) => ({
+                        selected: prevState.selected - 1,
+                    }));
+                }
+            }
+
+            if (deletedIndex !== stack.length - 1) {
+                for (let i = deletedIndex + 1; i < stack.length; i++) {
+                    stack[i].index--;
+                }
+            }
+
+            stack.splice(deletedIndex, 1);
+
+            stack.forEach((c) => {
+                c.stop = Math.round((c.index / (stack.length - 1)) * 100);
+            });
+
+            this.setState({
+                gradient: gradientCopy,
+            });
         }
     };
 
@@ -85,65 +123,6 @@ class App extends React.Component {
             },
             selected: index,
         }));
-    };
-
-    deleteColor = (e, deletedIndex) => {
-        const { gradient, selected } = this.state;
-        const { stack } = gradient;
-
-        this.unsetSuggested();
-
-        if (stack.length > 2) {
-            e.stopPropagation();
-
-            let stackCopy = [...stack];
-            // set another as selected
-            if (deletedIndex === selected) {
-                let nextSelected;
-                // deleting the last one
-                if (deletedIndex === stack.length - 1) {
-                    nextSelected = deletedIndex - 1;
-                } else {
-                    nextSelected = deletedIndex + 1;
-                }
-                stackCopy[nextSelected].selected = true;
-            }
-
-            // update selected
-            if (deletedIndex <= selected) {
-                if (deletedIndex !== 0) {
-                    this.setState((prevState, props) => ({
-                        selected: prevState.selected - 1,
-                    }));
-                }
-            }
-
-            // update indices if not the last one
-            if (deletedIndex !== stack.length - 1) {
-                for (let i = deletedIndex + 1; i < stack.length; i++) {
-                    stackCopy[i].index--;
-                }
-            }
-
-            // remove from stack
-            stackCopy.splice(deletedIndex, 1);
-            console.log(stackCopy);
-
-            // scale other stops
-            stackCopy.forEach((c) => {
-                c.stop = Math.round((c.index / (stackCopy.length - 1)) * 100);
-            });
-
-            gradient.stack = stackCopy;
-            console.log(gradient.stack);
-
-            this.setState((prevState) => ({
-                gradient: {
-                    ...prevState.gradient,
-                    stack: stackCopy,
-                },
-            }));
-        }
     };
 
     setSuggested = (e, suggestedName) => {
@@ -176,8 +155,6 @@ class App extends React.Component {
         const { stack } = gradient;
         const color = stack[selected];
         const colorwheelColor = color.getColorwheel();
-
-        console.log(stack);
 
         return (
             <div className='App' onClick={this.unsetSuggested}>

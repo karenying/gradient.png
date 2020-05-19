@@ -21,6 +21,7 @@ class Gradient {
     };
 
     generateBgDisplayString = () => {
+        console.log(this.stack);
         return generateBgDisplayString(this);
     };
 
