@@ -4,12 +4,12 @@ import { FiDownload } from 'react-icons/fi';
 import { INPUT_TEXT_GRAY } from '../../Utils/hexConstants';
 
 function DownloadButton(props) {
-    // const { clickFunction } = props;
+    const { clickFunction } = props;
 
     return (
         <div
             className='downloadbutton-container'
-            // onClick={clickFunction}
+            onClick={clickFunction}
             title='Download image'
         >
             <FiDownload
