@@ -105,3 +105,11 @@ p {
     flex-direction: column;
     margin-left: 20px;
 }
+
+.MuiButtonBase-root p {
+    font-size: 15px;
+}
+
+.MuiButtonBase-root {
+    border-radius: 20px !important;
+}
