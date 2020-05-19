@@ -196,7 +196,7 @@ function getColorwheel(hex) {
 }
 
 function createGradient(gradient, width, height) {
-    const { stack, linear, degrees } = gradient;
+    const { stack /*linear, degrees*/ } = gradient;
 
     const canvas = document.createElement('CANVAS');
     canvas.width = width;

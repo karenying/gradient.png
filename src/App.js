@@ -10,13 +10,14 @@ import ImagePreview from './Components/ImagePreview/ImagePreview';
 import { SUGGESTIONS } from './Utils/gradientConstants';
 import { Color } from './Utils/Color';
 import { shuffle } from './Utils/generalUtils';
+import { IPHONE_10 } from './Utils/screenDimensionConstants';
 
 class App extends React.Component {
     state = {
         gradient: null,
         selected: 0, // color selected out of gradient
-        width: 1125,
-        height: 2436,
+        width: 0,
+        height: 0,
         suggestedSelected: '',
         suggested: [],
     };
@@ -25,10 +26,13 @@ class App extends React.Component {
         let shuffledSuggested = shuffle(SUGGESTIONS);
         let shownSuggested = shuffledSuggested.slice(0, 4);
         let first = shownSuggested[0];
+
         this.setState({
             gradient: first,
             suggestedSelected: first.name,
             suggested: shownSuggested,
+            height: IPHONE_10.height,
+            width: IPHONE_10.width,
         });
     }
 
