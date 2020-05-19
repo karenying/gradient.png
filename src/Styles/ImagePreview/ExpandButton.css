@@ -1,21 +1,19 @@
 .expandbutton-container {
-    /*
     position: absolute;
     left: 15px;
-    bottom: 70px; */
+    bottom: 70px;
     width: 40px;
     box-shadow: 2px 2px 7px black;
     cursor: pointer;
     border-radius: 25px;
     height: 40px;
     background-color: var(--input-text-light-gray);
+    display: none;
 
     -moz-transition: all 0.1s ease-in;
     -o-transition: all 0.1s ease-in;
     -webkit-transition: all 0.1s ease-in;
     transition: all 0.1s ease-in;
-    margin: 0px 10px;
-    display: flex;
 }
 
 .expandbutton-container:hover {

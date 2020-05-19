@@ -17,3 +17,7 @@
     border-radius: 5px;
     resize: none;
 }
+
+.css-container:hover .copybutton-container {
+    display: flex;
+}

@@ -32,11 +32,12 @@ function ImagePreview(props) {
                     height: scaledHeight,
                     width: scaledWidth,
                 }}
-            ></div>
-            <div className='imagepreview-interface'>
-                <Dimensions height={height} width={width} />
+            >
                 <ExpandButton />
                 <DownloadButton />
+            </div>
+            <div className='imagepreview-interface'>
+                <Dimensions height={height} width={width} />
             </div>
         </div>
     );
