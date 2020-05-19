@@ -136,7 +136,7 @@ class App extends React.Component {
             }
         });
 
-        this.setState({ suggestedSelected: suggestedName });
+        this.setState({ suggestedSelected: suggestedName, selected: 0 });
     };
 
     unsetSuggested = () => {
@@ -144,6 +144,7 @@ class App extends React.Component {
     };
 
     render() {
+        console.log(this.state);
         const {
             gradient,
             suggestedSelected,

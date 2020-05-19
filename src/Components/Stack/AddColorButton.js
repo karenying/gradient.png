@@ -5,10 +5,11 @@ import { INPUT_TEXT_GRAY } from '../../Utils/hexConstants';
 import { ButtonBase } from '@material-ui/core';
 
 function AddColorButton(props) {
-    const { clickFunction } = props;
+    const { clickFunction, disabled } = props;
+
     return (
         <div className='add-color-container'>
-            <ButtonBase centerRipple>
+            <ButtonBase centerRipple disableRipple={disabled}>
                 <div className='add-color-button' onClick={clickFunction}>
                     <IoIosAdd size='35px' color={INPUT_TEXT_GRAY} />
                     <p>Add Color</p>

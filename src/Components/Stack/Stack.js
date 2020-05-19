@@ -26,7 +26,10 @@ function Stack(props) {
                 <p>%</p>
             </div>
             {renderStack}
-            <AddColorButton clickFunction={addColor} />
+            <AddColorButton
+                clickFunction={addColor}
+                disabled={stack.length === 5}
+            />
         </div>
     );
 }

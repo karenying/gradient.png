@@ -17,7 +17,6 @@ class Gradient {
     };
 
     toCSSBgString = () => {
-        console.log(this.stack);
         return toCSSBgString(this);
     };
 
