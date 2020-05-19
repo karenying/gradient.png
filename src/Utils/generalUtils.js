@@ -18,4 +18,8 @@ function shuffle(array) {
     return array;
 }
 
-export { shuffle };
+function toRadians(degrees) {
+    return degrees * (Math.PI / 180);
+}
+
+export { shuffle, toRadians };

@@ -31,8 +31,8 @@ class App extends React.Component {
             gradient: first.clone(),
             suggestedSelected: first.name,
             suggested: shownSuggested,
-            height: IPHONE_10.height,
             width: IPHONE_10.width,
+            height: IPHONE_10.height,
         });
     }
 
