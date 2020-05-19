@@ -2,6 +2,7 @@ import React from 'react';
 import '../../Styles/ImagePreview/ImagePreview.css';
 import DownloadButton from './DownloadButton';
 import ExpandButton from './ExpandButton';
+import Dimensions from './Dimensions';
 
 function ImagePreview(props) {
     let { height, width, gradient } = props;
@@ -31,7 +32,9 @@ function ImagePreview(props) {
                     height: scaledHeight,
                     width: scaledWidth,
                 }}
-            >
+            ></div>
+            <div className='imagepreview-interface'>
+                <Dimensions height={height} width={width} />
                 <ExpandButton />
                 <DownloadButton />
             </div>

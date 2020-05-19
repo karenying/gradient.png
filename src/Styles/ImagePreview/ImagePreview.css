@@ -9,3 +9,8 @@
     border-radius: 5px;
     position: relative;
 }
+
+.imagepreview-interface {
+    display: flex;
+    align-items: baseline;
+}
