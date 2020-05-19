@@ -4,16 +4,17 @@ import { IoIosMenu, IoIosClose } from 'react-icons/io';
 import { INPUT_TEXT_GRAY } from '../../Utils/hexConstants';
 
 function StackItem(props) {
-    const { color, deleteFunction, selectFunction } = props;
+    const { color, deleteFunction, selectFunction, cannotDelete } = props;
     const { hex, stop, selected } = color;
     const selectedDiv = selected ? 'stackitem-selected' : '';
     const darkDiv = color.isDark() ? 'stackitem-dark' : '';
+    const closeDiv = cannotDelete ? 'stackitem-no-close' : 'stackitem-close';
 
     return (
         <div className={selectedDiv}>
             <div className='stackitem-container' onClick={selectFunction}>
                 <div className='stackitem-icon-container'>
-                    <div className='stackitem-icon'>
+                    <div className='stackitem-drag'>
                         <IoIosMenu
                             size='25px'
                             color={INPUT_TEXT_GRAY}
@@ -32,7 +33,7 @@ function StackItem(props) {
                 </div>
                 <input type='number' value={stop} onChange={() => {}}></input>
                 <div className='stackitem-icon-container'>
-                    <div className='stackitem-icon'>
+                    <div className={closeDiv}>
                         <IoIosClose
                             size='35px'
                             color={INPUT_TEXT_GRAY}

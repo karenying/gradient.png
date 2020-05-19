@@ -4,8 +4,12 @@
     justify-content: center;
 }
 
-.add-color-button {
-    cursor: pointer;
+.add-color-container p {
+    color: var(--input-text-gray);
+}
+
+.add-color-button,
+.add-color-button-disabled {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,15 +17,19 @@
     border-radius: 30px;
     box-shadow: 2px 2px 7px var(--input-text-gray);
     width: 130px;
+}
 
+.add-color-button {
+    cursor: pointer;
     -moz-transition: all 0.1s ease-in;
     -o-transition: all 0.1s ease-in;
     -webkit-transition: all 0.1s ease-in;
     transition: all 0.1s ease-in;
 }
 
-.add-color-button p {
-    color: var(--input-text-gray);
+.add-color-button-disabled {
+    cursor: not-allowed;
+    background-color: var(--hover-gray);
 }
 
 .add-color-button:hover {

@@ -14,6 +14,7 @@ function Stack(props) {
             deleteFunction={(e) => deleteColor(e, color.index)}
             selectFunction={() => changeSelected(color.index)}
             key={'stackitem-' + color.index}
+            cannotDelete={stack.length === 2}
         />
     ));
 

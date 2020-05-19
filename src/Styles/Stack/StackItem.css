@@ -13,15 +13,14 @@
     transition: all 0.1s ease-in;
 }
 
-.stackitem-container svg {
+.stackitem-drag svg,
+.stackitem-close svg {
     cursor: pointer;
-}
-
-.stackitem-container svg {
     transition: transform 0.1s;
 }
 
-.stackitem-container svg:hover {
+.stackitem-drag svg:hover,
+.stackitem-close svg:hover {
     transform: scale(1.15);
 }
 
@@ -36,14 +35,24 @@
     width: 48px;
 }
 
-.stackitem-icon {
+.stackitem-drag,
+.stackitem-close,
+.stackitem-no-close {
     display: none;
 }
 
-.stackitem-container:hover .stackitem-icon,
-.stackitem-selected .stackitem-icon {
+.stackitem-container:hover .stackitem-drag,
+.stackitem-container:hover .stackitem-close,
+.stackitem-container:hover .stackitem-no-close,
+.stackitem-selected .stackitem-drag,
+.stackitem-selected .stackitem-close,
+.stackitem-selected .stackitem-no-close {
     display: flex;
     align-items: center;
+}
+
+.stackitem-no-close {
+    cursor: not-allowed !important;
 }
 
 .stackitem-container:hover {

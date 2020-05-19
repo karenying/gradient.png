@@ -7,10 +7,14 @@ import { ButtonBase } from '@material-ui/core';
 function AddColorButton(props) {
     const { clickFunction, disabled } = props;
 
+    const buttonContainer = disabled
+        ? 'add-color-button-disabled'
+        : 'add-color-button';
+
     return (
         <div className='add-color-container'>
             <ButtonBase centerRipple disableRipple={disabled}>
-                <div className='add-color-button' onClick={clickFunction}>
+                <div className={buttonContainer} onClick={clickFunction}>
                     <IoIosAdd size='35px' color={INPUT_TEXT_GRAY} />
                     <p>Add Color</p>
                 </div>
