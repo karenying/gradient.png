@@ -55,6 +55,8 @@ class App extends React.Component {
             const defaultColor = new Color('ffffff', 100, true, stack.length);
             stackCopy.push(defaultColor);
 
+            gradient.stack = stackCopy;
+
             this.setState((prevState) => ({
                 gradient: {
                     ...prevState.gradient,
@@ -126,6 +128,8 @@ class App extends React.Component {
             stackCopy.forEach((c) => {
                 c.stop = Math.round((c.index / (stackCopy.length - 1)) * 100);
             });
+
+            gradient.stack = stackCopy;
 
             this.setState((prevState) => ({
                 gradient: {
