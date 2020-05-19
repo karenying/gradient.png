@@ -28,7 +28,7 @@ class App extends React.Component {
         let first = shownSuggested[0];
 
         this.setState({
-            gradient: first,
+            gradient: first.clone(),
             suggestedSelected: first.name,
             suggested: shownSuggested,
             height: IPHONE_10.height,
@@ -91,6 +91,8 @@ class App extends React.Component {
         const { gradient, selected } = this.state;
         const { stack } = gradient;
 
+        this.unsetSuggested();
+
         if (stack.length > 2) {
             e.stopPropagation();
 
@@ -109,9 +111,11 @@ class App extends React.Component {
 
             // update selected
             if (deletedIndex <= selected) {
-                this.setState((prevState, props) => ({
-                    selected: prevState.selected - 1,
-                }));
+                if (deletedIndex !== 0) {
+                    this.setState((prevState, props) => ({
+                        selected: prevState.selected - 1,
+                    }));
+                }
             }
 
             // update indices if not the last one
@@ -123,6 +127,7 @@ class App extends React.Component {
 
             // remove from stack
             stackCopy.splice(deletedIndex, 1);
+            console.log(stackCopy);
 
             // scale other stops
             stackCopy.forEach((c) => {
@@ -130,6 +135,7 @@ class App extends React.Component {
             });
 
             gradient.stack = stackCopy;
+            console.log(gradient.stack);
 
             this.setState((prevState) => ({
                 gradient: {
@@ -140,24 +146,6 @@ class App extends React.Component {
         }
     };
 
-    resetSuggested() {
-        let { suggested } = this.state;
-        let suggestedCopy = [...suggested];
-
-        suggestedCopy.forEach((gradient) => {
-            let { stack } = gradient;
-            stack[0].selected = true;
-            for (let i = 1; i < stack.length; i++) {
-                stack[i].selected = false;
-            }
-        });
-
-        this.setState({
-            suggested: suggestedCopy,
-            selected: 0,
-        });
-    }
-
     setSuggested = (e, suggestedName) => {
         e.stopPropagation();
 
@@ -165,11 +153,10 @@ class App extends React.Component {
 
         suggested.forEach((gradient) => {
             if (gradient.name === suggestedName) {
-                this.setState({ gradient });
+                this.setState({ gradient: gradient.clone() });
             }
         });
 
-        this.resetSuggested();
         this.setState({ suggestedSelected: suggestedName });
     };
 

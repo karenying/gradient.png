@@ -23,7 +23,15 @@ class Gradient {
     generateBgDisplayString = () => {
         return generateBgDisplayString(this);
     };
-    copy = () => {};
+
+    clone = () => {
+        return new Gradient(
+            this.stack.map((color) => color.clone()),
+            this.linear,
+            this.degrees,
+            ''
+        );
+    };
 }
 
 export { Gradient };

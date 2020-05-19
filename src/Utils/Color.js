@@ -19,6 +19,10 @@ class Color {
     getColorwheel = () => {
         return getColorwheel(this.hex);
     };
+
+    clone = () => {
+        return new Color(this.hex, this.stop, this.selected, this.index);
+    };
 }
 
 export { Color };
