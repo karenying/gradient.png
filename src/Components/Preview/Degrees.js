@@ -7,7 +7,11 @@ function Degrees(props) {
     return (
         <div className='degrees-container'>
             <p>°</p>
-            <input type='number' value={degrees}></input>
+            <input
+                type='number'
+                value={degrees}
+                style={{ marginLeft: '10px' }}
+            ></input>
         </div>
     );
 }

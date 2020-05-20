@@ -62,10 +62,8 @@ function toBgString(gradient) {
 }
 
 function toStopBarBgString(gradient) {
-    const { stack, isLinear } = gradient;
-    let background = isLinear
-        ? 'linear-gradient(90deg, '
-        : 'radial-gradient(circle, ';
+    const { stack } = gradient;
+    let background = 'linear-gradient(90deg, ';
 
     let colorString = [];
     for (let i = 0; i < stack.length; i++) {

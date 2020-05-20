@@ -5,6 +5,10 @@
     width: 350px;
 }
 
+.preview-header {
+    display: flex;
+}
+
 .preview-content {
     border-radius: 5px;
     position: relative;
@@ -26,10 +30,21 @@
     height: 40px;
     width: 70px;
     font-size: 15px;
-    margin: 0px 20px 0px 10px;
 }
 
 .preview-interface p {
     color: var(--label-gray);
     font-weight: 600;
+}
+
+.preview-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.preview-header h2 {
+    padding-right: 20px;
+    border-right: 1px solid var(--label-gray);
+    margin: 0px;
 }

@@ -10,7 +10,7 @@ import Preview from './Components/Preview/Preview';
 import { SUGGESTIONS } from './Utils/gradientConstants';
 import { Color } from './Utils/Color';
 import { shuffle } from './Utils/generalUtils';
-import { IPHONE_10 } from './Utils/screenDimensionConstants';
+import { IPHONE_10, IPHONE_6 } from './Utils/screenDimensionConstants';
 
 class App extends React.Component {
     state = {
@@ -32,8 +32,8 @@ class App extends React.Component {
             suggestedSelected: first.name,
             suggested: shownSuggested,
 
-            width: IPHONE_10.width,
-            height: IPHONE_10.height,
+            width: IPHONE_6.width,
+            height: IPHONE_6.height,
         });
     }
 
@@ -144,6 +144,17 @@ class App extends React.Component {
         this.setState({ suggestedSelected: '' });
     };
 
+    handleLinearRadialChange = () => {
+        const { gradient } = this.state;
+        let gradientCopy = gradient.clone();
+        const change = !gradient.isLinear;
+        gradientCopy.isLinear = change;
+
+        this.setState({
+            gradient: gradientCopy,
+        });
+    };
+
     render() {
         const {
             gradient,
@@ -181,7 +192,7 @@ class App extends React.Component {
                                     <Suggested
                                         suggested={suggested}
                                         selected={suggestedSelected}
-                                        selectFunction={this.setSuggested}
+                                        setSuggested={this.setSuggested}
                                     />
                                 </div>
                             </div>
@@ -193,6 +204,9 @@ class App extends React.Component {
                                 gradient={gradient}
                                 height={height}
                                 width={width}
+                                handleLinearRadialChange={
+                                    this.handleLinearRadialChange
+                                }
                             />
                             <CSS gradient={gradient} />
                         </div>

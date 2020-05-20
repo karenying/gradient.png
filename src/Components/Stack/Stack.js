@@ -12,7 +12,7 @@ function Stack(props) {
             color={color}
             stack={stack}
             deleteFunction={(e) => deleteColor(e, color.index)}
-            selectFunction={() => changeSelected(color.index)}
+            setSuggested={() => changeSelected(color.index)}
             key={'stackitem-' + color.index}
             cannotDelete={stack.length === 2}
         />

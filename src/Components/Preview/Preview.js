@@ -4,6 +4,7 @@ import DownloadButton from './DownloadButton';
 import ExpandButton from './ExpandButton';
 import Dimensions from './Dimensions';
 import Degrees from './Degrees';
+import LinearRadial from './LinearRadial';
 import { generateImage } from '../../Utils/colorUtils';
 
 class Preview extends React.Component {
@@ -32,8 +33,13 @@ class Preview extends React.Component {
     };
 
     render() {
-        const { gradient, width, height } = this.props;
-        const { degrees } = gradient;
+        const {
+            gradient,
+            width,
+            height,
+            handleLinearRadialChange,
+        } = this.props;
+        const { degrees, isLinear } = gradient;
         const background = gradient.toBgString();
         const DIV_MAX = 350;
 
@@ -51,9 +57,13 @@ class Preview extends React.Component {
         }
 
         return (
-            <div className='imagepreview-container'>
-                <div>
+            <div className='preview-container'>
+                <div className='preview-header'>
                     <h2>PREVIEW</h2>
+                    <LinearRadial
+                        isLinear={isLinear}
+                        changeFunction={handleLinearRadialChange}
+                    />
                 </div>
 
                 <div

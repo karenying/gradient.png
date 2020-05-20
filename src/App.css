@@ -131,3 +131,13 @@ p {
 .MuiButtonBase-root {
     border-radius: 20px !important;
 }
+
+.MuiFormGroup-root {
+    flex-direction: row !important;
+}
+
+.MuiTypography-body1 {
+    font-weight: 600 !important;
+    color: var(--label-gray) !important;
+    font-family: 'Poppins' !important;
+}

@@ -3,14 +3,14 @@ import '../../Styles/Suggested/Suggested.css';
 import SuggestedItem from './SuggestedItem';
 
 function Suggested(props) {
-    const { selected, suggested, selectFunction } = props;
+    const { selected, suggested, setSuggested } = props;
 
     const renderSuggested = suggested.map((gradient) => (
         <SuggestedItem
             gradient={gradient}
             selected={selected === gradient.name}
             key={'suggesteditem-' + gradient.name}
-            selectFunction={(e) => selectFunction(e, gradient.name)}
+            setSuggested={(e) => setSuggested(e, gradient.name)}
         />
     ));
 
