@@ -6,13 +6,14 @@ import { ButtonBase } from '@material-ui/core';
 
 function ExpandButton(props) {
     const { clickFunction, display } = props;
+    const style = display ? { '': '' } : { display: 'none' };
 
     return (
         <div
             className='expandbutton-container'
             onClick={clickFunction}
             title='See full image'
-            style={{ display }}
+            style={style}
         >
             <ButtonBase centerRipple>
                 <BsArrowsAngleExpand

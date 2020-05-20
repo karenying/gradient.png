@@ -50,6 +50,8 @@ function calculateCenterOffset(width, height, center) {
 function calculateRadius(width, height, center) {
     const hyp = Math.sqrt(width * width + height * height);
     const longer = Math.max(width, height);
+    const shorter = Math.min(width, height);
+    const halfHype = Math.sqrt((longer * longer) / 4 + shorter * shorter);
 
     switch (center) {
         case 'top left':
@@ -61,7 +63,7 @@ function calculateRadius(width, height, center) {
         case 'center right':
         case 'bottom center':
         case 'center left':
-            return longer;
+            return halfHype;
         case 'center center':
             return longer / 2;
         default:

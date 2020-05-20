@@ -50,7 +50,7 @@ class Preview extends React.Component {
             handleDegreesChange,
         } = this.props;
         const { degrees, isLinear, center } = gradient;
-        const display = this.isValidImage() ? 'flex' : 'none';
+        const display = this.isValidImage();
         const Customize = isLinear ? (
             <Degrees
                 degrees={degrees}
@@ -62,13 +62,14 @@ class Preview extends React.Component {
         const background = gradient.toBgString();
         const DIV_MAX = 350;
 
-        let longer = Math.max(height, width);
-        let shorter = Math.min(height, width);
+        const longer = Math.max(height, width);
+        const shorter = Math.min(height, width);
 
         let scaledHeight, scaledWidth;
 
         if (longer === height) {
             scaledHeight = DIV_MAX;
+
             scaledWidth = (DIV_MAX / longer) * shorter;
         } else {
             scaledWidth = DIV_MAX;

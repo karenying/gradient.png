@@ -6,13 +6,14 @@ import { ButtonBase } from '@material-ui/core';
 
 function DownloadButton(props) {
     const { clickFunction, display } = props;
+    const style = display ? { '': '' } : { display: 'none' };
 
     return (
         <div
             className='downloadbutton-container'
             onClick={clickFunction}
             title='Download image'
-            style={{ display }}
+            style={style}
         >
             <ButtonBase centerRipple>
                 <FiDownload

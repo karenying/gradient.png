@@ -166,7 +166,11 @@ class App extends React.Component {
     };
 
     handleWidthChange = (e) => {
-        const newWidth = e.target.value;
+        let newWidth = e.target.value;
+
+        if (newWidth) {
+            newWidth = Number(newWidth);
+        }
         if (newWidth <= MAX_SIZE) {
             this.setState({
                 width: newWidth,
@@ -175,7 +179,11 @@ class App extends React.Component {
     };
 
     handleHeightChange = (e) => {
-        const newHeight = e.target.value;
+        let newHeight = e.target.value;
+
+        if (newHeight) {
+            newHeight = Number(newHeight);
+        }
         if (newHeight <= MAX_SIZE) {
             this.setState({
                 height: newHeight,
