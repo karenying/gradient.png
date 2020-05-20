@@ -51,9 +51,10 @@ function isDark(hex) {
 
 function toBgString(gradient) {
     const { stack, isLinear, degrees, center } = gradient;
+    const validDegrees = degrees || 0;
     let centerString = center === 'center center' ? '' : ' at ' + center;
     let background = isLinear
-        ? 'linear-gradient(' + degrees + 'deg, '
+        ? 'linear-gradient(' + validDegrees + 'deg, '
         : 'radial-gradient(circle' + centerString + ', ';
 
     let colorString = [];
@@ -82,11 +83,12 @@ function toStopBarBgString(gradient) {
 
 function toCSSBgString(gradient) {
     const { stack, isLinear, degrees, center } = gradient;
+    const validDegrees = degrees || 0;
     let centerString = center === 'center center' ? '' : ' at ' + center;
 
     let background = 'background: ';
     background += isLinear
-        ? 'linear-gradient(\n    ' + degrees + 'deg,\n    '
+        ? 'linear-gradient(\n    ' + validDegrees + 'deg,\n    '
         : 'radial-gradient(\n    circle' + centerString + ',\n    ';
 
     let colorString = [];
@@ -203,6 +205,7 @@ function getColorwheel(hex) {
 
 function generateImage(gradient, width, height) {
     const { stack, isLinear, degrees, center } = gradient;
+    const validDegrees = degrees || 0;
 
     const canvas = document.createElement('CANVAS');
     canvas.width = width;
@@ -213,7 +216,7 @@ function generateImage(gradient, width, height) {
     if (isLinear) {
         const maxLen = width;
         const aspect = height / width;
-        const angle = Math.PI / 2 + toRadians(degrees);
+        const angle = Math.PI / 2 + toRadians(validDegrees);
         g = ctx.createLinearGradient(
             width / 2 + Math.cos(angle) * maxLen * 0.5,
             height / 2 + Math.sin(angle) * maxLen * 0.5 * aspect,

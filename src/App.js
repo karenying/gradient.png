@@ -192,7 +192,11 @@ class App extends React.Component {
     };
 
     handleDegreesChange = (e) => {
-        const newDegrees = e.target.value;
+        let newDegrees = e.target.value;
+
+        if (newDegrees) {
+            newDegrees = Number(newDegrees);
+        }
 
         if (newDegrees >= 0 && newDegrees < 360) {
             const { gradient } = this.state;
