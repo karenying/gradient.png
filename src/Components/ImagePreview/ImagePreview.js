@@ -35,7 +35,7 @@ class ImagePreview extends React.Component {
         const { gradient, width, height } = this.props;
         const { degrees } = gradient;
         const background = gradient.toBgString();
-        const DIV_MAX = 400;
+        const DIV_MAX = 350;
 
         let longer = Math.max(height, width);
         let shorter = Math.min(height, width);

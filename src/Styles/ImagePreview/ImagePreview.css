@@ -1,8 +1,8 @@
 .imagepreview-container {
     display: flex;
     flex-direction: column;
-    height: 500px;
-    width: 500px;
+    height: 450px;
+    width: 450px;
 }
 
 .imagepreview-content {

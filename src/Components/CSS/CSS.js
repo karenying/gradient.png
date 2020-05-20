@@ -19,10 +19,10 @@ class CSS extends React.Component {
                 <div className='css-content'>
                     <textarea
                         name='text'
-                        rows='9'
+                        rows='8'
                         cols='10'
                         wrap='soft'
-                        readonly
+                        readOnly
                         value={background}
                         ref={(textarea) => (this.textArea = textarea)}
                     ></textarea>

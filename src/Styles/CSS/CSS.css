@@ -1,7 +1,7 @@
 .css-container {
-    margin-top: 30px;
+    margin-top: 10px;
     position: relative;
-    height: 257px;
+    height: 200px;
     display: flex;
     flex-direction: column;
 }
@@ -12,8 +12,8 @@
     text-align: left;
     font-family: monospace;
     padding: 20px;
-    font-size: 15px;
-    width: 400px;
+    font-size: 12px;
+    width: 350px;
     border-radius: 5px;
     resize: none;
 }
