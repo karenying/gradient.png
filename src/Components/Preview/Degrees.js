@@ -1,12 +1,12 @@
 import React from 'react';
-import '../../Styles/ImagePreview/Degrees.css';
+import '../../Styles/Preview/Degrees.css';
 
 function Degrees(props) {
     const { degrees } = props;
 
     return (
         <div className='degrees-container'>
-            <h2>°</h2>
+            <p>°</p>
             <input type='number' value={degrees}></input>
         </div>
     );

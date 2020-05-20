@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Styles/ImagePreview/DownloadButton.css';
+import '../../Styles/Preview/DownloadButton.css';
 import { FiDownload } from 'react-icons/fi';
 import { INPUT_TEXT_GRAY } from '../../Utils/hexConstants';
 import { ButtonBase } from '@material-ui/core';

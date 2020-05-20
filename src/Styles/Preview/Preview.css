@@ -1,36 +1,35 @@
-.imagepreview-container {
+.preview-container {
     display: flex;
     flex-direction: column;
     height: 450px;
     width: 350px;
 }
 
-.imagepreview-content {
+.preview-content {
     border-radius: 5px;
     position: relative;
 }
 
-.imagepreview-interface {
+.preview-interface {
     display: flex;
-    align-items: center;
     margin-top: 15px;
 }
 
-.imagepreview-container:hover .expandbutton-container,
-.imagepreview-container:hover .downloadbutton-container {
+.preview-container:hover .expandbutton-container,
+.preview-container:hover .downloadbutton-container {
     display: flex;
     -webkit-animation: fadein 0.5s;
     animation: fadein 0.5s;
 }
 
-.imagepreview-interface input {
+.preview-interface input {
     height: 40px;
     width: 70px;
     font-size: 15px;
     margin: 0px 20px 0px 10px;
 }
 
-.imagepreview-interface h2 {
-    padding: 0px;
-    margin: 0px;
+.preview-interface p {
+    color: var(--label-gray);
+    font-weight: 600;
 }

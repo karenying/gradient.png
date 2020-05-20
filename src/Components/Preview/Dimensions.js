@@ -1,14 +1,14 @@
 import React from 'react';
-import '../../Styles/ImagePreview/Dimensions.css';
+import '../../Styles/Preview/Dimensions.css';
 
 function Dimensions(props) {
     const { height, width } = props;
 
     return (
         <div className='dimensions-container'>
-            <h2>W</h2>
+            <p>W</p>
             <input type='number' value={width}></input>
-            <h2>H</h2>
+            <p>H</p>
             <input type='number' value={height}></input>
         </div>
     );

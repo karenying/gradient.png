@@ -1,12 +1,12 @@
 import React from 'react';
-import '../../Styles/ImagePreview/ImagePreview.css';
+import '../../Styles/Preview/Preview.css';
 import DownloadButton from './DownloadButton';
 import ExpandButton from './ExpandButton';
 import Dimensions from './Dimensions';
 import Degrees from './Degrees';
 import { generateImage } from '../../Utils/colorUtils';
 
-class ImagePreview extends React.Component {
+class Preview extends React.Component {
     generateImage() {
         const { gradient, width, height } = this.props;
         return generateImage(gradient, width, height);
@@ -52,9 +52,12 @@ class ImagePreview extends React.Component {
 
         return (
             <div className='imagepreview-container'>
-                <h2>IMAGE PREVIEW</h2>
+                <div>
+                    <h2>PREVIEW</h2>
+                </div>
+
                 <div
-                    className='imagepreview-content'
+                    className='preview-content'
                     style={{
                         background,
                         height: scaledHeight,
@@ -64,7 +67,7 @@ class ImagePreview extends React.Component {
                     <ExpandButton clickFunction={this.expand} />
                     <DownloadButton clickFunction={this.download} />
                 </div>
-                <div className='imagepreview-interface'>
+                <div className='preview-interface'>
                     <Dimensions height={height} width={width} />
                     <Degrees degrees={degrees} />
                 </div>
@@ -73,4 +76,4 @@ class ImagePreview extends React.Component {
     }
 }
 
-export default ImagePreview;
+export default Preview;

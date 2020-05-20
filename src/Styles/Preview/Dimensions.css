@@ -1,0 +1,5 @@
+.dimensions-container {
+    display: flex;
+    align-items: baseline;
+    border-right: 1px solid var(--label-gray);
+}

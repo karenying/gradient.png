@@ -6,7 +6,7 @@ import Stack from './Components/Stack/Stack';
 import Suggested from './Components/Suggested/Suggested';
 import StopBar from './Components/StopBar/StopBar';
 import CSS from './Components/CSS/CSS';
-import ImagePreview from './Components/ImagePreview/ImagePreview';
+import Preview from './Components/Preview/Preview';
 import { SUGGESTIONS } from './Utils/gradientConstants';
 import { Color } from './Utils/Color';
 import { shuffle } from './Utils/generalUtils';
@@ -31,11 +31,9 @@ class App extends React.Component {
             gradient: first.clone(),
             suggestedSelected: first.name,
             suggested: shownSuggested,
-            /*
+
             width: IPHONE_10.width,
-            height: IPHONE_10.height, */
-            width: 200,
-            height: 100,
+            height: IPHONE_10.height,
         });
     }
 
@@ -191,7 +189,7 @@ class App extends React.Component {
                     </div>
                     <div className='wrapper'>
                         <div className='right'>
-                            <ImagePreview
+                            <Preview
                                 gradient={gradient}
                                 height={height}
                                 width={width}

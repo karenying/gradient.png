@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Styles/ImagePreview/ExpandButton.css';
+import '../../Styles/Preview/ExpandButton.css';
 import { BsArrowsAngleExpand } from 'react-icons/bs';
 import { INPUT_TEXT_GRAY } from '../../Utils/hexConstants';
 import { ButtonBase } from '@material-ui/core';
