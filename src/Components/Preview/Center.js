@@ -15,10 +15,6 @@ function Center(props) {
         'bottom right',
     ];
 
-    function click(position) {
-        console.log(position);
-    }
-
     const renderPositions = positions.map((position) =>
         position === center ? (
             <div

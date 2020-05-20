@@ -1,4 +1,8 @@
-import { toRadians } from './generalUtils';
+import {
+    toRadians,
+    calculateCenterOffset,
+    calculateRadius,
+} from './generalUtils';
 
 function hexToRGB(hex, primary) {
     let s;
@@ -198,7 +202,7 @@ function getColorwheel(hex) {
 }
 
 function generateImage(gradient, width, height) {
-    const { stack, isLinear, degrees } = gradient;
+    const { stack, isLinear, degrees, center } = gradient;
 
     const canvas = document.createElement('CANVAS');
     canvas.width = width;
@@ -217,18 +221,17 @@ function generateImage(gradient, width, height) {
             height / 2 - Math.sin(angle) * maxLen * 0.5 * aspect
         );
     } else {
-        let longer = Math.max(height, width);
-        let radius = longer / 2;
-
-        let start = (stack[0].stop / 100) * radius;
-        let end = (stack[stack.length - 1].stop / 100) * radius;
+        const radius = calculateRadius(width, height, center);
+        const start = (stack[0].stop / 100) * radius;
+        const end = (stack[stack.length - 1].stop / 100) * radius;
+        const offset = calculateCenterOffset(width, height, center);
 
         g = ctx.createRadialGradient(
-            width / 2,
-            height / 2,
+            width / 2 + offset.width,
+            height / 2 + offset.height,
             start,
-            width / 2,
-            height / 2,
+            width / 2 + offset.width,
+            height / 2 + offset.height,
             end
         );
     }

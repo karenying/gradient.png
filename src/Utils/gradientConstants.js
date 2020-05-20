@@ -93,6 +93,7 @@ const BRYAN = new Gradient(
     ],
     true,
     0,
+    'bottom right',
     'Bryan'
 );
 

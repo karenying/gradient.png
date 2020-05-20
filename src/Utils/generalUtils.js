@@ -22,4 +22,51 @@ function toRadians(degrees) {
     return degrees * (Math.PI / 180);
 }
 
-export { shuffle, toRadians };
+function calculateCenterOffset(width, height, center) {
+    switch (center) {
+        case 'top left':
+            return { width: -width / 2, height: -height / 2 };
+        case 'top center':
+            return { width: 0, height: -height / 2 };
+        case 'top right':
+            return { width: width / 2, height: -height / 2 };
+        case 'center left':
+            return { width: -width / 2, height: 0 };
+        case 'center center':
+            return { width: 0, height: 0 };
+        case 'center right':
+            return { width: width / 2, height: 0 };
+        case 'bottom left':
+            return { width: -width / 2, height: height / 2 };
+        case 'bottom center':
+            return { width: 0, height: height / 2 };
+        case 'bottom right':
+            return { width: width / 2, height: height / 2 };
+        default:
+            return;
+    }
+}
+
+function calculateRadius(width, height, center) {
+    const hyp = Math.sqrt(width * width + height * height);
+    const longer = Math.max(width, height);
+
+    switch (center) {
+        case 'top left':
+        case 'top right':
+        case 'bottom right':
+        case 'bottom left':
+            return hyp;
+        case 'top center':
+        case 'center right':
+        case 'bottom center':
+        case 'center left':
+            return longer;
+        case 'center center':
+            return longer / 2;
+        default:
+            return;
+    }
+}
+
+export { shuffle, toRadians, calculateCenterOffset, calculateRadius };
