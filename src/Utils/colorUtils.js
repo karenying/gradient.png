@@ -195,21 +195,40 @@ function getColorwheel(hex) {
 }
 
 function generateImage(gradient, width, height) {
-    const { stack, /*isLinear */ degrees } = gradient;
+    const { stack, isLinear, degrees } = gradient;
 
     const canvas = document.createElement('CANVAS');
     canvas.width = width;
     canvas.height = height;
     const ctx = canvas.getContext('2d');
-    const maxLen = width;
-    const aspect = height / width;
-    const angle = Math.PI / 2 + toRadians(degrees);
-    const g = ctx.createLinearGradient(
-        width / 2 + Math.cos(angle) * maxLen * 0.5,
-        height / 2 + Math.sin(angle) * maxLen * 0.5 * aspect,
-        width / 2 - Math.cos(angle) * maxLen * 0.5,
-        height / 2 - Math.sin(angle) * maxLen * 0.5 * aspect
-    );
+    let g;
+
+    if (isLinear) {
+        const maxLen = width;
+        const aspect = height / width;
+        const angle = Math.PI / 2 + toRadians(degrees);
+        g = ctx.createLinearGradient(
+            width / 2 + Math.cos(angle) * maxLen * 0.5,
+            height / 2 + Math.sin(angle) * maxLen * 0.5 * aspect,
+            width / 2 - Math.cos(angle) * maxLen * 0.5,
+            height / 2 - Math.sin(angle) * maxLen * 0.5 * aspect
+        );
+    } else {
+        let longer = Math.max(height, width);
+        let radius = longer / 2;
+
+        let start = (stack[0].stop / 100) * radius;
+        let end = (stack[stack.length - 1].stop / 100) * radius;
+
+        g = ctx.createRadialGradient(
+            width / 2,
+            height / 2,
+            start,
+            width / 2,
+            height / 2,
+            end
+        );
+    }
 
     stack.forEach((color) => {
         const { hex, stop } = color;

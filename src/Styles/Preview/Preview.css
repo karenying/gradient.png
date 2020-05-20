@@ -16,7 +16,7 @@
 
 .preview-interface {
     display: flex;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .preview-container:hover .expandbutton-container,

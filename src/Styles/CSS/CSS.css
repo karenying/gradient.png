@@ -1,9 +1,13 @@
 .css-container {
-    margin-top: 10px;
+    margin-top: 15px;
     position: relative;
     height: auto;
     display: flex;
     flex-direction: column;
+}
+
+.css-content {
+    height: 154px;
 }
 
 .css-content textarea {
@@ -17,7 +21,6 @@
     border-radius: 5px;
     resize: none;
     box-sizing: border-box;
-    height: auto;
 }
 
 .css-container:hover .copybutton-container {

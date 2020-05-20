@@ -78,8 +78,12 @@ class Preview extends React.Component {
                     <DownloadButton clickFunction={this.download} />
                 </div>
                 <div className='preview-interface'>
-                    <Dimensions height={height} width={width} />
-                    <Degrees degrees={degrees} />
+                    <Dimensions
+                        height={height}
+                        width={width}
+                        isLinear={isLinear}
+                    />
+                    <Degrees degrees={degrees} isLinear={isLinear} />
                 </div>
             </div>
         );

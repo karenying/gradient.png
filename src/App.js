@@ -31,9 +31,12 @@ class App extends React.Component {
             gradient: first.clone(),
             suggestedSelected: first.name,
             suggested: shownSuggested,
-
+            /*
             width: IPHONE_6.width,
             height: IPHONE_6.height,
+            */
+            width: 200,
+            height: 100,
         });
     }
 
