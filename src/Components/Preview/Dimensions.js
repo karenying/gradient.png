@@ -2,11 +2,10 @@ import React from 'react';
 import '../../Styles/Preview/Dimensions.css';
 
 function Dimensions(props) {
-    const { height, width, isLinear } = props;
-    const borderRight = isLinear ? '1px solid var(--label-gray)' : '';
+    const { height, width } = props;
 
     return (
-        <div className='dimensions-container' style={{ borderRight }}>
+        <div className='dimensions-container'>
             <p>W</p>
             <input
                 type='number'

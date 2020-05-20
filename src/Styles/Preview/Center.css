@@ -1,0 +1,26 @@
+.center-container {
+    display: grid;
+    height: 40px;
+    width: 40px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.center-container-item {
+    height: 100%;
+    width: 100%;
+    border: 0.5px solid var(--label-gray);
+}
+
+.center-container-item:hover {
+    background-color: var(--hover-gray);
+}
+
+.center-container-item-selected {
+    height: 100%;
+    width: 100%;
+    background-color: var(--hover-gray);
+    border: 0.5px solid var(--label-gray);
+}

@@ -2,11 +2,10 @@ import React from 'react';
 import '../../Styles/Preview/Degrees.css';
 
 function Degrees(props) {
-    const { degrees, isLinear } = props;
-    const display = isLinear ? 'flex' : 'none';
+    const { degrees } = props;
 
     return (
-        <div className='degrees-container' style={{ display }}>
+        <div className='degrees-container'>
             <p>°</p>
             <input
                 type='number'

@@ -3,3 +3,7 @@
     align-items: baseline;
     padding-right: 20px;
 }
+
+.dimensions-container {
+    border-right: 1px solid var(--label-gray);
+}

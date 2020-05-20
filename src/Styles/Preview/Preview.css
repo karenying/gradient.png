@@ -17,6 +17,7 @@
 .preview-interface {
     display: flex;
     margin-top: 5px;
+    align-items: center;
 }
 
 .preview-container:hover .expandbutton-container,
