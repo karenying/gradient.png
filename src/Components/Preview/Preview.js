@@ -41,7 +41,11 @@ class Preview extends React.Component {
             handleLinearRadialChange,
         } = this.props;
         const { degrees, isLinear } = gradient;
-        const Customize = isLinear ? <Degrees degrees={degrees} /> : <Center />;
+        const Customize = isLinear ? (
+            <Degrees degrees={degrees} />
+        ) : (
+            <Center center='bottom left' />
+        );
         const background = gradient.toBgString();
         const DIV_MAX = 350;
 

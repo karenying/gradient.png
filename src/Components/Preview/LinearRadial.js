@@ -6,13 +6,16 @@ import {
     Radio,
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import { LABEL_GRAY } from '../../Utils/hexConstants';
+import { LABEL_GRAY, HOVER_GRAY } from '../../Utils/hexConstants';
 
 const GrayRadio = withStyles({
     root: {
         color: LABEL_GRAY,
         '&$checked': {
             color: LABEL_GRAY,
+        },
+        '&:hover': {
+            background: HOVER_GRAY,
         },
     },
     checked: {},

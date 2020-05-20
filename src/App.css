@@ -141,3 +141,7 @@ p {
     color: var(--label-gray) !important;
     font-family: 'Poppins' !important;
 }
+
+.PrivateSwitchBase-root-23 {
+    padding: 5px !important;
+}
