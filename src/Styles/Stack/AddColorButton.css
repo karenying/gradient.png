@@ -8,8 +8,7 @@
     color: var(--input-text-gray);
 }
 
-.add-color-button,
-.add-color-button-disabled {
+.add-color-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,9 +16,6 @@
     border-radius: 30px;
     box-shadow: 2px 2px 7px var(--input-text-gray);
     width: 130px;
-}
-
-.add-color-button {
     cursor: pointer;
     -moz-transition: all 0.1s ease-in;
     -o-transition: all 0.1s ease-in;
@@ -28,8 +24,7 @@
 }
 
 .add-color-button-disabled {
-    cursor: not-allowed;
-    background-color: var(--hover-gray);
+    display: none;
 }
 
 .add-color-button:hover {

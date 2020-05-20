@@ -20,7 +20,6 @@ class CSS extends React.Component {
                     <textarea
                         name='text'
                         rows='8'
-                        cols='10'
                         wrap='soft'
                         readOnly
                         value={background}

@@ -9,12 +9,12 @@ function AddColorButton(props) {
 
     const buttonContainer = disabled
         ? 'add-color-button-disabled'
-        : 'add-color-button';
+        : 'add-color-container';
 
     return (
-        <div className='add-color-container'>
-            <ButtonBase centerRipple disableRipple={disabled}>
-                <div className={buttonContainer} onClick={clickFunction}>
+        <div className={buttonContainer}>
+            <ButtonBase centerRipple>
+                <div className='add-color-button' onClick={clickFunction}>
                     <IoIosAdd size='35px' color={INPUT_TEXT_GRAY} />
                     <p>Add Color</p>
                 </div>

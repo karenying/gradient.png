@@ -1,7 +1,7 @@
 .expandbutton-container {
     position: absolute;
-    left: 15px;
-    bottom: 70px;
+    left: 10px;
+    bottom: 65px;
     width: 40px;
     box-shadow: 2px 2px 7px black;
     cursor: pointer;

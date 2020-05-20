@@ -31,8 +31,11 @@ class App extends React.Component {
             gradient: first.clone(),
             suggestedSelected: first.name,
             suggested: shownSuggested,
+            /*
             width: IPHONE_10.width,
-            height: IPHONE_10.height,
+            height: IPHONE_10.height, */
+            width: 200,
+            height: 100,
         });
     }
 
@@ -160,35 +163,41 @@ class App extends React.Component {
             <div className='App' onClick={this.unsetSuggested}>
                 <Header />
                 <div className='container'>
-                    <div className='left'>
-                        <StopBar gradient={gradient} />
-                        <div className='color-picker'>
-                            <HexPicker
-                                colorwheelColor={colorwheelColor}
-                                color={color}
-                            />
-                            <div className='color-picker-right'>
-                                <Stack
-                                    gradient={gradient}
-                                    addColor={this.addColor}
-                                    changeSelected={this.changeSelected}
-                                    deleteColor={this.deleteColor}
-                                />
-                                <Suggested
-                                    suggested={suggested}
-                                    selected={suggestedSelected}
-                                    selectFunction={this.setSuggested}
-                                />
+                    <div className='wrapper'>
+                        <div className='left'>
+                            <StopBar gradient={gradient} />
+                            <div className='color-picker'>
+                                <div className='color-picker-left'>
+                                    <HexPicker
+                                        colorwheelColor={colorwheelColor}
+                                        color={color}
+                                    />
+                                </div>
+                                <div className='color-picker-right'>
+                                    <Stack
+                                        gradient={gradient}
+                                        addColor={this.addColor}
+                                        changeSelected={this.changeSelected}
+                                        deleteColor={this.deleteColor}
+                                    />
+                                    <Suggested
+                                        suggested={suggested}
+                                        selected={suggestedSelected}
+                                        selectFunction={this.setSuggested}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className='right'>
-                        <ImagePreview
-                            gradient={gradient}
-                            height={height}
-                            width={width}
-                        />
-                        <CSS gradient={gradient} />
+                    <div className='wrapper'>
+                        <div className='right'>
+                            <ImagePreview
+                                gradient={gradient}
+                                height={height}
+                                width={width}
+                            />
+                            <CSS gradient={gradient} />
+                        </div>
                     </div>
                 </div>
             </div>

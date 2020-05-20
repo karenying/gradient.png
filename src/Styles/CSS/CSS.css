@@ -1,7 +1,7 @@
 .css-container {
     margin-top: 10px;
     position: relative;
-    height: 200px;
+    height: auto;
     display: flex;
     flex-direction: column;
 }
@@ -16,6 +16,8 @@
     width: 350px;
     border-radius: 5px;
     resize: none;
+    box-sizing: border-box;
+    height: auto;
 }
 
 .css-container:hover .copybutton-container {

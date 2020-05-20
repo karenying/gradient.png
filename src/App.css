@@ -26,9 +26,15 @@
 }
 
 .container {
-    display: flex;
     display: inline-flex;
     padding: 20px 50px 0px 50px;
+    justify-content: space-around;
+    width: auto;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
 }
 
 input {
@@ -92,22 +98,30 @@ p {
 .left {
     display: inline-flex;
     flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-around;
 }
 
 .right {
     display: flex;
     flex-direction: column;
     margin-left: 50px;
+    flex-grow: 1;
 }
 
 .color-picker {
     display: flex;
 }
 
+.color-picker-left {
+    flex-grow: 1;
+}
+
 .color-picker-right {
     display: flex;
     flex-direction: column;
     margin-left: 20px;
+    flex-grow: 1;
 }
 
 .MuiButtonBase-root p {
