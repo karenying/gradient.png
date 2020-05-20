@@ -11,7 +11,7 @@ import { SUGGESTIONS } from './Utils/gradientConstants';
 import { Color } from './Utils/Color';
 import { shuffle } from './Utils/generalUtils';
 import { IPHONE_10, IPHONE_6 } from './Utils/screenDimensionConstants';
-import { MAX_SIZE } from './Utils/inputConstants';
+import { MAX_SIZE, ENTER_KEY } from './Utils/inputConstants';
 
 class App extends React.Component {
     state = {
@@ -21,6 +21,7 @@ class App extends React.Component {
         height: 0,
         suggestedSelected: '',
         suggested: [],
+        value: null,
     };
 
     componentWillMount() {
@@ -34,6 +35,7 @@ class App extends React.Component {
             suggested: shownSuggested,
             width: IPHONE_6.width,
             height: IPHONE_6.height,
+            value: first.stack[0].stop,
         });
     }
 
@@ -55,6 +57,7 @@ class App extends React.Component {
             this.setState({
                 gradient: gradientCopy,
                 selected: defaultColor.index,
+                value: 100,
             });
         }
     };
@@ -106,7 +109,7 @@ class App extends React.Component {
         }
     };
 
-    changeSelected = (index) => {
+    changeSelected = (index, value) => {
         const { gradient, selected } = this.state;
         const { stack } = gradient;
         let stackCopy = [...stack];
@@ -123,6 +126,7 @@ class App extends React.Component {
                 stack: stackCopy,
             },
             selected: index,
+            value,
         }));
     };
 
@@ -131,17 +135,27 @@ class App extends React.Component {
 
         const { suggested } = this.state;
 
+        let selectedGradient;
         suggested.forEach((gradient) => {
             if (gradient.name === suggestedName) {
-                this.setState({ gradient: gradient.clone() });
+                let clone = gradient.clone();
+                this.setState({ gradient: clone });
+                selectedGradient = clone;
             }
         });
 
-        this.setState({ suggestedSelected: suggestedName, selected: 0 });
+        this.setState({
+            suggestedSelected: suggestedName,
+            selected: 0,
+            value: selectedGradient.stack[0].stop,
+        });
     };
 
     unsetSuggested = () => {
-        this.setState({ suggestedSelected: '' });
+        const { suggestedSelected } = this.state;
+        if (suggestedSelected) {
+            this.setState({ suggestedSelected: '' });
+        }
     };
 
     handleLinearRadialChange = () => {
@@ -166,47 +180,85 @@ class App extends React.Component {
     };
 
     handleWidthChange = (e) => {
-        let newWidth = e.target.value;
+        let { value } = e.target;
 
-        if (newWidth) {
-            newWidth = Number(newWidth);
+        if (value) {
+            value = Number(value);
         }
-        if (newWidth <= MAX_SIZE) {
+        if (value <= MAX_SIZE) {
             this.setState({
-                width: newWidth,
+                width: value,
             });
         }
     };
 
     handleHeightChange = (e) => {
-        let newHeight = e.target.value;
+        let { value } = e.target;
 
-        if (newHeight) {
-            newHeight = Number(newHeight);
+        if (value) {
+            value = Number(value);
         }
-        if (newHeight <= MAX_SIZE) {
+        if (value <= MAX_SIZE) {
             this.setState({
-                height: newHeight,
+                height: value,
             });
         }
     };
 
     handleDegreesChange = (e) => {
-        let newDegrees = e.target.value;
+        let { value } = e.target;
 
-        if (newDegrees) {
-            newDegrees = Number(newDegrees);
+        if (value) {
+            value = Number(value);
         }
 
-        if (newDegrees >= 0 && newDegrees < 360) {
+        if (value >= 0 && value < 360) {
             const { gradient } = this.state;
             let gradientCopy = gradient.clone();
-            gradientCopy.degrees = newDegrees;
+            gradientCopy.degrees = value;
 
             this.setState({
                 gradient: gradientCopy,
             });
         }
+    };
+
+    // SHOULD BE ON ENTER
+    handleStopChange = (e) => {
+        let { value } = e.target;
+
+        if (value) {
+            value = Number(value);
+        }
+        const { gradient, selected } = this.state;
+        if (value >= 0 && value <= 100) {
+            // if value/stop is empty????? for all the tostrings, skip over it
+            let gradientCopy = gradient.clone();
+            let { stack } = gradientCopy;
+            stack[selected].stop = value;
+            let newSelected = gradientCopy.sortStack(); // make it mutable
+            this.setState({
+                gradient: gradientCopy,
+                selected: newSelected,
+            });
+        } else {
+            this.setState({ value: gradient.stack[selected].stop });
+        }
+    };
+
+    handleKeyDown = (e) => {
+        if (e.keyCode === ENTER_KEY) {
+            this.handleStopChange(e);
+        }
+    };
+
+    setValue = (value) => {
+        this.setState({ value });
+    };
+
+    changeValue = (e) => {
+        let { value } = e.target;
+        this.setState({ value });
     };
 
     render() {
@@ -217,10 +269,13 @@ class App extends React.Component {
             selected,
             height,
             width,
+            value,
         } = this.state;
         const { stack } = gradient;
         const color = stack[selected];
         const colorwheelColor = color.getColorwheel();
+
+        console.log(this.state.value);
 
         return (
             <div className='App' onClick={this.unsetSuggested}>
@@ -242,6 +297,9 @@ class App extends React.Component {
                                         addColor={this.addColor}
                                         changeSelected={this.changeSelected}
                                         deleteColor={this.deleteColor}
+                                        handleKeyDown={this.handleKeyDown}
+                                        changeValue={this.changeValue}
+                                        value={value}
                                     />
                                     <Suggested
                                         suggested={suggested}

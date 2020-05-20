@@ -21,6 +21,20 @@ class Gradient {
         return toCSSBgString(this);
     };
 
+    sortStack = () => {
+        const { stack } = this;
+        stack.sort((a, b) => (a.stop > b.stop ? 1 : -1));
+        let selected;
+        for (let i = 0; i < stack.length; i++) {
+            const color = stack[i];
+            color.order = i;
+            if (color.selected) {
+                selected = i;
+            }
+        }
+        return selected;
+    };
+
     clone = () => {
         return new Gradient(
             this.stack.map((color) => color.clone()),

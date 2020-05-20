@@ -4,7 +4,15 @@ import StackItem from './StackItem';
 import AddColorButton from './AddColorButton';
 
 function Stack(props) {
-    const { gradient, addColor, changeSelected, deleteColor } = props;
+    const {
+        gradient,
+        addColor,
+        changeSelected,
+        deleteColor,
+        handleKeyDown,
+        changeValue,
+        value,
+    } = props;
     const { stack } = gradient;
 
     const renderStack = stack.map((color) => (
@@ -12,9 +20,12 @@ function Stack(props) {
             color={color}
             stack={stack}
             deleteFunction={(e) => deleteColor(e, color.index)}
-            setSuggested={() => changeSelected(color.index)}
+            changeSelected={() => changeSelected(color.index, color.stop)}
             key={'stackitem-' + color.index}
             cannotDelete={stack.length === 2}
+            handleKeyDown={handleKeyDown}
+            changeValue={changeValue}
+            value={value}
         />
     ));
 
