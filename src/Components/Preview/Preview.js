@@ -40,6 +40,8 @@ class Preview extends React.Component {
             height,
             handleLinearRadialChange,
             handleCenterChange,
+            handleWidthChange,
+            handleHeightChange,
         } = this.props;
         const { degrees, isLinear, center } = gradient;
         const Customize = isLinear ? (
@@ -72,20 +74,25 @@ class Preview extends React.Component {
                         changeFunction={handleLinearRadialChange}
                     />
                 </div>
-
-                <div
-                    className='preview-content'
-                    style={{
-                        background,
-                        height: scaledHeight,
-                        width: scaledWidth,
-                    }}
-                >
+                <div className='preview-content-wrapper'>
+                    <div
+                        className='preview-content'
+                        style={{
+                            background,
+                            height: scaledHeight,
+                            width: scaledWidth,
+                        }}
+                    />
                     <ExpandButton clickFunction={this.expand} />
                     <DownloadButton clickFunction={this.download} />
                 </div>
                 <div className='preview-interface'>
-                    <Dimensions height={height} width={width} />
+                    <Dimensions
+                        height={height}
+                        width={width}
+                        handleWidthChange={handleWidthChange}
+                        handleHeightChange={handleHeightChange}
+                    />
                     {Customize}
                 </div>
             </div>

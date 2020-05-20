@@ -11,6 +11,7 @@ import { SUGGESTIONS } from './Utils/gradientConstants';
 import { Color } from './Utils/Color';
 import { shuffle } from './Utils/generalUtils';
 import { IPHONE_10, IPHONE_6 } from './Utils/screenDimensionConstants';
+import { MAX_SIZE } from './Utils/inputConstants';
 
 class App extends React.Component {
     state = {
@@ -168,6 +169,24 @@ class App extends React.Component {
         });
     };
 
+    handleWidthChange = (e) => {
+        const newWidth = e.target.value;
+        if (newWidth <= MAX_SIZE) {
+            this.setState({
+                width: newWidth,
+            });
+        }
+    };
+
+    handleHeightChange = (e) => {
+        const newHeight = e.target.value;
+        if (newHeight <= MAX_SIZE) {
+            this.setState({
+                height: newHeight,
+            });
+        }
+    };
+
     render() {
         const {
             gradient,
@@ -221,6 +240,8 @@ class App extends React.Component {
                                     this.handleLinearRadialChange
                                 }
                                 handleCenterChange={this.handleCenterChange}
+                                handleWidthChange={this.handleWidthChange}
+                                handleHeightChange={this.handleHeightChange}
                             />
                             <CSS gradient={gradient} />
                         </div>
