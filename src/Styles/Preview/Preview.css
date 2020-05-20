@@ -41,7 +41,7 @@
 .preview-header {
     display: flex;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .preview-header h2 {

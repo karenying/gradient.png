@@ -35,8 +35,8 @@ class App extends React.Component {
             width: IPHONE_6.width,
             height: IPHONE_6.height,
             */
-            width: 200,
-            height: 100,
+            width: 100,
+            height: 200,
         });
     }
 

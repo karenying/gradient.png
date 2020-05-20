@@ -43,7 +43,7 @@ const SHARON = new Gradient(
         new Color('fae791', 100, false, 3),
     ],
     true,
-    90,
+    0,
     'center center',
     'Sharon'
 );

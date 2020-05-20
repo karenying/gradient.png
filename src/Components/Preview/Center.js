@@ -18,18 +18,23 @@ function Center(props) {
     const renderPositions = positions.map((position) =>
         position === center ? (
             <div
-                className='center-container-item-selected'
+                className='center-grid-item-selected'
                 key={'center' + position}
             />
         ) : (
             <div
-                className='center-container-item'
+                className='center-grid-item'
                 onClick={() => clickFunction(position)}
                 key={'center' + position}
             />
         )
     );
-    return <div className='center-container'>{renderPositions}</div>;
+    return (
+        <div className='center-container'>
+            <p>CENTER</p>
+            <div className='center-grid'>{renderPositions}</div>
+        </div>
+    );
 }
 
 export default Center;

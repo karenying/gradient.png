@@ -10,13 +10,13 @@ function Dimensions(props) {
             <input
                 type='number'
                 value={width}
-                style={{ marginLeft: '10px', marginRight: '15px' }}
+                style={{ marginLeft: '5px', marginRight: '10px' }}
             ></input>
             <p>H</p>
             <input
                 type='number'
                 value={height}
-                style={{ marginRight: '10px', marginLeft: '15px' }}
+                style={{ marginRight: '15px', marginLeft: '5px' }}
             ></input>
         </div>
     );
