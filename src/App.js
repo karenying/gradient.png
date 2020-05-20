@@ -21,7 +21,7 @@ class App extends React.Component {
         height: 0,
         suggestedSelected: '',
         suggested: [],
-        value: null,
+        stopValue: null,
     };
 
     componentWillMount() {
@@ -35,7 +35,7 @@ class App extends React.Component {
             suggested: shownSuggested,
             width: IPHONE_6.width,
             height: IPHONE_6.height,
-            value: first.stack[0].stop,
+            stopValue: first.stack[0].stop,
         });
     }
 
@@ -57,7 +57,7 @@ class App extends React.Component {
             this.setState({
                 gradient: gradientCopy,
                 selected: defaultColor.index,
-                value: 100,
+                stopValue: 100,
             });
         }
     };
@@ -109,7 +109,7 @@ class App extends React.Component {
         }
     };
 
-    changeSelected = (index, value) => {
+    changeSelected = (index, stopValue) => {
         const { gradient, selected } = this.state;
         const { stack } = gradient;
         let stackCopy = [...stack];
@@ -126,7 +126,7 @@ class App extends React.Component {
                 stack: stackCopy,
             },
             selected: index,
-            value,
+            stopValue,
         }));
     };
 
@@ -147,7 +147,7 @@ class App extends React.Component {
         this.setState({
             suggestedSelected: suggestedName,
             selected: 0,
-            value: selectedGradient.stack[0].stop,
+            stopValue: selectedGradient.stack[0].stop,
         });
     };
 
@@ -242,7 +242,7 @@ class App extends React.Component {
                 selected: newSelected,
             });
         } else {
-            this.setState({ value: gradient.stack[selected].stop });
+            this.setState({ stopValue: gradient.stack[selected].stop });
         }
     };
 
@@ -252,13 +252,29 @@ class App extends React.Component {
         }
     };
 
-    setValue = (value) => {
-        this.setState({ value });
+    setValue = (stopValue) => {
+        this.setState({ stopValue });
     };
 
     changeValue = (e) => {
+        const { value } = e.target;
+        this.setState({ stopValue: value });
+    };
+
+    handleHexChange = (e, hasPound) => {
         let { value } = e.target;
-        this.setState({ value });
+        const { selected } = this.state;
+
+        const { gradient } = this.state;
+        let gradientCopy = gradient.clone();
+        if (hasPound) {
+            value = value.substring(1);
+        }
+        gradientCopy.stack[selected].hex = value;
+
+        this.setState({
+            gradient: gradientCopy,
+        });
     };
 
     render() {
@@ -269,13 +285,11 @@ class App extends React.Component {
             selected,
             height,
             width,
-            value,
+            stopValue,
         } = this.state;
         const { stack } = gradient;
         const color = stack[selected];
         const colorwheelColor = color.getColorwheel();
-
-        console.log(this.state.value);
 
         return (
             <div className='App' onClick={this.unsetSuggested}>
@@ -289,6 +303,7 @@ class App extends React.Component {
                                     <HexPicker
                                         colorwheelColor={colorwheelColor}
                                         color={color}
+                                        handleHexChange={this.handleHexChange}
                                     />
                                 </div>
                                 <div className='color-picker-right'>
@@ -299,7 +314,8 @@ class App extends React.Component {
                                         deleteColor={this.deleteColor}
                                         handleKeyDown={this.handleKeyDown}
                                         changeValue={this.changeValue}
-                                        value={value}
+                                        stopValue={stopValue}
+                                        handleHexChange={this.handleHexChange}
                                     />
                                     <Suggested
                                         suggested={suggested}

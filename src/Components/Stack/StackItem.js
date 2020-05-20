@@ -10,15 +10,15 @@ function StackItem(props) {
         changeSelected,
         cannotDelete,
         handleKeyDown,
-
         changeValue,
-        value,
+        stopValue,
+        handleHexChange,
     } = props;
     const { hex, stop, selected } = color;
     const selectedDiv = selected ? 'stackitem-selected' : '';
     const darkDiv = color.isDark() ? 'stackitem-dark' : '';
     const closeDiv = cannotDelete ? 'stackitem-no-close' : 'stackitem-close';
-    const displayedValue = selected ? value : stop;
+    const displayedValue = selected ? stopValue : stop;
 
     return (
         <div className={selectedDiv}>
@@ -38,7 +38,9 @@ function StackItem(props) {
                         spellCheck='false'
                         value={('#' + hex).toLowerCase()}
                         style={{ backgroundColor: '#' + hex }}
-                        onChange={() => {}}
+                        onChange={(e) => {
+                            handleHexChange(e, true);
+                        }}
                     ></input>
                 </div>
                 <input

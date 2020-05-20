@@ -11,7 +11,8 @@ function Stack(props) {
         deleteColor,
         handleKeyDown,
         changeValue,
-        value,
+        stopValue,
+        handleHexChange,
     } = props;
     const { stack } = gradient;
 
@@ -25,7 +26,8 @@ function Stack(props) {
             cannotDelete={stack.length === 2}
             handleKeyDown={handleKeyDown}
             changeValue={changeValue}
-            value={value}
+            stopValue={stopValue}
+            handleHexChange={handleHexChange}
         />
     ));
 
