@@ -46,10 +46,11 @@ function isDark(hex) {
 }
 
 function toBgString(gradient) {
-    const { stack, isLinear, degrees } = gradient;
+    const { stack, isLinear, degrees, center } = gradient;
+    let centerString = center === 'center center' ? '' : ' at ' + center;
     let background = isLinear
         ? 'linear-gradient(' + degrees + 'deg, '
-        : 'radial-gradient(circle, ';
+        : 'radial-gradient(circle' + centerString + ', ';
 
     let colorString = [];
     for (let i = 0; i < stack.length; i++) {
@@ -76,11 +77,13 @@ function toStopBarBgString(gradient) {
 }
 
 function toCSSBgString(gradient) {
-    const { stack, isLinear, degrees } = gradient;
+    const { stack, isLinear, degrees, center } = gradient;
+    let centerString = center === 'center center' ? '' : ' at ' + center;
+
     let background = 'background: ';
     background += isLinear
         ? 'linear-gradient(\n    ' + degrees + 'deg,\n    '
-        : 'radial-gradient(\n    circle,\n    ';
+        : 'radial-gradient(\n    circle' + centerString + ',\n    ';
 
     let colorString = [];
     for (let i = 0; i < stack.length; i++) {

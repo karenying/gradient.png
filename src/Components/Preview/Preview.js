@@ -39,12 +39,13 @@ class Preview extends React.Component {
             width,
             height,
             handleLinearRadialChange,
+            handleCenterChange,
         } = this.props;
-        const { degrees, isLinear } = gradient;
+        const { degrees, isLinear, center } = gradient;
         const Customize = isLinear ? (
             <Degrees degrees={degrees} />
         ) : (
-            <Center center='bottom left' />
+            <Center center={center} clickFunction={handleCenterChange} />
         );
         const background = gradient.toBgString();
         const DIV_MAX = 350;

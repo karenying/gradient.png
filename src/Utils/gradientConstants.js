@@ -11,6 +11,7 @@ const KAREN = new Gradient(
     ],
     true,
     45,
+    'center center',
     'Karen'
 );
 
@@ -18,6 +19,7 @@ const DORA = new Gradient(
     [new Color('fdafaf', 0, true, 0), new Color('a6a8f2', 100, false, 1)],
     true,
     45,
+    'center center',
     'Dora'
 );
 
@@ -29,6 +31,7 @@ const STEVEN = new Gradient(
     ],
     true,
     160,
+    'center center',
     'Steven'
 );
 
@@ -41,6 +44,7 @@ const SHARON = new Gradient(
     ],
     true,
     90,
+    'center center',
     'Sharon'
 );
 
@@ -54,6 +58,7 @@ const BRANDY = new Gradient(
     ],
     false,
     0,
+    'top center',
     'Brandy'
 );
 
@@ -61,6 +66,7 @@ const CHARLIE = new Gradient(
     [new Color('89cff0', 0, true, 0), new Color('77dd77', 100, false, 1)],
     false,
     180,
+    'center left',
     'Charlie'
 );
 
@@ -73,6 +79,7 @@ const JUDY = new Gradient(
     ],
     false,
     45,
+    'bottom right',
     'Judy'
 );
 
@@ -93,6 +100,7 @@ const MAX = new Gradient(
     [new Color('a1c4fd', 31, true, 0), new Color('c2e9fb', 100, false, 1)],
     true,
     78,
+    'center center',
     'Max'
 );
 
@@ -105,6 +113,7 @@ const JEFF = new Gradient(
     ],
     false,
     90,
+    'center center',
     'Jeff'
 );
 */

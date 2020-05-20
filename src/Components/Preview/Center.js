@@ -2,7 +2,7 @@ import React from 'react';
 import '../../Styles/Preview/Center.css';
 
 function Center(props) {
-    const { center } = props;
+    const { center, clickFunction } = props;
     const positions = [
         'top left',
         'top center',
@@ -21,11 +21,15 @@ function Center(props) {
 
     const renderPositions = positions.map((position) =>
         position === center ? (
-            <div className='center-container-item-selected' />
+            <div
+                className='center-container-item-selected'
+                key={'center' + position}
+            />
         ) : (
             <div
                 className='center-container-item'
-                onClick={() => click(position)}
+                onClick={() => clickFunction(position)}
+                key={'center' + position}
             />
         )
     );

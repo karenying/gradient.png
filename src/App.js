@@ -158,6 +158,16 @@ class App extends React.Component {
         });
     };
 
+    handleCenterChange = (center) => {
+        const { gradient } = this.state;
+        let gradientCopy = gradient.clone();
+        gradientCopy.center = center;
+
+        this.setState({
+            gradient: gradientCopy,
+        });
+    };
+
     render() {
         const {
             gradient,
@@ -210,6 +220,7 @@ class App extends React.Component {
                                 handleLinearRadialChange={
                                     this.handleLinearRadialChange
                                 }
+                                handleCenterChange={this.handleCenterChange}
                             />
                             <CSS gradient={gradient} />
                         </div>
