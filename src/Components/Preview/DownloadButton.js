@@ -5,13 +5,14 @@ import { INPUT_TEXT_GRAY } from '../../Utils/hexConstants';
 import { ButtonBase } from '@material-ui/core';
 
 function DownloadButton(props) {
-    const { clickFunction } = props;
+    const { clickFunction, display } = props;
 
     return (
         <div
             className='downloadbutton-container'
             onClick={clickFunction}
             title='Download image'
+            style={{ display }}
         >
             <ButtonBase centerRipple>
                 <FiDownload

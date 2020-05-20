@@ -32,12 +32,8 @@ class App extends React.Component {
             gradient: first.clone(),
             suggestedSelected: first.name,
             suggested: shownSuggested,
-            /*
             width: IPHONE_6.width,
             height: IPHONE_6.height,
-            */
-            width: 100,
-            height: 200,
         });
     }
 
@@ -187,6 +183,20 @@ class App extends React.Component {
         }
     };
 
+    handleDegreesChange = (e) => {
+        const newDegrees = e.target.value;
+
+        if (newDegrees >= 0 && newDegrees < 360) {
+            const { gradient } = this.state;
+            let gradientCopy = gradient.clone();
+            gradientCopy.degrees = newDegrees;
+
+            this.setState({
+                gradient: gradientCopy,
+            });
+        }
+    };
+
     render() {
         const {
             gradient,
@@ -242,6 +252,7 @@ class App extends React.Component {
                                 handleCenterChange={this.handleCenterChange}
                                 handleWidthChange={this.handleWidthChange}
                                 handleHeightChange={this.handleHeightChange}
+                                handleDegreesChange={this.handleDegreesChange}
                             />
                             <CSS gradient={gradient} />
                         </div>

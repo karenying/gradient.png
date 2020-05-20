@@ -14,6 +14,11 @@ class Preview extends React.Component {
         return generateImage(gradient, width, height);
     }
 
+    isValidImage = () => {
+        const { width, height } = this.props;
+        return width && height;
+    };
+
     download = () => {
         const url = this.generateImage();
         const link = document.createElement('a');
@@ -42,10 +47,15 @@ class Preview extends React.Component {
             handleCenterChange,
             handleWidthChange,
             handleHeightChange,
+            handleDegreesChange,
         } = this.props;
         const { degrees, isLinear, center } = gradient;
+        const display = this.isValidImage() ? 'flex' : 'none';
         const Customize = isLinear ? (
-            <Degrees degrees={degrees} />
+            <Degrees
+                degrees={degrees}
+                handleDegreesChange={handleDegreesChange}
+            />
         ) : (
             <Center center={center} clickFunction={handleCenterChange} />
         );
@@ -83,8 +93,14 @@ class Preview extends React.Component {
                             width: scaledWidth,
                         }}
                     />
-                    <ExpandButton clickFunction={this.expand} />
-                    <DownloadButton clickFunction={this.download} />
+                    <ExpandButton
+                        clickFunction={this.expand}
+                        display={display}
+                    />
+                    <DownloadButton
+                        clickFunction={this.download}
+                        display={display}
+                    />
                 </div>
                 <div className='preview-interface'>
                     <Dimensions
