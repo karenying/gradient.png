@@ -119,6 +119,20 @@ const JEFF = new Gradient(
 );
 */
 
+const REILLY = new Gradient(
+    [
+        new Color('f58025', 0, true, 0),
+        new Color('ee5a62', 25, false, 1),
+        new Color('e8589f', 50, false, 2),
+        new Color('b969eb', 75, false, 3),
+        new Color('6f7bfc', 100, false, 4),
+    ],
+    true,
+    35,
+    'center center',
+    'Reilly'
+);
+
 const SUGGESTIONS = [
     KAREN,
     DORA,
@@ -130,6 +144,7 @@ const SUGGESTIONS = [
     BRYAN,
     MAX,
     // JEFF,
+    REILLY,
 ];
 
 export { SUGGESTIONS };
