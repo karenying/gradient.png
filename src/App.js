@@ -22,7 +22,7 @@ class App extends React.Component {
         suggestedSelected: '',
         suggested: [],
         stopValue: null,
-        draggedItemIndex: null,
+        draggedColor: null,
     };
 
     componentWillMount() {
@@ -46,8 +46,10 @@ class App extends React.Component {
         let { stack } = gradientCopy;
 
         if (stack.length < 5) {
+            // set current selected as false
             stack[selected].selected = false;
 
+            // recalculate stops
             stack.forEach((c) => {
                 c.stop = Math.round((c.index / stack.length) * 100);
             });
@@ -73,36 +75,41 @@ class App extends React.Component {
         if (stack.length > 2) {
             e.stopPropagation();
 
+            // if deleting currently selected
             if (deletedIndex === selected) {
                 let nextSelected;
 
                 if (deletedIndex === stack.length - 1) {
+                    // if deleting last one set selected as the one before
                     nextSelected = deletedIndex - 1;
                 } else {
+                    // else set selected as the one after
                     nextSelected = deletedIndex + 1;
                 }
                 stack[nextSelected].selected = true;
             }
 
+            // if deleted is before selected
             if (deletedIndex <= selected) {
+                // if not the first one, (if first one let remain the first selected)
                 if (deletedIndex !== 0) {
+                    // decrement selected by 1
                     this.setState((prevState, props) => ({
                         selected: prevState.selected - 1,
                     }));
                 }
             }
 
+            // if not deleting the last one
             if (deletedIndex !== stack.length - 1) {
+                // decrement the index of all items after the deleted
                 for (let i = deletedIndex + 1; i < stack.length; i++) {
                     stack[i].index--;
                 }
             }
 
+            // delete item
             stack.splice(deletedIndex, 1);
-
-            stack.forEach((c) => {
-                c.stop = Math.round((c.index / (stack.length - 1)) * 100);
-            });
 
             this.setState({
                 gradient: gradientCopy,
@@ -137,6 +144,9 @@ class App extends React.Component {
         const { suggested } = this.state;
 
         let selectedGradient;
+        /* iterate through suggested checking if the suggested's 
+        name matches the one selected, if so, set 
+        this.state.gradient as its clone */
         suggested.forEach((gradient) => {
             if (gradient.name === suggestedName) {
                 let clone = gradient.clone();
@@ -224,20 +234,24 @@ class App extends React.Component {
         }
     };
 
-    // SHOULD BE ON ENTER
     handleStopChange = (e) => {
         let { value } = e.target;
+        const { gradient, selected } = this.state;
 
         if (value) {
             value = Number(value);
         }
-        const { gradient, selected } = this.state;
+
         if (value >= 0 && value <= 100) {
-            // if value/stop is empty????? for all the tostrings, skip over it
             let gradientCopy = gradient.clone();
             let { stack } = gradientCopy;
+
+            // update the value
             stack[selected].stop = value;
-            let newSelected = gradientCopy.sortStack(); // make it mutable
+
+            // sort the stack in increasing order of stops
+            let newSelected = gradientCopy.sortStack();
+
             this.setState({
                 gradient: gradientCopy,
                 selected: newSelected,
@@ -262,15 +276,16 @@ class App extends React.Component {
         this.setState({ stopValue: value });
     };
 
+    // hasPound = true for stackItem, false for currentColor
     handleHexChange = (e, hasPound) => {
         let { value } = e.target;
-        const { selected } = this.state;
-
-        const { gradient } = this.state;
+        const { selected, gradient } = this.state;
         let gradientCopy = gradient.clone();
+
         if (hasPound) {
             value = value.substring(1);
         }
+
         gradientCopy.stack[selected].hex = value;
 
         this.setState({
@@ -278,66 +293,78 @@ class App extends React.Component {
         });
     };
 
-    onDragStart = (e, index) => {
-        const { gradient } = this.state;
-        const gradientCopy = gradient.clone();
-        const { stack } = gradientCopy;
-        this.setState({
-            draggedItemIndex: index,
-            selected: index,
-            stopValue: stack[index].stop,
-        });
+    onDragStart = (e, draggedColor) => {
+        // step drag item to entire stack item, instead of just icon
         e.dataTransfer.effectAllowed = 'move';
         e.dataTransfer.setData('text/html', e.target.parentNode);
         e.dataTransfer.setDragImage(e.target.parentNode, 20, 20);
 
-        stack.forEach((color) => {
-            if (color.index !== index) {
-                color.selected = false;
-            }
+        this.setState({
+            draggedColor,
         });
+    };
 
-        stack[index].selected = true;
+    onDragOver = (e, color) => {
+        // let item drop where its dragged over
+        e.preventDefault();
+
+        const { gradient, draggedColor } = this.state;
+        const gradientCopy = gradient.clone();
+        const { stack } = gradientCopy;
+
+        // if dragged over is same as dragged item
+        if (draggedColor.isEqual(color)) {
+            return;
+        }
+
+        // create stack without dragged item
+        const newStack = stack.filter((color) => !color.isEqual(draggedColor));
+
+        // insert dragged item
+        newStack.splice(color.index, 0, draggedColor);
+
+        // set indecies
+        for (let i = 0; i < newStack.length; i++) {
+            const color = newStack[i];
+            color.index = i;
+        }
+        gradientCopy.stack = newStack;
 
         this.setState({ gradient: gradientCopy });
     };
 
-    onDragOver = (e, index) => {
-        e.preventDefault();
-        console.log(index);
-        const { draggedItemIndex, gradient } = this.state;
+    onDragEnd = () => {
+        const { gradient, draggedColor } = this.state;
         const gradientCopy = gradient.clone();
         const { stack } = gradientCopy;
+        let selected, stopValue;
 
-        // if the item is dragged over itself, ignore
-        if (index === draggedItemIndex) {
-            return;
-        }
+        // save original stops
+        let stops = stack
+            .map((color) => color.stop)
+            .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
 
-        const newStack = stack.filter(
-            (color) => color.index !== draggedItemIndex
-        );
-        newStack.splice(index, 0, stack[draggedItemIndex]);
-        // reorder stack
-        let selected;
+        // update selected and stops
         for (let i = 0; i < stack.length; i++) {
-            const color = stack[i];
-            color.order = i;
-            if (color.selected) {
-                selected = i;
+            const color = stack[i],
+                stop = stops[i];
+            color.stop = stop;
+
+            if (!color.isEqual(draggedColor)) {
+                color.selected = false;
+            } else {
+                color.selected = true;
+                selected = color.index;
+                stopValue = stop;
             }
-
-            color.stop = Math.round((color.index / (stack.length - 1)) * 100);
         }
-        // reset selected
-        // reorder stops
-        gradientCopy.stack = newStack;
 
-        this.setState({ gradient: gradientCopy, selected });
-    };
-
-    onDragEnd = () => {
-        this.setState({ draggedItemIndex: null });
+        this.setState({
+            draggedColor: null,
+            gradient: gradientCopy,
+            selected,
+            stopValue,
+        });
     };
 
     render() {

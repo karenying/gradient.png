@@ -3,10 +3,10 @@ import { toBgString, toStopBarBgString, toCSSBgString } from './colorUtils';
 class Gradient {
     constructor(stack, isLinear, degrees, center, name) {
         this.stack = stack; // array of Color objects
-        this.isLinear = isLinear; // false = radial
-        this.degrees = degrees; // if linear
-        this.center = center;
-        this.name = name;
+        this.isLinear = isLinear; // false if radial
+        this.degrees = degrees; // Number 0 - 360
+        this.center = center; // one of 9 positions
+        this.name = name; // name of friendo if suggested
     }
 
     toBgString = () => {
@@ -21,6 +21,7 @@ class Gradient {
         return toCSSBgString(this);
     };
 
+    // sort stack by increasing order of stop values
     sortStack = () => {
         const { stack } = this;
         stack.sort((a, b) => (a.stop > b.stop ? 1 : -1));

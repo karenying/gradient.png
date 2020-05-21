@@ -25,12 +25,15 @@ function StackItem(props) {
 
     return (
         <div className={selectedDiv}>
-            <div className='stackitem-container' onClick={changeSelected}>
+            <div
+                className='stackitem-container'
+                onClick={changeSelected}
+                onDragOver={(e) => onDragOver(e, color)}
+            >
                 <div
                     className='stackitem-icon-container'
                     draggable
-                    onDragStart={(e) => onDragStart(e, color.index)}
-                    onDragOver={(e) => onDragOver(e, color.index)}
+                    onDragStart={(e) => onDragStart(e, color)}
                     onDragEnd={onDragEnd}
                 >
                     <div className='stackitem-drag'>
