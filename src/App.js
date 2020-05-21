@@ -323,10 +323,15 @@ class App extends React.Component {
         // insert dragged item
         newStack.splice(color.index, 0, draggedColor);
 
+        let stops = stack
+            .map((color) => color.stop)
+            .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+
         // set indecies
         for (let i = 0; i < newStack.length; i++) {
             const color = newStack[i];
             color.index = i;
+            color.stop = stops[i];
         }
         gradientCopy.stack = newStack;
 
@@ -340,22 +345,18 @@ class App extends React.Component {
         let selected, stopValue;
 
         // save original stops
-        let stops = stack
-            .map((color) => color.stop)
-            .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+        let stops = stack.map((color) => color.stop);
 
         // update selected and stops
         for (let i = 0; i < stack.length; i++) {
-            const color = stack[i],
-                stop = stops[i];
-            color.stop = stop;
+            const color = stack[i];
 
             if (!color.isEqual(draggedColor)) {
                 color.selected = false;
             } else {
                 color.selected = true;
                 selected = color.index;
-                stopValue = stop;
+                stopValue = stops[i];
             }
         }
 

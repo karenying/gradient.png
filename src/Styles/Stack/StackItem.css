@@ -6,6 +6,8 @@
     align-items: center;
     padding: 0px 10px;
     border-radius: 5px;
+    opacity: 0.999;
+    position: relative;
 
     -moz-transition: all 0.1s ease-in;
     -o-transition: all 0.1s ease-in;
