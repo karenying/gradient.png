@@ -9,7 +9,7 @@ import CSS from './Components/CSS/CSS';
 import Preview from './Components/Preview/Preview';
 import { SUGGESTIONS } from './Utils/gradientConstants';
 import { Color } from './Utils/Color';
-import { shuffle } from './Utils/generalUtils';
+import { shuffle, padLeft } from './Utils/generalUtils';
 import { IPHONE_10, IPHONE_6 } from './Utils/screenDimensionConstants';
 import { MAX_SIZE, ENTER_KEY } from './Utils/inputConstants';
 
@@ -367,6 +367,99 @@ class App extends React.Component {
         });
     };
 
+    handleRChange = (e) => {
+        let { value } = e.target;
+
+        const { selected, gradient } = this.state;
+        let gradientCopy = gradient.clone();
+        const { stack } = gradientCopy;
+        let currColor = stack[selected];
+        let { g, b } = currColor;
+
+        let r;
+        if (value) {
+            value = Number(value);
+            r = value;
+        } else {
+            r = 0;
+        }
+
+        if (value >= 0 && value <= 255) {
+            r = padLeft(r.toString(16));
+            g = padLeft(g.toString(16));
+            b = padLeft(b.toString(16));
+            const newHex = r + g + b;
+            currColor.hex = newHex;
+            currColor.r = value;
+        }
+
+        this.setState({
+            gradient: gradientCopy,
+        });
+    };
+
+    handleGChange = (e) => {
+        let { value } = e.target;
+
+        const { selected, gradient } = this.state;
+        let gradientCopy = gradient.clone();
+        const { stack } = gradientCopy;
+        let currColor = stack[selected];
+        let { r, b } = currColor;
+
+        let g;
+        if (value) {
+            value = Number(value);
+            g = value;
+        } else {
+            g = 0;
+        }
+
+        if (value >= 0 && value <= 255) {
+            r = padLeft(r.toString(16));
+            g = padLeft(g.toString(16));
+            b = padLeft(b.toString(16));
+            const newHex = r + g + b;
+            currColor.hex = newHex;
+            currColor.g = value;
+        }
+
+        this.setState({
+            gradient: gradientCopy,
+        });
+    };
+
+    handleBChange = (e) => {
+        let { value } = e.target;
+
+        const { selected, gradient } = this.state;
+        let gradientCopy = gradient.clone();
+        const { stack } = gradientCopy;
+        let currColor = stack[selected];
+        let { r, g } = currColor;
+
+        let b;
+        if (value) {
+            value = Number(value);
+            b = value;
+        } else {
+            b = 0;
+        }
+
+        if (value >= 0 && value <= 255) {
+            r = padLeft(r.toString(16));
+            g = padLeft(g.toString(16));
+            b = padLeft(b.toString(16));
+            const newHex = r + g + b;
+            currColor.hex = newHex;
+            currColor.b = value;
+        }
+
+        this.setState({
+            gradient: gradientCopy,
+        });
+    };
+
     render() {
         const {
             gradient,
@@ -394,6 +487,9 @@ class App extends React.Component {
                                         colorwheelColor={colorwheelColor}
                                         color={color}
                                         handleHexChange={this.handleHexChange}
+                                        handleRChange={this.handleRChange}
+                                        handleGChange={this.handleGChange}
+                                        handleBChange={this.handleBChange}
                                     />
                                 </div>
                                 <div className='color-picker-right'>

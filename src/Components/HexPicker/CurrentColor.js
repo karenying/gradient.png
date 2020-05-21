@@ -2,15 +2,14 @@ import React from 'react';
 import '../../Styles/HexPicker/CurrentColor.css';
 
 function CurrentColor(props) {
-    const { color, handleHexChange } = props;
-    const { hex } = color;
-    let r = color.getRGB('r'),
-        g = color.getRGB('g'),
-        b = color.getRGB('b');
-
-    if (Number.isNaN(r) || Number.isNaN(g) || Number.isNaN(b)) {
-        r = g = b = '';
-    }
+    const {
+        color,
+        handleHexChange,
+        handleRChange,
+        handleGChange,
+        handleBChange,
+    } = props;
+    const { hex, r, g, b } = color;
 
     return (
         <div className='currentcolor-container'>
@@ -32,19 +31,19 @@ function CurrentColor(props) {
                     <input
                         type='number'
                         value={r}
-                        // onChange={this.handleRChange}
+                        onChange={(e) => handleRChange(e)}
                     ></input>
                     <p>G</p>
                     <input
                         type='number'
                         value={g}
-                        // onChange={() => {}}
+                        onChange={(e) => handleGChange(e)}
                     ></input>
                     <p>B</p>
                     <input
                         type='number'
                         value={b}
-                        // onChange={() => {}}
+                        onChange={(e) => handleBChange(e)}
                     ></input>
                 </div>
             </div>

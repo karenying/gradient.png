@@ -71,4 +71,8 @@ function calculateRadius(width, height, center) {
     }
 }
 
-export { shuffle, toRadians, calculateCenterOffset, calculateRadius };
+function padLeft(s) {
+    return s.length === 1 ? '0' + s : s;
+}
+
+export { shuffle, toRadians, calculateCenterOffset, calculateRadius, padLeft };

@@ -5,10 +5,23 @@ import HexGradient from './HexGradient';
 import CurrentColor from './CurrentColor';
 
 function HexPicker(props) {
-    const { colorwheelColor, color, handleHexChange } = props;
+    const {
+        colorwheelColor,
+        color,
+        handleHexChange,
+        handleRChange,
+        handleGChange,
+        handleBChange,
+    } = props;
     return (
         <div className='hexpicker-container'>
-            <CurrentColor color={color} handleHexChange={handleHexChange} />
+            <CurrentColor
+                color={color}
+                handleHexChange={handleHexChange}
+                handleRChange={handleRChange}
+                handleGChange={handleGChange}
+                handleBChange={handleBChange}
+            />
             <div className='hexpicker-bottom'>
                 <HexGradient colorwheelColor={colorwheelColor} />
                 <Slide />

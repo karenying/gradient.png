@@ -6,6 +6,9 @@ class Color {
         this.stop = stop; // Number 0 - 100
         this.selected = selected; // true if selected
         this.index = index; // current place in the stack
+        this.r = this.getRGB('r') || 0;
+        this.g = this.getRGB('g') || 0;
+        this.b = this.getRGB('b') || 0;
     }
 
     getRGB = (primary) => {
