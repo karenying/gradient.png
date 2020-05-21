@@ -15,8 +15,15 @@
 
 .stackitem-drag svg,
 .stackitem-close svg {
-    cursor: pointer;
     transition: transform 0.1s;
+}
+
+.stackitem-close svg {
+    cursor: pointer;
+}
+
+.stackitem-drag svg {
+    cursor: move;
 }
 
 .stackitem-drag svg:hover,

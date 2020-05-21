@@ -13,6 +13,9 @@ function StackItem(props) {
         changeValue,
         stopValue,
         handleHexChange,
+        onDragStart,
+        onDragOver,
+        onDragEnd,
     } = props;
     const { hex, stop, selected } = color;
     const selectedDiv = selected ? 'stackitem-selected' : '';
@@ -23,7 +26,13 @@ function StackItem(props) {
     return (
         <div className={selectedDiv}>
             <div className='stackitem-container' onClick={changeSelected}>
-                <div className='stackitem-icon-container'>
+                <div
+                    className='stackitem-icon-container'
+                    draggable
+                    onDragStart={(e) => onDragStart(e, color.index)}
+                    onDragOver={(e) => onDragOver(e, color.index)}
+                    onDragEnd={onDragEnd}
+                >
                     <div className='stackitem-drag'>
                         <IoIosMenu
                             size='25px'

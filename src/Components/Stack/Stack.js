@@ -13,6 +13,9 @@ function Stack(props) {
         changeValue,
         stopValue,
         handleHexChange,
+        onDragStart,
+        onDragOver,
+        onDragEnd,
     } = props;
     const { stack } = gradient;
 
@@ -21,13 +24,16 @@ function Stack(props) {
             color={color}
             stack={stack}
             deleteFunction={(e) => deleteColor(e, color.index)}
-            changeSelected={() => changeSelected(color.index, color.stop)}
+            changeSelected={() => changeSelected(color.index)}
             key={'stackitem-' + color.index}
             cannotDelete={stack.length === 2}
             handleKeyDown={handleKeyDown}
             changeValue={changeValue}
             stopValue={stopValue}
             handleHexChange={handleHexChange}
+            onDragStart={onDragStart}
+            onDragOver={onDragOver}
+            onDragEnd={onDragEnd}
         />
     ));
 

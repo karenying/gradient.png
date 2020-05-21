@@ -8,7 +8,6 @@ function CurrentColor(props) {
         g = color.getRGB('g'),
         b = color.getRGB('b');
 
-    console.log(g);
     if (Number.isNaN(r) || Number.isNaN(g) || Number.isNaN(b)) {
         r = g = b = '';
     }
