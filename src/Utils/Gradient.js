@@ -45,6 +45,33 @@ class Gradient {
             ''
         );
     };
+
+    getSortedStops = () => {
+        const { stack } = this;
+        return stack
+            .map((color) => color.stop)
+            .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+    };
+
+    reverse = () => {
+        const { stack } = this;
+        let stops = this.getSortedStops();
+        let stopValue;
+
+        stack.reverse();
+
+        for (let i = 0; i < stack.length; i++) {
+            const color = stack[i];
+            color.index = i;
+            color.stop = stops[i];
+
+            if (color.selected) {
+                stopValue = stops[i];
+            }
+        }
+
+        return stopValue;
+    };
 }
 
 export { Gradient };

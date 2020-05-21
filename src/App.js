@@ -323,9 +323,7 @@ class App extends React.Component {
         // insert dragged item
         newStack.splice(color.index, 0, draggedColor);
 
-        let stops = stack
-            .map((color) => color.stop)
-            .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+        let stops = gradientCopy.getSortedStops();
 
         // set indecies
         for (let i = 0; i < newStack.length; i++) {
@@ -461,6 +459,21 @@ class App extends React.Component {
         });
     };
 
+    reverseStack = () => {
+        const { selected, gradient } = this.state;
+        let gradientCopy = gradient.clone();
+        const { stack } = gradientCopy;
+
+        let newSelected = stack.length - 1 - selected;
+        let stopValue = gradientCopy.reverse();
+
+        this.setState({
+            gradient: gradientCopy,
+            selected: newSelected,
+            stopValue,
+        });
+    };
+
     render() {
         const {
             gradient,
@@ -506,6 +519,7 @@ class App extends React.Component {
                                         onDragStart={this.onDragStart}
                                         onDragOver={this.onDragOver}
                                         onDragEnd={this.onDragEnd}
+                                        reverseStack={this.reverseStack}
                                     />
                                     <Suggested
                                         suggested={suggested}

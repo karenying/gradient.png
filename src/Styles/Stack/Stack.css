@@ -5,6 +5,37 @@
     height: 400px;
 }
 
+.stack-header {
+    position: relative;
+}
+
+.stack-icon-container {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    padding: 5px;
+    border-radius: 20px;
+    height: 23px;
+    margin-bottom: 5px;
+}
+
+.stack-icon-container svg {
+    transition: transform 0.1s;
+}
+
+.stack-icon-container:hover {
+    background-color: var(--hover-gray);
+}
+
+.stack-icon-container:hover svg {
+    transform: scale(1.1);
+}
+
+.stack-header {
+    display: flex;
+    align-items: center;
+}
+
 .stack-container-label {
     display: grid;
     width: 100%;

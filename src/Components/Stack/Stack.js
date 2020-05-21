@@ -2,6 +2,8 @@ import React from 'react';
 import '../../Styles/Stack/Stack.css';
 import StackItem from './StackItem';
 import AddColorButton from './AddColorButton';
+import { BsArrowUpDown } from 'react-icons/bs';
+import { INPUT_TEXT_GRAY } from '../../Utils/hexConstants';
 
 function Stack(props) {
     const {
@@ -16,6 +18,7 @@ function Stack(props) {
         onDragStart,
         onDragOver,
         onDragEnd,
+        reverseStack,
     } = props;
     const { stack } = gradient;
 
@@ -39,7 +42,13 @@ function Stack(props) {
 
     return (
         <div className='stack-container'>
-            <h2>STACK</h2>
+            <div className='stack-header'>
+                <h2>STACK</h2>
+                <div className='stack-icon-container' onClick={reverseStack}>
+                    <BsArrowUpDown color={INPUT_TEXT_GRAY} size='23px' />
+                </div>
+            </div>
+
             <div className='stack-container-label'>
                 <p />
                 <p>HEX</p>
