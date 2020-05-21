@@ -134,6 +134,7 @@ p {
 
 .MuiFormGroup-root {
     flex-direction: row !important;
+    flex-wrap: nowrap !important;
 }
 
 .MuiTypography-body1 {

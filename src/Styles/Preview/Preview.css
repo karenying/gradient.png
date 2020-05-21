@@ -1,5 +1,5 @@
 .preview-container {
-    display: flex;
+    display: table;
     flex-direction: column;
     height: 450px;
     width: 350px;
@@ -20,6 +20,7 @@
     position: relative;
     height: 350px;
     width: 350px;
+    display: table;
 }
 
 .preview-interface {
