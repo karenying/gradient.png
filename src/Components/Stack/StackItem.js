@@ -42,6 +42,7 @@ function StackItem(props) {
                             size='25px'
                             color={INPUT_TEXT_GRAY}
                             style={{ padding: '5px', marginRight: '10px' }}
+                            title='Move'
                         />
                     </div>
                 </div>

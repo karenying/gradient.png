@@ -12,6 +12,7 @@ import { Color } from './Utils/Color';
 import { shuffle, padLeft } from './Utils/generalUtils';
 // import { IPHONE_10, IPHONE_6 } from './Utils/screenDimensionConstants';
 import { MAX_SIZE, ENTER_KEY } from './Utils/inputConstants';
+import CopyConfirmation from './Components/CSS/CopyConfirmation';
 
 class App extends React.Component {
     state = {
@@ -23,6 +24,7 @@ class App extends React.Component {
         suggested: [],
         stopValue: null,
         draggedColor: null,
+        cssConfirmationDisplay: false,
     };
 
     componentWillMount() {
@@ -470,6 +472,14 @@ class App extends React.Component {
         });
     };
 
+    showCSSConfirmation = () => {
+        this.setState({ cssConfirmationDisplay: true });
+        setTimeout(
+            () => this.setState({ cssConfirmationDisplay: false }),
+            2000
+        );
+    };
+
     render() {
         const {
             gradient,
@@ -479,6 +489,7 @@ class App extends React.Component {
             height,
             width,
             stopValue,
+            cssConfirmationDisplay,
         } = this.state;
         const { stack } = gradient;
         const color = stack[selected];
@@ -541,10 +552,14 @@ class App extends React.Component {
                                 handleHeightChange={this.handleHeightChange}
                                 handleDegreesChange={this.handleDegreesChange}
                             />
-                            <CSS gradient={gradient} />
+                            <CSS
+                                gradient={gradient}
+                                showCSSConfirmation={this.showCSSConfirmation}
+                            />
                         </div>
                     </div>
                 </div>
+                <CopyConfirmation display={cssConfirmationDisplay} />
             </div>
         );
     }

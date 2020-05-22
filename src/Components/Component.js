@@ -11,6 +11,7 @@ class ClassComponent extends React.Component {
     }
 }
 
-function FunctionComponent(props) {}
-
+function FunctionComponent(props) {
+    return <div></div>;
+}
 export default Component;

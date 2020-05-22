@@ -4,9 +4,12 @@ import CopyButton from './CopyButton';
 
 class CSS extends React.Component {
     copy = (e) => {
+        const { showCSSConfirmation } = this.props;
         this.textArea.select();
         document.execCommand('copy');
         e.target.focus();
+
+        showCSSConfirmation();
     };
 
     render() {
