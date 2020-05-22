@@ -36,15 +36,10 @@ const STEVEN = new Gradient(
 );
 
 const SHARON = new Gradient(
-    [
-        new Color('6a3333', 0, true, 0),
-        new Color('FF6400', 33, false, 1),
-        new Color('fcb045', 67, false, 2),
-        new Color('fae791', 100, false, 3),
-    ],
+    [new Color('de6262', 0, true, 0), new Color('ffb88c', 100, false, 1)],
     true,
-    0,
-    'center center',
+    30,
+    'top right',
     'Sharon'
 );
 
