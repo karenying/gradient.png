@@ -17,6 +17,7 @@ const GrayRadio = withStyles({
         '&:hover': {
             background: HOVER_GRAY,
         },
+        padding: 3,
     },
     checked: {},
 })((props) => <Radio color='default' {...props} />);
