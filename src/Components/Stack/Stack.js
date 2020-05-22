@@ -19,6 +19,7 @@ function Stack(props) {
         onDragOver,
         onDragEnd,
         reverseStack,
+        handleStopChange,
     } = props;
     const { stack } = gradient;
 
@@ -37,6 +38,7 @@ function Stack(props) {
             onDragStart={onDragStart}
             onDragOver={onDragOver}
             onDragEnd={onDragEnd}
+            handleStopChange={handleStopChange}
         />
     ));
 

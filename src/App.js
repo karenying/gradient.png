@@ -520,6 +520,7 @@ class App extends React.Component {
                                         onDragOver={this.onDragOver}
                                         onDragEnd={this.onDragEnd}
                                         reverseStack={this.reverseStack}
+                                        handleStopChange={this.handleStopChange}
                                     />
                                     <Suggested
                                         suggested={suggested}

@@ -16,6 +16,7 @@ function StackItem(props) {
         onDragStart,
         onDragOver,
         onDragEnd,
+        handleStopChange,
     } = props;
     const { hex, stop, selected } = color;
     const selectedDiv = selected ? 'stackitem-selected' : '';
@@ -60,6 +61,7 @@ function StackItem(props) {
                     value={displayedValue}
                     onKeyDown={(e) => handleKeyDown(e)}
                     onChange={(e) => changeValue(e)}
+                    onBlur={(e) => handleStopChange(e)}
                 ></input>
                 <div className='stackitem-icon-container'>
                     <div className={closeDiv}>
