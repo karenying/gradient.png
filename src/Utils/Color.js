@@ -1,4 +1,12 @@
-import { hexToRGB, isDark, getColorwheel } from './colorUtils';
+import {
+    hexToRGB,
+    isDark,
+    getColorwheel,
+    getHue,
+    hexToRgb,
+    getSL,
+    hslToHex,
+} from './colorUtils';
 
 class Color {
     constructor(hex, stop, selected, index) {
@@ -23,6 +31,10 @@ class Color {
         return getColorwheel(this.hex);
     };
 
+    getHue = () => {
+        return getHue(hexToRgb(this.hex));
+    };
+
     isEqual = (color) => {
         const { hex } = this;
         return color.hex === hex;
@@ -30,6 +42,14 @@ class Color {
 
     clone = () => {
         return new Color(this.hex, this.stop, this.selected, this.index);
+    };
+
+    changeHue = (h) => {
+        const sl = getSL(hexToRgb(this.hex));
+        const s = sl.s;
+        const l = sl.l;
+        const hsl = { h, s, l };
+        this.hex = hslToHex(hsl);
     };
 }
 

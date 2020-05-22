@@ -507,6 +507,19 @@ class App extends React.Component {
         });
     };
 
+    // value is the H
+    handleColorSlider = (value) => {
+        const { gradient, selected } = this.state;
+        let gradientCopy = gradient.clone();
+        const { stack } = gradientCopy;
+        const color = stack[selected];
+        color.changeHue(value);
+
+        this.setState({
+            gradient: gradientCopy,
+        });
+    };
+
     render() {
         const {
             gradient,
@@ -520,7 +533,6 @@ class App extends React.Component {
         } = this.state;
         const { stack } = gradient;
         const color = stack[selected];
-        const colorwheelColor = color.getColorwheel();
 
         return (
             <div className='App' onClick={this.unsetSuggested}>
@@ -535,12 +547,16 @@ class App extends React.Component {
                             <div className='color-picker'>
                                 <div className='color-picker-left'>
                                     <HexPicker
-                                        colorwheelColor={colorwheelColor}
+                                        colorwheelColor={color.getColorwheel()}
                                         color={color}
                                         handleHexChange={this.handleHexChange}
                                         handleRChange={this.handleRChange}
                                         handleGChange={this.handleGChange}
                                         handleBChange={this.handleBChange}
+                                        hue={color.getHue()}
+                                        handleColorSlider={
+                                            this.handleColorSlider
+                                        }
                                     />
                                 </div>
                                 <div className='color-picker-right'>

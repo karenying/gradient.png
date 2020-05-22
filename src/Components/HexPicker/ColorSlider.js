@@ -4,6 +4,8 @@ import Slider from '@material-ui/core/Slider';
 import { withStyles } from '@material-ui/core/styles';
 
 function ColorSlider(props) {
+    const { hue, handleColorSlider } = props;
+
     const ColorSlider = withStyles({
         root: {
             borderRadius: 4,
@@ -36,7 +38,7 @@ function ColorSlider(props) {
         rail: {
             borderRadius: 4,
             background:
-                'linear-gradient(to bottom, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, magenta 83%, red 100%)',
+                'linear-gradient(to top, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, magenta 83%, red 100%)',
             opacity: 100,
             width: '20px !important',
             paddingTop: '10px',
@@ -51,10 +53,12 @@ function ColorSlider(props) {
         <div className='colorslide-container'>
             <ColorSlider
                 aria-label='color slider'
-                defaultValue={0}
+                defaultValue={hue}
                 step={1}
                 orientation='vertical'
-                // onChangeCommitted={(e, value) => handleStopSlider(value)}
+                min={0}
+                max={359}
+                onChangeCommitted={(e, value) => handleColorSlider(value)}
             />
         </div>
     );

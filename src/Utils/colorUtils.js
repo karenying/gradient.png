@@ -138,6 +138,30 @@ function getHue(rgb) {
     return h;
 }
 
+function getSL(rgb) {
+    let { r, g, b } = rgb;
+    r /= 255;
+    g /= 255;
+    b /= 255;
+
+    // Find greatest and smallest channel values
+    let cmin = Math.min(r, g, b),
+        cmax = Math.max(r, g, b),
+        delta = cmax - cmin,
+        s = 0,
+        l = 0;
+
+    l = (cmax + cmin) / 2;
+
+    // Calculate saturation
+    s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+
+    // Multiply l and s by 100
+    s = +(s * 100).toFixed(1);
+    l = +(l * 100).toFixed(1);
+    return { s, l };
+}
+
 //
 function hslToHex(hsl) {
     let { h, s, l } = hsl;
@@ -261,4 +285,8 @@ export {
     getColorwheel,
     toCSSBgString,
     generateImage,
+    getHue,
+    hexToRgb,
+    getSL,
+    hslToHex,
 };
