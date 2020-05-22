@@ -13,6 +13,7 @@ function StopBar(props) {
             color: 'gray',
             marginTop: 20,
             borderRadius: 4,
+            width: 800,
         },
         thumb: {
             height: 30,
@@ -45,6 +46,7 @@ function StopBar(props) {
             opacity: 100,
             paddingLeft: '10px',
             paddingRight: '10px',
+            width: 800,
         },
     })(Slider);
 
