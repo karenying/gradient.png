@@ -480,6 +480,12 @@ class App extends React.Component {
         );
     };
 
+    handleStopSlider = (values) => {
+        const { selected, gradient } = this.state;
+        let gradientCopy = gradient.clone();
+        const { stack } = gradientCopy;
+    };
+
     render() {
         const {
             gradient,
