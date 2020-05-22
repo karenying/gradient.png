@@ -17,9 +17,9 @@ import CopyConfirmation from './Components/CSS/CopyConfirmation';
 class App extends React.Component {
     state = {
         gradient: null,
-        selected: 0, // color selected out of gradient
-        width: 0,
-        height: 0,
+        selected: 0,
+        width: window.screen.width,
+        height: window.screen.height,
         suggestedSelected: '',
         suggested: [],
         stopValue: null,
@@ -28,6 +28,14 @@ class App extends React.Component {
     };
 
     componentWillMount() {
+        this.shuffleSuggested();
+    }
+
+    shuffleSuggested = (e) => {
+        if (e) {
+            e.stopPropagation();
+        }
+
         let shuffledSuggested = shuffle(SUGGESTIONS);
         let shownSuggested = shuffledSuggested.slice(0, 4);
         let first = shownSuggested[0];
@@ -36,11 +44,9 @@ class App extends React.Component {
             gradient: first.clone(),
             suggestedSelected: first.name,
             suggested: shownSuggested,
-            width: window.screen.width,
-            height: window.screen.height,
             stopValue: first.stack[0].stop,
         });
-    }
+    };
 
     addColor = () => {
         const { gradient, selected } = this.state;
@@ -481,7 +487,7 @@ class App extends React.Component {
     };
 
     handleStopSlider = (values) => {
-        const { selected, gradient } = this.state;
+        const { gradient } = this.state;
         let gradientCopy = gradient.clone();
         const { stack } = gradientCopy;
 
@@ -489,6 +495,7 @@ class App extends React.Component {
         for (let i = 0; i < stack.length; i++) {
             const color = stack[i];
             color.stop = values[i];
+
             if (color.selected) {
                 stopValue = values[i];
             }
@@ -556,6 +563,7 @@ class App extends React.Component {
                                         suggested={suggested}
                                         selected={suggestedSelected}
                                         setSuggested={this.setSuggested}
+                                        shuffleSuggested={this.shuffleSuggested}
                                     />
                                 </div>
                             </div>

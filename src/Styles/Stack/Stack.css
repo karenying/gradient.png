@@ -5,18 +5,16 @@
     height: 400px;
 }
 
-.stack-header {
-    position: relative;
-}
-
 .stack-icon-container {
     cursor: pointer;
-    position: absolute;
-    right: 12px;
     padding: 5px;
+    margin-left: 10px;
     border-radius: 20px;
     height: 23px;
     margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .stack-icon-container svg {

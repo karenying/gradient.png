@@ -4,6 +4,7 @@ import StackItem from './StackItem';
 import AddColorButton from './AddColorButton';
 import { BsArrowUpDown } from 'react-icons/bs';
 import { INPUT_TEXT_GRAY } from '../../Utils/hexConstants';
+import { ButtonBase } from '@material-ui/core';
 
 function Stack(props) {
     const {
@@ -51,7 +52,9 @@ function Stack(props) {
                     onClick={reverseStack}
                     title='Reverse'
                 >
-                    <BsArrowUpDown color={INPUT_TEXT_GRAY} size='23px' />
+                    <ButtonBase centerRipple>
+                        <BsArrowUpDown color={INPUT_TEXT_GRAY} size='23px' />
+                    </ButtonBase>
                 </div>
             </div>
 
