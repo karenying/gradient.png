@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../Styles/HexPicker/HexPicker.css';
-import Slide from './Slide';
+import ColorSlider from './ColorSlider';
 import HexGradient from './HexGradient';
 import CurrentColor from './CurrentColor';
 
@@ -24,7 +24,7 @@ function HexPicker(props) {
             />
             <div className='hexpicker-bottom'>
                 <HexGradient colorwheelColor={colorwheelColor} />
-                <Slide />
+                <ColorSlider />
             </div>
         </div>
     );

@@ -10,9 +10,9 @@ function StopBar(props) {
 
     const StopBarSlider = withStyles({
         root: {
-            color: 'gray',
             borderRadius: 4,
             width: 800,
+            padding: '0px !important',
         },
         thumb: {
             height: 30,
@@ -23,15 +23,11 @@ function StopBar(props) {
             marginTop: 5,
             marginLeft: 5,
             marginRight: 5,
-            boxShadow: '2px 2px 7px var(--input-text-gray)',
+            boxShadow: '2px 2px 7px black',
             '&:focus, &:hover, &$active': {
-                boxShadow: '2px 2px 7px var(--input-text-gray)',
+                boxShadow: '2px 2px 7px black',
                 background: 'var(--hover-gray)',
             },
-        },
-        active: {},
-        valueLabel: {
-            left: 'calc(-50% + 4px)',
         },
         track: {
             height: 40,
