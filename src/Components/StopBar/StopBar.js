@@ -4,7 +4,7 @@ import Slider from '@material-ui/core/Slider';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 
 function StopBar(props) {
-    const { gradient } = props;
+    const { gradient, handleStopSlider } = props;
     const background = gradient.toStopBarBgString();
     const stopValues = gradient.getSortedStops();
 
@@ -50,8 +50,9 @@ function StopBar(props) {
         <div className='stopbar-container'>
             <StopBarSlider
                 aria-label='stop bar slider'
-                value={stopValues}
+                defaultValue={stopValues}
                 step={1}
+                onChangeCommitted={(e, value) => handleStopSlider(value)}
             />
         </div>
     );

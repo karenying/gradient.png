@@ -484,6 +484,20 @@ class App extends React.Component {
         const { selected, gradient } = this.state;
         let gradientCopy = gradient.clone();
         const { stack } = gradientCopy;
+
+        let stopValue;
+        for (let i = 0; i < stack.length; i++) {
+            const color = stack[i];
+            color.stop = values[i];
+            if (color.selected) {
+                stopValue = values[i];
+            }
+        }
+
+        this.setState({
+            gradient: gradientCopy,
+            stopValue,
+        });
     };
 
     render() {
@@ -507,7 +521,10 @@ class App extends React.Component {
                 <div className='container'>
                     <div className='wrapper'>
                         <div className='left'>
-                            <StopBar gradient={gradient} />
+                            <StopBar
+                                gradient={gradient}
+                                handleStopSlider={this.handleStopSlider}
+                            />
                             <div className='color-picker'>
                                 <div className='color-picker-left'>
                                     <HexPicker
