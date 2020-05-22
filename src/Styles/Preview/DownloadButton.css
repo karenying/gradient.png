@@ -1,19 +1,13 @@
 .downloadbutton-container {
     position: absolute;
-    left: 10px;
-    bottom: 10px;
+    left: 0px;
+    bottom: 0px;
     width: 40px;
     box-shadow: 2px 2px 7px black;
     cursor: pointer;
     border-radius: 25px;
     height: 40px;
     background-color: var(--input-text-light-gray);
-    display: none;
-
-    -moz-transition: all 0.1s ease-in;
-    -o-transition: all 0.1s ease-in;
-    -webkit-transition: all 0.1s ease-in;
-    transition: all 0.1s ease-in;
 }
 
 .downloadbutton-container:hover {

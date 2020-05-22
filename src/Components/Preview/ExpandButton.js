@@ -5,15 +5,13 @@ import { INPUT_TEXT_GRAY } from '../../Utils/hexConstants';
 import { ButtonBase } from '@material-ui/core';
 
 function ExpandButton(props) {
-    const { clickFunction, display } = props;
-    const style = display ? { '': '' } : { display: 'none' };
+    const { clickFunction } = props;
 
     return (
         <div
             className='expandbutton-container'
             onClick={clickFunction}
             title='See full image'
-            style={style}
         >
             <ButtonBase centerRipple>
                 <BsArrowsAngleExpand

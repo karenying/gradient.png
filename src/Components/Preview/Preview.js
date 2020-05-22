@@ -50,7 +50,9 @@ class Preview extends React.Component {
             handleDegreesChange,
         } = this.props;
         const { degrees, isLinear, center } = gradient;
-        const display = this.isValidImage();
+        const buttonsDisplayStyle = this.isValidImage()
+            ? { '': '' }
+            : { display: 'none' };
         const Customize = isLinear ? (
             <Degrees
                 degrees={degrees}
@@ -69,11 +71,12 @@ class Preview extends React.Component {
 
         if (longer === height) {
             scaledHeight = DIV_MAX;
-
             scaledWidth = (DIV_MAX / longer) * shorter;
+            buttonsDisplayStyle.bottom = '10px';
         } else {
             scaledWidth = DIV_MAX;
             scaledHeight = (DIV_MAX / longer) * shorter;
+            buttonsDisplayStyle.top = '106px';
         }
 
         return (
@@ -94,14 +97,13 @@ class Preview extends React.Component {
                             width: scaledWidth,
                         }}
                     />
-                    <ExpandButton
-                        clickFunction={this.expand}
-                        display={display}
-                    />
-                    <DownloadButton
-                        clickFunction={this.download}
-                        display={display}
-                    />
+                    <div
+                        className='preview-buttons-container'
+                        style={buttonsDisplayStyle}
+                    >
+                        <ExpandButton clickFunction={this.expand} />
+                        <DownloadButton clickFunction={this.download} />
+                    </div>
                 </div>
                 <div className='preview-interface'>
                     <Dimensions

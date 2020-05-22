@@ -29,8 +29,18 @@
     align-items: center;
 }
 
-.preview-container:hover .expandbutton-container,
-.preview-container:hover .downloadbutton-container {
+.preview-buttons-container {
+    display: none;
+    -moz-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+    position: absolute;
+    /*bottom: 10px;*/
+    left: 10px;
+}
+
+.preview-container:hover .preview-buttons-container {
     display: flex;
     -webkit-animation: fadein 0.5s;
     animation: fadein 0.5s;
