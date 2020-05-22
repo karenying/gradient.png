@@ -11,7 +11,6 @@ function StopBar(props) {
     const StopBarSlider = withStyles({
         root: {
             color: 'gray',
-            marginTop: 20,
             borderRadius: 4,
             width: 800,
         },
