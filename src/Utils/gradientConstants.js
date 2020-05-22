@@ -2,7 +2,7 @@ import { Gradient } from './Gradient';
 import { Color } from './Color';
 
 const KAREN = new Gradient(
-    [new Color('4568dc', 0, true, 0), new Color('b06ab3', 100, false, 1)],
+    [new Color('87cefa', 0, true, 0), new Color('da71d6', 100, false, 1)],
     true,
     45,
     'center center',
