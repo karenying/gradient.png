@@ -22,3 +22,11 @@
     width: 25px;
     margin-right: 10px;
 }
+
+.header-container p {
+    margin-left: 5px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--label-gray);
+    margin-bottom: 15px;
+}

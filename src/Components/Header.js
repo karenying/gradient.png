@@ -19,6 +19,7 @@ function Header(props) {
                 </span>
                 png
             </h1>
+            <p>BETA</p>
         </div>
     );
 }

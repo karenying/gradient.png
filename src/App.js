@@ -534,6 +534,8 @@ class App extends React.Component {
         const { stack } = gradient;
         const color = stack[selected];
 
+        console.log(color.r);
+
         return (
             <div className='App' onClick={this.unsetSuggested}>
                 <Header />

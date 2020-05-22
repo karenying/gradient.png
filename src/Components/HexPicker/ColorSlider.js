@@ -54,7 +54,6 @@ function ColorSlider(props) {
             <ColorSlider
                 aria-label='color slider'
                 defaultValue={hue}
-                step={1}
                 orientation='vertical'
                 min={0}
                 max={359}

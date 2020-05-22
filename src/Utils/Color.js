@@ -50,6 +50,9 @@ class Color {
         const l = sl.l;
         const hsl = { h, s, l };
         this.hex = hslToHex(hsl);
+        this.r = this.getRGB('r') || 0;
+        this.g = this.getRGB('g') || 0;
+        this.b = this.getRGB('b') || 0;
     };
 }
 
