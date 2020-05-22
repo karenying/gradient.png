@@ -28,7 +28,7 @@ class Gradient {
         let selected;
         for (let i = 0; i < stack.length; i++) {
             const color = stack[i];
-            color.order = i;
+            color.index = i;
             if (color.selected) {
                 selected = i;
             }

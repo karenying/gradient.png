@@ -46,7 +46,11 @@ function Stack(props) {
         <div className='stack-container'>
             <div className='stack-header'>
                 <h2>STACK</h2>
-                <div className='stack-icon-container' onClick={reverseStack}>
+                <div
+                    className='stack-icon-container'
+                    onClick={reverseStack}
+                    title='Reverse'
+                >
                     <BsArrowUpDown color={INPUT_TEXT_GRAY} size='23px' />
                 </div>
             </div>
