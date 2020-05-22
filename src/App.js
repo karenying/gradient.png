@@ -10,7 +10,7 @@ import Preview from './Components/Preview/Preview';
 import { SUGGESTIONS } from './Utils/gradientConstants';
 import { Color } from './Utils/Color';
 import { shuffle, padLeft } from './Utils/generalUtils';
-import { IPHONE_10, IPHONE_6 } from './Utils/screenDimensionConstants';
+// import { IPHONE_10, IPHONE_6 } from './Utils/screenDimensionConstants';
 import { MAX_SIZE, ENTER_KEY } from './Utils/inputConstants';
 
 class App extends React.Component {
@@ -34,8 +34,8 @@ class App extends React.Component {
             gradient: first.clone(),
             suggestedSelected: first.name,
             suggested: shownSuggested,
-            width: IPHONE_6.width,
-            height: IPHONE_6.height,
+            width: window.screen.width,
+            height: window.screen.height,
             stopValue: first.stack[0].stop,
         });
     }
@@ -91,30 +91,10 @@ class App extends React.Component {
                 stack[nextSelected].selected = true;
             }
 
-            /*
-            // if deleted is before selected
-            if (deletedIndex <= selected) {
-                // if not the first one, (if first one let remain the first selected
-                if (deletedIndex !== 0) {
-                    // decrement selected by 1
-                    this.setState((prevState, props) => ({
-                        selected: prevState.selected - 1,
-                    }));
-                }
-            }
-
-            
-            // if not deleting the last one
-            if (deletedIndex !== stack.length - 1) {
-                // decrement the index of all items after the deleted
-                for (let i = deletedIndex + 1; i < stack.length; i++) {
-                    stack[i].index--;
-                }
-            }
-            */
-
             // delete item
             stack.splice(deletedIndex, 1);
+
+            // update indices and stopValue
             let newSelected, stopValue;
             for (let i = 0; i < stack.length; i++) {
                 const color = stack[i];
@@ -346,12 +326,6 @@ class App extends React.Component {
             const currColor = newStack[i];
             currColor.index = i;
             currColor.stop = stops[i];
-            /*
-            if (currColor.isEqual(color)) {
-                currColor.selected = true;
-            } else {
-                currColor.selected = false;
-            } */
         }
         gradientCopy.stack = newStack;
 
@@ -509,8 +483,6 @@ class App extends React.Component {
         const { stack } = gradient;
         const color = stack[selected];
         const colorwheelColor = color.getColorwheel();
-
-        console.log(stack.map((color) => color.selected));
 
         return (
             <div className='App' onClick={this.unsetSuggested}>
