@@ -55,6 +55,7 @@ function StackItem(props) {
                         onChange={(e) => {
                             handleHexChange(e, true);
                         }}
+                        title='Enter hex code'
                     ></input>
                 </div>
                 <input
@@ -63,6 +64,7 @@ function StackItem(props) {
                     onKeyDown={(e) => handleKeyDown(e)}
                     onChange={(e) => changeValue(e)}
                     onBlur={(e) => handleStopChange(e)}
+                    title='Enter stop value'
                 ></input>
                 <div className='stackitem-icon-container'>
                     <div className={closeDiv}>

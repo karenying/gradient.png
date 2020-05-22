@@ -12,6 +12,7 @@ function Degrees(props) {
                 value={degrees}
                 style={{ marginLeft: '10px' }}
                 onChange={handleDegreesChange}
+                title='Enter degrees'
             ></input>
         </div>
     );

@@ -26,24 +26,28 @@ function CurrentColor(props) {
                         spellCheck='false'
                         value={hex.toLowerCase()}
                         onChange={(e) => handleHexChange(e, false)}
+                        title='Enter hex code'
                     ></input>
                     <p>R</p>
                     <input
                         type='number'
                         value={r}
                         onChange={(e) => handleRChange(e)}
+                        title='Enter red value'
                     ></input>
                     <p>G</p>
                     <input
                         type='number'
                         value={g}
                         onChange={(e) => handleGChange(e)}
+                        title='Enter green value'
                     ></input>
                     <p>B</p>
                     <input
                         type='number'
                         value={b}
                         onChange={(e) => handleBChange(e)}
+                        title='Enter blue value'
                     ></input>
                 </div>
             </div>
