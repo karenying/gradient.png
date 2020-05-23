@@ -32,8 +32,8 @@ The goal was to hone in my React skills, getting into the habit of good web dev 
 gradient.png uses the following npm packages:
 
 -   [Create React App](https://reactjs.org/docs/create-a-new-react-app.html): Boilerplate for the app
--   [Material-UI](https://material-ui.com/): Sliders, Transitions, button ripple effect, Radio Group,
--   [React-Draggable](https://www.npmjs.com/package/react-draggable): Saturation/Value picker
+-   [Material-UI](https://material-ui.com/): Sliders, Transitions, button ripple effect, Radio Group
+-   [React-Draggable](https://www.npmjs.com/package/react-draggable): Saturation/Value draggable picker
 -   [React Icons](https://react-icons.github.io/react-icons/#/): All the icons
 
 ## Acknowledgments
