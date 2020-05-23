@@ -22,3 +22,19 @@
 .hexgradient-black {
     background: linear-gradient(to bottom, transparent 0%, #000 100%);
 }
+
+.sl-slider {
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    background-color: var(--input-text-light-gray);
+    box-shadow: 2px 2px 7px black;
+    z-index: 1;
+    cursor: pointer;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+
+.sl-slider:hover {
+    background-color: var(--hover-gray);
+}

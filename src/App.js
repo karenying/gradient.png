@@ -520,6 +520,18 @@ class App extends React.Component {
         });
     };
 
+    updatePosition = ({ x, y }) => {
+        const { gradient, selected } = this.state;
+        let gradientCopy = gradient.clone();
+        const { stack } = gradientCopy;
+        const color = stack[selected];
+        color.changeColorFromPosition({ x, y });
+
+        this.setState({
+            gradient: gradientCopy,
+        });
+    };
+
     render() {
         const {
             gradient,
@@ -533,8 +545,6 @@ class App extends React.Component {
         } = this.state;
         const { stack } = gradient;
         const color = stack[selected];
-
-        console.log(color.r);
 
         return (
             <div className='App' onClick={this.unsetSuggested}>
@@ -559,6 +569,8 @@ class App extends React.Component {
                                         handleColorSlider={
                                             this.handleColorSlider
                                         }
+                                        LS={color.getLsPosition()}
+                                        updatePosition={this.updatePosition}
                                     />
                                 </div>
                                 <div className='color-picker-right'>

@@ -14,6 +14,8 @@ function HexPicker(props) {
         handleBChange,
         hue,
         handleColorSlider,
+        LS,
+        updatePosition,
     } = props;
     return (
         <div className='hexpicker-container'>
@@ -25,7 +27,11 @@ function HexPicker(props) {
                 handleBChange={handleBChange}
             />
             <div className='hexpicker-bottom'>
-                <HexGradient colorwheelColor={colorwheelColor} />
+                <HexGradient
+                    colorwheelColor={colorwheelColor}
+                    LS={LS}
+                    updatePosition={updatePosition}
+                />
                 <ColorSlider hue={hue} handleColorSlider={handleColorSlider} />
             </div>
         </div>
