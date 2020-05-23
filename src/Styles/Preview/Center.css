@@ -1,8 +1,12 @@
 .center-container {
     display: flex;
-    margin-left: 15px;
     align-items: center;
+    flex-grow: 1;
+    justify-content: flex-end;
+    margin-right: 3px;
+    margin-left: -3px;
 }
+
 .center-grid {
     margin-left: 5px;
     display: grid;

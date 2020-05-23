@@ -2,6 +2,7 @@
     display: flex;
     align-items: baseline;
     padding-right: 10px;
+    flex-grow: 1;
 }
 
 .dimensions-container {

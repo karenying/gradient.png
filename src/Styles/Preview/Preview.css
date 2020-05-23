@@ -7,6 +7,11 @@
 
 .preview-header {
     display: flex;
+    justify-content: space-between;
+}
+
+.preview-header h2 {
+    flex-grow: 1;
 }
 
 .preview-content {
@@ -27,6 +32,7 @@
     display: flex;
     margin-top: 10px;
     align-items: center;
+    justify-content: space-between;
 }
 
 .preview-buttons-container {

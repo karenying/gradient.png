@@ -10,7 +10,6 @@ import Preview from './Components/Preview/Preview';
 import { SUGGESTIONS } from './Utils/gradientConstants';
 import { Color } from './Utils/Color';
 import { shuffle, padLeft } from './Utils/generalUtils';
-// import { IPHONE_10, IPHONE_6 } from './Utils/screenDimensionConstants';
 import { MAX_SIZE, ENTER_KEY } from './Utils/inputConstants';
 import CopyConfirmation from './Components/CSS/CopyConfirmation';
 
