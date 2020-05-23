@@ -3,8 +3,8 @@ import '../../Styles/HexPicker/HexGradient.css';
 import Draggable from 'react-draggable';
 
 function HexGradient(props) {
-    const { colorwheelColor, LS, updatePosition } = props;
-    const { x, y } = LS;
+    const { colorwheelColor, SV, updatePosition } = props;
+    const { x, y } = SV;
 
     function Slider() {
         return (

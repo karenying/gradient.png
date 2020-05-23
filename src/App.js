@@ -569,7 +569,12 @@ class App extends React.Component {
                                         handleColorSlider={
                                             this.handleColorSlider
                                         }
-                                        LS={color.getLsPosition()}
+                                        SV={
+                                            color.getSvPosition() || {
+                                                x: 0,
+                                                y: 0,
+                                            }
+                                        }
                                         updatePosition={this.updatePosition}
                                     />
                                 </div>

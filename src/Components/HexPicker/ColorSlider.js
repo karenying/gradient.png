@@ -52,7 +52,6 @@ function ColorSlider(props) {
     return (
         <div className='colorslide-container'>
             <ColorSlider
-                aria-label='color slider'
                 defaultValue={hue}
                 orientation='vertical'
                 min={0}

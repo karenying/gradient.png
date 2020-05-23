@@ -102,11 +102,12 @@ function toCSSBgString(gradient) {
 }
 
 function hexToRgb(hex) {
-    return {
-        r: hexToRGB(hex, 'r'),
-        g: hexToRGB(hex, 'g'),
-        b: hexToRGB(hex, 'b'),
-    };
+    const r = hexToRGB(hex, 'r');
+    const g = hexToRGB(hex, 'g');
+    const b = hexToRGB(hex, 'b');
+    if (!Number.isNaN(r) && !Number.isNaN(g) && !Number.isNaN(b)) {
+        return { r, g, b };
+    }
 }
 
 function getHue(rgb) {
@@ -217,14 +218,18 @@ function hslToHex(hsl) {
 // hex to hex
 function getColorwheel(hex) {
     let rgb = hexToRgb(hex);
-    let h = getHue(rgb);
-    let hsl = {
-        h,
-        s: 100,
-        l: 50,
-    };
+    if (rgb) {
+        let h = getHue(rgb);
+        let hsl = {
+            h,
+            s: 100,
+            l: 50,
+        };
 
-    return hslToHex(hsl);
+        return hslToHex(hsl);
+    } else {
+        return 'ffffff';
+    }
 }
 
 function generateImage(gradient, width, height) {

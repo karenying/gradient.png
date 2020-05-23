@@ -19,6 +19,7 @@ class Color {
         this.r = this.getRGB('r') || 0;
         this.g = this.getRGB('g') || 0;
         this.b = this.getRGB('b') || 0;
+        this.blackPosition = null;
     }
 
     getRGB = (primary) => {
@@ -34,7 +35,10 @@ class Color {
     };
 
     getHue = () => {
-        return getHue(hexToRgb(this.hex));
+        const rgb = hexToRgb(this.hex);
+        if (rgb) {
+            return getHue(rgb);
+        }
     };
 
     isEqual = (color) => {
@@ -57,13 +61,22 @@ class Color {
         this.b = this.getRGB('b') || 0;
     };
 
-    getLsPosition = () => {
-        const { s, v } = rgbToHsv(hexToRgb(this.hex));
+    getSvPosition = () => {
+        const rgb = hexToRgb(this.hex);
+        if (rgb) {
+            const { s, v } = rgbToHsv(rgb);
+            let x, y;
 
-        const x = 2.5 * s;
-        const y = 2.5 * (100 - v);
-
-        return { x, y };
+            if (this.blackPosition) {
+                x = this.blackPosition.x;
+                y = this.blackPosition.y;
+                this.blackPosition = null;
+            } else {
+                x = 2.5 * s;
+                y = 2.5 * (100 - v);
+            }
+            return { x, y };
+        }
     };
 
     changeColorFromPosition = ({ x, y }) => {
@@ -74,6 +87,10 @@ class Color {
         this.r = this.getRGB('r') || 0;
         this.g = this.getRGB('g') || 0;
         this.b = this.getRGB('b') || 0;
+
+        if (y === 250) {
+            this.blackPosition = { x, y };
+        }
     };
 }
 

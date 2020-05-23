@@ -48,7 +48,6 @@ function StopBar(props) {
     return (
         <div className='stopbar-container'>
             <StopBarSlider
-                aria-label='stop bar slider'
                 defaultValue={stopValues}
                 step={1}
                 onChangeCommitted={(e, value) => handleStopSlider(value)}
