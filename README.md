@@ -1,6 +1,6 @@
 # gradient.png
 
-[gradient.png](https://gradient-png.netlify.app/) is a custom gradient wallpaper generation web app.
+[gradient.png](https://gradient-png.netlify.app/) is a custom image wallpaper generation web app.
 
 ![Screenshot](./src/Assets/screenshot.png)
 
