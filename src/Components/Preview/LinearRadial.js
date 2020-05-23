@@ -39,13 +39,13 @@ function LinearRadial(props) {
                     value='linear'
                     control={<GrayRadio />}
                     label='LINEAR'
-                    title='Linear gradient'
+                    title='Change to linear gradient'
                 />
                 <FormControlLabel
                     value='radial'
                     control={<GrayRadio />}
                     label='RADIAL'
-                    title='Radial gradient'
+                    title='Change to radial gradient'
                 />
             </RadioGroup>
         </FormControl>
