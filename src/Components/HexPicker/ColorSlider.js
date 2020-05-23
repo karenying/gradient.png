@@ -57,6 +57,7 @@ function ColorSlider(props) {
                 min={0}
                 max={359}
                 onChangeCommitted={(e, value) => handleColorSlider(value)}
+                title='Change hue'
             />
         </div>
     );

@@ -26,6 +26,7 @@ function Center(props) {
                 className='center-grid-item'
                 onClick={() => clickFunction(position)}
                 key={'center' + position}
+                title={`Change gradient center to ${position}`}
             />
         )
     );

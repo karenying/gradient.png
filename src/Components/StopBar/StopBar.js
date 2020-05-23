@@ -51,6 +51,7 @@ function StopBar(props) {
                 defaultValue={stopValues}
                 step={1}
                 onChangeCommitted={(e, value) => handleStopSlider(value)}
+                title='Change stops'
             />
         </div>
     );

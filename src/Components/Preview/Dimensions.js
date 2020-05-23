@@ -10,7 +10,7 @@ function Dimensions(props) {
             <input
                 type='number'
                 value={width}
-                style={{ marginLeft: '5px', marginRight: '10px' }}
+                style={{ marginLeft: '7px', marginRight: '15px' }}
                 onChange={handleWidthChange}
                 title='Enter image width'
             ></input>
@@ -18,7 +18,7 @@ function Dimensions(props) {
             <input
                 type='number'
                 value={height}
-                style={{ marginRight: '15px', marginLeft: '5px' }}
+                style={{ marginRight: '15px', marginLeft: '7px' }}
                 onChange={handleHeightChange}
                 title='Enter image height'
             ></input>

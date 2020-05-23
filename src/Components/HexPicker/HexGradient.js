@@ -21,7 +21,10 @@ function HexGradient(props) {
     }
 
     return (
-        <div className='hexgradient-container'>
+        <div
+            className='hexgradient-container'
+            title='Change saturation and value'
+        >
             <div
                 className='hexgradient-base'
                 style={{ background: '#' + colorwheelColor }}
