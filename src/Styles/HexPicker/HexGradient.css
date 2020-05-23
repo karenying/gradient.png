@@ -6,10 +6,18 @@
     display: flex;
 }
 
-.hexgradient-base,
 .hexgradient-white,
 .hexgradient-black {
     border-radius: 5px;
+}
+
+.hexgradient-base {
+    border-radius: 8px 5px 5px 5px;
+}
+
+.hexgradient-base,
+.hexgradient-white,
+.hexgradient-black {
     height: 100%;
     width: 100%;
     position: absolute;
