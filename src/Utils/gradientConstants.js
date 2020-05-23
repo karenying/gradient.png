@@ -100,7 +100,7 @@ const JEFF = new Gradient(
         new Color('838e46', 40, false, 1),
         new Color('72d4ba', 100, false, 2),
     ],
-    false,
+    true,
     90,
     'center center',
     'Jeff'
