@@ -94,7 +94,6 @@ const MAX = new Gradient(
     'Max'
 );
 
-/*
 const JEFF = new Gradient(
     [
         new Color('9c1eaf', 0, true, 0),
@@ -106,7 +105,6 @@ const JEFF = new Gradient(
     'center center',
     'Jeff'
 );
-*/
 
 const REILLY = new Gradient(
     [
@@ -132,7 +130,7 @@ const SUGGESTIONS = [
     JUDY,
     BRYAN,
     MAX,
-    // JEFF,
+    JEFF,
     REILLY,
 ];
 
