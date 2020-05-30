@@ -2,6 +2,9 @@
 
 [gradient.png](https://gradient-png.netlify.app/) is a custom image generation web app.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0c2ec03d-3cd6-4a18-8e69-0ec7c68e5476/deploy-status)](https://app.netlify.com/sites/gradient-png/deploys)
+
+
 ![Screenshot](./src/Assets/screenshot.png)
 
 Customizable features:
