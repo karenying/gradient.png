@@ -12,6 +12,7 @@ import { Color } from './Utils/Color';
 import { shuffle, padLeft } from './Utils/generalUtils';
 import { MAX_SIZE, ENTER_KEY } from './Utils/inputConstants';
 import CopyConfirmation from './Components/CSS/CopyConfirmation';
+import Hidden from '@material-ui/core/Hidden';
 
 class App extends React.Component {
     state = {
@@ -548,83 +549,107 @@ class App extends React.Component {
         return (
             <div className='App' onClick={this.unsetSuggested}>
                 <Header />
-                <div className='container'>
-                    <div className='wrapper'>
-                        <div className='left'>
-                            <StopBar
-                                gradient={gradient}
-                                handleStopSlider={this.handleStopSlider}
-                            />
-                            <div className='color-picker'>
-                                <div className='color-picker-left'>
-                                    <HexPicker
-                                        colorwheelColor={color.getColorwheel()}
-                                        color={color}
-                                        handleHexChange={this.handleHexChange}
-                                        handleRChange={this.handleRChange}
-                                        handleGChange={this.handleGChange}
-                                        handleBChange={this.handleBChange}
-                                        hue={color.getHue()}
-                                        handleColorSlider={
-                                            this.handleColorSlider
-                                        }
-                                        SV={
-                                            color.getSvPosition() || {
-                                                x: 0,
-                                                y: 0,
+                <Hidden smDown>
+                    <div className='container'>
+                        <div className='wrapper'>
+                            <div className='left'>
+                                <StopBar
+                                    gradient={gradient}
+                                    handleStopSlider={this.handleStopSlider}
+                                />
+                                <div className='color-picker'>
+                                    <div className='color-picker-left'>
+                                        <HexPicker
+                                            colorwheelColor={color.getColorwheel()}
+                                            color={color}
+                                            handleHexChange={
+                                                this.handleHexChange
                                             }
-                                        }
-                                        updatePosition={this.updatePosition}
-                                    />
-                                </div>
-                                <div className='color-picker-right'>
-                                    <Stack
-                                        gradient={gradient}
-                                        addColor={this.addColor}
-                                        changeSelected={this.changeSelected}
-                                        deleteColor={this.deleteColor}
-                                        handleKeyDown={this.handleKeyDown}
-                                        changeValue={this.changeValue}
-                                        stopValue={stopValue}
-                                        handleHexChange={this.handleHexChange}
-                                        onDragStart={this.onDragStart}
-                                        onDragOver={this.onDragOver}
-                                        onDragEnd={this.onDragEnd}
-                                        reverseStack={this.reverseStack}
-                                        handleStopChange={this.handleStopChange}
-                                    />
-                                    <Suggested
-                                        suggested={suggested}
-                                        selected={suggestedSelected}
-                                        setSuggested={this.setSuggested}
-                                        shuffleSuggested={this.shuffleSuggested}
-                                    />
+                                            handleRChange={this.handleRChange}
+                                            handleGChange={this.handleGChange}
+                                            handleBChange={this.handleBChange}
+                                            hue={color.getHue()}
+                                            handleColorSlider={
+                                                this.handleColorSlider
+                                            }
+                                            SV={
+                                                color.getSvPosition() || {
+                                                    x: 0,
+                                                    y: 0,
+                                                }
+                                            }
+                                            updatePosition={this.updatePosition}
+                                        />
+                                    </div>
+                                    <div className='color-picker-right'>
+                                        <Stack
+                                            gradient={gradient}
+                                            addColor={this.addColor}
+                                            changeSelected={this.changeSelected}
+                                            deleteColor={this.deleteColor}
+                                            handleKeyDown={this.handleKeyDown}
+                                            changeValue={this.changeValue}
+                                            stopValue={stopValue}
+                                            handleHexChange={
+                                                this.handleHexChange
+                                            }
+                                            onDragStart={this.onDragStart}
+                                            onDragOver={this.onDragOver}
+                                            onDragEnd={this.onDragEnd}
+                                            reverseStack={this.reverseStack}
+                                            handleStopChange={
+                                                this.handleStopChange
+                                            }
+                                        />
+                                        <Suggested
+                                            suggested={suggested}
+                                            selected={suggestedSelected}
+                                            setSuggested={this.setSuggested}
+                                            shuffleSuggested={
+                                                this.shuffleSuggested
+                                            }
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className='wrapper'>
-                        <div className='right'>
-                            <Preview
-                                gradient={gradient}
-                                height={height}
-                                width={width}
-                                handleLinearRadialChange={
-                                    this.handleLinearRadialChange
-                                }
-                                handleCenterChange={this.handleCenterChange}
-                                handleWidthChange={this.handleWidthChange}
-                                handleHeightChange={this.handleHeightChange}
-                                handleDegreesChange={this.handleDegreesChange}
-                            />
-                            <CSS
-                                gradient={gradient}
-                                showCSSConfirmation={this.showCSSConfirmation}
-                            />
+                        <div className='wrapper'>
+                            <div className='right'>
+                                <Preview
+                                    gradient={gradient}
+                                    height={height}
+                                    width={width}
+                                    handleLinearRadialChange={
+                                        this.handleLinearRadialChange
+                                    }
+                                    handleCenterChange={this.handleCenterChange}
+                                    handleWidthChange={this.handleWidthChange}
+                                    handleHeightChange={this.handleHeightChange}
+                                    handleDegreesChange={
+                                        this.handleDegreesChange
+                                    }
+                                />
+                                <CSS
+                                    gradient={gradient}
+                                    showCSSConfirmation={
+                                        this.showCSSConfirmation
+                                    }
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <CopyConfirmation display={cssConfirmationDisplay} />
+                    <CopyConfirmation display={cssConfirmationDisplay} />
+                </Hidden>
+                <Hidden mdUp>
+                    <span
+                        style={{
+                            padding: 50,
+                        }}
+                    >
+                        gradient.png is currently not supported on mobile
+                        devices. Please use the site on a larger screen.
+                    </span>
+                </Hidden>
             </div>
         );
     }
